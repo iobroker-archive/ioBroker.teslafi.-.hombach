@@ -1,0 +1,36 @@
+{
+	"expert": "no",
+	"cli": false,
+	"adapterName": "teslafi",
+	"title": "TeslaFi",
+	"description": "TeslaFi-Description",
+	"keywords": ["TeslaFi"],
+	"contributors": "",
+	"authorName": "hombach",
+	"authorGithub": "hombach",
+	"authorEmail": "TeslaFi@homba.ch",
+	"features": ["adapter"],
+	"adminFeatures": [],
+	"type": "vehicle",
+	"startMode": "daemon",
+	"connectionType": "cloud",
+	"dataSource": "poll",
+	"connectionIndicator": "no",
+	"adapterSettings": [
+		{
+			"key": "FIcode",
+			"label": "FIcode",
+			"inputType": "text",
+			"defaultValue": "42"
+		}
+	],
+	"language": "TypeScript",
+	"adminUi": "json",
+	"releaseScript": "no",
+	"indentation": "Tab",
+	"quotes": "double",
+	"tools": ["ESLint", "Prettier"],
+	"license": "MIT License",
+	"target": "github",
+	"creatorVersion": "2.3.0"
+}

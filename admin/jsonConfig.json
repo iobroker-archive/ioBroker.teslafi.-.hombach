@@ -1,0 +1,11 @@
+{
+	"i18n": true,
+	"type": "panel",
+	"items": {
+		"FIcode": {
+			"type": "text",
+			"label": "FIcode",
+			"newLine": true
+		}
+	}
+}

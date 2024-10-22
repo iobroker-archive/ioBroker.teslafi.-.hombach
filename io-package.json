@@ -1,0 +1,78 @@
+{
+	"common": {
+		"name": "teslafi",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "TeslaFi",
+		"titleLang": {
+			"en": "TeslaFi",
+			"de": "TeslaFi",
+			"ru": "TeslaFi",
+			"pt": "TeslaFi",
+			"nl": "TeslaFi",
+			"fr": "TeslaFi",
+			"it": "TeslaFi",
+			"es": "TeslaFi",
+			"pl": "TeslaFi",
+			"zh-cn": "TeslaFi"
+		},
+		"desc": {
+			"en": "TeslaFi-Description",
+			"de": "TeslaFi-Description",
+			"ru": "TeslaFi-Description",
+			"pt": "TeslaFi-Description",
+			"nl": "TeslaFi-Description",
+			"fr": "TeslaFi-Description",
+			"it": "TeslaFi-Description",
+			"es": "TeslaFi-Description",
+			"pl": "TeslaFi-Description",
+			"zh-cn": "TeslaFi-Description"
+		},
+		"authors": ["hombach <TeslaFi@homba.ch>"],
+		"keywords": ["TeslaFi"],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "build/main.js",
+		"icon": "teslafi.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/hombach/ioBroker.teslafi/main/admin/teslafi.png",
+		"readme": "https://github.com/hombach/ioBroker.teslafi/blob/main/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "vehicle",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=3.3.22"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=5.1.13"
+			}
+		]
+	},
+	"native": {
+		"FIcode": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
+}
