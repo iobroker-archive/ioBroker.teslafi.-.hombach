@@ -86,7 +86,7 @@ function startAdapter(options: Partial<utils.AdapterOptions> = {}): ioBroker.Ada
 async function main(): Promise<void> {
 	// The adapters config (in the instance object everything under the attribute "native") is accessible via
 	// adapter.config:
-	adapter.log.info("config FIcode: " + adapter.config.FIcode);
+	adapter.log.info("config FIcode: " + adapter.config.APIToken);
 
 	/*
 		For every state in the system there has to be also an object of type state
