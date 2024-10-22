@@ -37,6 +37,7 @@ function startAdapter(options: Partial<utils.AdapterOptions> = {}): ioBroker.Ada
 
 				callback();
 			} catch (e) {
+				adapter.log.error(`error${e}`);
 				callback();
 			}
 		},

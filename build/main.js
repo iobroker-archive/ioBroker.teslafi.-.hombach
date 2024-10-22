@@ -56,6 +56,7 @@ function startAdapter(options = {}) {
                 callback();
             }
             catch (e) {
+                adapter.log.error(`error${e}`);
                 callback();
             }
         },
