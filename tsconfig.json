@@ -14,8 +14,9 @@
 		"noEmitOnError": true,
 		"outDir": "./build/",
 		"removeComments": false,
-
+		"module": "commonjs",
 		"moduleResolution": "node",
+		"esModuleInterop": true,
 		// this is necessary for the automatic typing of the adapter config
 		"resolveJsonModule": true,
 
@@ -35,7 +36,7 @@
 		"target": "ES2022",
 
 		"sourceMap": true,
-		"inlineSourceMap": false
+		"inlineSourceMap": false,
 		// "watch": false
 	},
 	"include": [
