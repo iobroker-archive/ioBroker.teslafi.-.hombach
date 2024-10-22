@@ -3,7 +3,7 @@
 		"name": "teslafi",
 		"version": "0.0.1",
 		"news": {
-			"0.0.1": {
+			"0.0.1":{
 				"en": "initial release",
 				"de": "Erstveröffentlichung",
 				"ru": "Начальная версия",
@@ -13,10 +13,10 @@
 				"it": "Versione iniziale",
 				"es": "Versión inicial",
 				"pl": "Pierwsze wydanie",
+				"uk": "Початковий випуск",
 				"zh-cn": "首次出版"
 			}
 		},
-		"title": "TeslaFi",
 		"titleLang": {
 			"en": "TeslaFi",
 			"de": "TeslaFi",
@@ -27,30 +27,43 @@
 			"it": "TeslaFi",
 			"es": "TeslaFi",
 			"pl": "TeslaFi",
+			"uk": "TeslaFi",
 			"zh-cn": "TeslaFi"
 		},
 		"desc": {
-			"en": "TeslaFi-Description",
-			"de": "TeslaFi-Description",
-			"ru": "TeslaFi-Description",
-			"pt": "TeslaFi-Description",
-			"nl": "TeslaFi-Description",
-			"fr": "TeslaFi-Description",
-			"it": "TeslaFi-Description",
-			"es": "TeslaFi-Description",
-			"pl": "TeslaFi-Description",
-			"zh-cn": "TeslaFi-Description"
+ 			"en": "Adapter to poll TeslaFi data of your car",
+ 			"de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
+ 			"ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
+ 			"pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
+ 			"nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
+ 			"fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
+ 			"it": "Adattatore per recuperare i dati TeslaFi della tua auto",
+ 			"es": "Adaptador para consultar los datos de TeslaFi de su coche",
+			"pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
+			"uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
+			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
 		},
-		"authors": ["hombach <TeslaFi@homba.ch>"],
-		"keywords": ["TeslaFi"],
-		"license": "MIT",
+		"authors": [
+			"Hombach <TeslaFi@homba.ch>"
+		],
+		"keywords": [
+			"ioBroker",
+			"TeslaFi",
+			"Tesla",
+			"EV",
+			"Car"
+		],
+		"licenseInformation": {
+			"license": "MIT",
+			"type": "free"
+		},
 		"platform": "Javascript/Node.js",
-		"main": "build/main.js",
 		"icon": "teslafi.png",
 		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/hombach/ioBroker.teslafi/main/admin/teslafi.png",
-		"readme": "https://github.com/hombach/ioBroker.teslafi/blob/main/README.md",
+		"extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png",
+		"readme": "https://github.com/Hombach/ioBroker.teslafi/blob/master/README.md",
 		"loglevel": "info",
+		"tier": 2,
 		"mode": "daemon",
 		"type": "vehicle",
 		"compact": true,
@@ -61,18 +74,40 @@
 		},
 		"dependencies": [
 			{
-				"js-controller": ">=3.3.22"
+				"js-controller": ">=5.0.19"
 			}
 		],
 		"globalDependencies": [
 			{
-				"admin": ">=5.1.13"
+				"admin": ">=7.0.0"
 			}
 		]
 	},
 	"native": {
-		"FIcode": "42"
+		"APIToken": "42"
 	},
 	"objects": [],
-	"instanceObjects": []
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		}
+	]
 }

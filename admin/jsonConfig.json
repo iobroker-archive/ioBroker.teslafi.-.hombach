@@ -1,8 +1,7 @@
 {
-	"i18n": true,
 	"type": "panel",
 	"items": {
-		"FIcode": {
+		"APIToken": {
 			"type": "text",
 			"label": "FIcode",
 			"newLine": true
