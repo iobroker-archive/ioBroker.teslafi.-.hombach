@@ -43,8 +43,16 @@
 			"uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
 			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
 		},
-		"authors": ["Hombach <TeslaFi@homba.ch>"],
-		"keywords": ["ioBroker", "TeslaFi", "Tesla", "EV", "Car"],
+		"authors": [
+			"Hombach <TeslaFi@homba.ch>"
+		],
+		"keywords": [
+			"ioBroker",
+			"TeslaFi",
+			"Tesla",
+			"EV",
+			"Car"
+		],
 		"licenseInformation": {
 			"license": "MIT",
 			"type": "free"
@@ -80,7 +88,8 @@
 			"sentry": {
 				"dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
 			}
-		}
+		},
+		"supportCustoms": false
 	},
 	"encryptedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
 	"protectedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],

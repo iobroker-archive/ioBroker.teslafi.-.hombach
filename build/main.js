@@ -31,7 +31,7 @@ class TeslaFi extends utils.Adapter {
     constructor(options = {}) {
         super({
             ...options,
-            name: "tibberlink",
+            name: "teslafi",
         });
         this.on("ready", this.onReady.bind(this));
         this.on("stateChange", this.onStateChange.bind(this));
