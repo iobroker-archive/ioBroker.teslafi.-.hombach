@@ -4,7 +4,8 @@
 declare global {
 	namespace ioBroker {
 		interface AdapterConfig {
-			APIToken: string;
+			TeslaFiAPIToken: string;
+			UpdateInterval: number;
 		}
 	}
 }

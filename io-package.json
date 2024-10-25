@@ -3,7 +3,7 @@
 		"name": "teslafi",
 		"version": "0.0.1",
 		"news": {
-			"0.0.1":{
+			"0.0.1": {
 				"en": "initial release",
 				"de": "Erstveröffentlichung",
 				"ru": "Начальная версия",
@@ -31,28 +31,20 @@
 			"zh-cn": "TeslaFi"
 		},
 		"desc": {
- 			"en": "Adapter to poll TeslaFi data of your car",
- 			"de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
- 			"ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
- 			"pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
- 			"nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
- 			"fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
- 			"it": "Adattatore per recuperare i dati TeslaFi della tua auto",
- 			"es": "Adaptador para consultar los datos de TeslaFi de su coche",
+			"en": "Adapter to poll TeslaFi data of your car",
+			"de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
+			"ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
+			"pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
+			"nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
+			"fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
+			"it": "Adattatore per recuperare i dati TeslaFi della tua auto",
+			"es": "Adaptador para consultar los datos de TeslaFi de su coche",
 			"pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
 			"uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
 			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
 		},
-		"authors": [
-			"Hombach <TeslaFi@homba.ch>"
-		],
-		"keywords": [
-			"ioBroker",
-			"TeslaFi",
-			"Tesla",
-			"EV",
-			"Car"
-		],
+		"authors": ["Hombach <TeslaFi@homba.ch>"],
+		"keywords": ["ioBroker", "TeslaFi", "Tesla", "EV", "Car"],
 		"licenseInformation": {
 			"license": "MIT",
 			"type": "free"
@@ -65,6 +57,8 @@
 		"loglevel": "info",
 		"tier": 2,
 		"mode": "daemon",
+		"messagebox": true,
+		"allowInit": true,
 		"type": "vehicle",
 		"compact": true,
 		"connectionType": "cloud",
@@ -81,10 +75,18 @@
 			{
 				"admin": ">=7.0.0"
 			}
-		]
+		],
+		"plugins": {
+			"sentry": {
+				"dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
+			}
+		}
 	},
+	"encryptedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
+	"protectedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
 	"native": {
-		"APIToken": "42"
+		"TeslaFiAPIToken": "",
+		"UpdateInterval": "60"
 	},
 	"objects": [],
 	"instanceObjects": [
@@ -106,6 +108,20 @@
 				"read": true,
 				"write": false,
 				"def": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.LastSentryLogDay",
+			"type": "state",
+			"common": {
+				"role": "value",
+				"name": "Last day of month for Sentry log",
+				"type": "number",
+				"unit": "",
+				"read": true,
+				"write": false,
+				"def": 0
 			},
 			"native": {}
 		}

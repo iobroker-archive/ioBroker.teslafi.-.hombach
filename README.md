@@ -16,6 +16,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.teslafi/test-and-release.yml?branch=main&logo=github&style=flat-square)
 [![CodeQL](https://github.com/hombach/ioBroker.teslafi/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.teslafi/actions/workflows/codeql-analysis.yml)
 [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.teslafi?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-teslafi)
+[![SNYK Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.teslafi/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.teslafi)
 
 ## Versions
 
@@ -27,20 +28,14 @@
 
 ## Adapter to poll TeslaFi data of your car
 
-TeslaFi adapter description
+This adapter facilitates the connection of data from your TeslaFi account's API to be used within ioBroker.
+
+
+
+
 
 ## Developer manual
 This section is intended for the developer. It can be deleted later.
-
-### Getting started
-
-You are almost done, only a few steps left:
-1. Clone the repository from GitHub to a directory on your PC:
-	```bash
-	git clone https://github.com/hombach/ioBroker.teslafi
-	```
-
-1. Head over to [src/main.ts](src/main.ts) and start programming!
 
 ### Best Practices
 We've collected some [best practices](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) regarding ioBroker development and coding in general. If you're new to ioBroker or Node.js, you should
@@ -94,9 +89,15 @@ dev-server watch
 ```
 
 Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev-server#readme) for more details.
+
 ## Sentry
 
+This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
+
 ## Donate
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=6EE4YUJRK7UWC"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/docu/bluePayPal.svg" height="40"></a>
+If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
 
@@ -104,6 +105,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 * (hombach) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2024 C.Hombach <TeslaFi@homba.ch>

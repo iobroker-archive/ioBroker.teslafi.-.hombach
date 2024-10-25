@@ -1,146 +1,288 @@
-/*
- * Created with @iobroker/create-adapter v2.3.0
- */
-
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
+// The adapter-core module gives you access to the core ioBroker functions you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
+import { CronJob } from "cron";
+import { TeslaFiAPICaller } from "./lib/teslafiAPICaller";
 
-// Load your modules here, e.g.:
-// import * as fs from "fs";
+class TeslaFi extends utils.Adapter {
+	cronList: CronJob[];
 
-let adapter: ioBroker.Adapter;
+	public constructor(options: Partial<utils.AdapterOptions> = {}) {
+		super({
+			...options,
+			name: "tibberlink",
+		});
+		this.on("ready", this.onReady.bind(this));
+		this.on("stateChange", this.onStateChange.bind(this));
+		// this.on("objectChange", this.onObjectChange.bind(this));
+		this.on("message", this.onMessage.bind(this));
+		this.on("unload", this.onUnload.bind(this));
+		this.cronList = [];
+	}
 
-/**
- * Starts the adapter instance
- */
-function startAdapter(options: Partial<utils.AdapterOptions> = {}): ioBroker.Adapter {
-	// Create the adapter and define its methods
-	return (adapter = utils.adapter({
-		// Default options
-		...options,
-		// custom options
-		name: "teslafi",
-
-		// The ready callback is called when databases are connected and adapter received configuration.
-		// start here!
-		ready: main, // Main method defined below for readability
-
-		// is called when adapter shuts down - callback has to be called under any circumstances!
-		unload: (callback) => {
+	/**
+	 * Is called when databases are connected and adapter received configuration.
+	 */
+	private async onReady(): Promise<void> {
+		// Reset the connection indicator during startup;
+		if (!this.config.TeslaFiAPIToken) {
+			// No Token defined in configuration
+			this.log.error(`Missing API Token - please check configuration`);
+			this.setState(`info.connection`, false, true);
+		} else {
+			// Now read TeslaFi data from API for the first time
+			const teslaFiAPICaller = new TeslaFiAPICaller(this);
 			try {
-				// Here you must clear all timeouts or intervals that may still be active
-				// clearTimeout(timeout1);
-				// clearTimeout(timeout2);
-				// ...
-				// clearInterval(interval1);
-
-				callback();
-			} catch (e) {
-				adapter.log.error(`error${e}`);
-				callback();
+				//this.homeInfoList = await teslaFiAPICaller.ReadTeslaFi();
+				await teslaFiAPICaller.ReadTeslaFi();
+				/*
+				if (this.homeInfoList.length > 0) {
+					//set data in homeinfolist according to config data
+					const result: any[] = [];
+					for (const home of this.config.HomesList) {
+						const matchingHomeInfo = this.homeInfoList.find((info) => info.ID === home.homeID);
+						if (!matchingHomeInfo) {
+							this.log.error(
+								`Configured feed for Home ID: ${home.homeID} not found in current data from Tibber server - delete the configuration line or verify any faults in your Tibber connection`,
+							);
+							continue;
+						}
+						if (result.some((info) => info.ID === matchingHomeInfo.ID)) {
+							this.log.warn(
+								`Double configuration of Home ID: ${home.homeID} found - please remove obsolete line in config - data of first instance will be used`,
+							);
+							continue;
+						}
+						matchingHomeInfo.FeedActive = home.feedActive;
+						matchingHomeInfo.PriceDataPollActive = home.priceDataPollActive;
+						result.push(matchingHomeInfo);
+					}
+					for (const index in this.homeInfoList) {
+						this.log.debug(
+							`Feed Config for Home: ${this.homeInfoList[index].NameInApp} (${this.homeInfoList[index].ID}) - realtime data available: ${this.homeInfoList[index].RealTime} - feed configured as active: ${this.homeInfoList[index].FeedActive}`,
+						);
+						this.log.debug(
+							`Price Poll Config for Home: ${this.homeInfoList[index].NameInApp} (${this.homeInfoList[index].ID}) - poll configured as active: ${this.homeInfoList[index].PriceDataPollActive}`,
+						);
+					}
+				}
+				*/
+			} catch (error) {
+				this.log.error(teslaFiAPICaller.generateErrorMessage(error, `pull of homes from Tibber-Server`));
 			}
-		},
 
-		// If you need to react to object changes, uncomment the following method.
-		// You also need to subscribe to the objects with `adapter.subscribeObjects`, similar to `adapter.subscribeStates`.
-		// objectChange: (id, obj) => {
-		// 	if (obj) {
-		// 		// The object was changed
-		// 		adapter.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-		// 	} else {
-		// 		// The object was deleted
-		// 		adapter.log.info(`object ${id} deleted`);
-		// 	}
-		// },
+			// if feed is not used - set info.connection if data received
+			/*
+			if (this.config.HomesList?.every((info) => !info.feedActive)) {
+				if (this.homeInfoList.length > 0) {
+					this.setState("info.connection", true, true);
+					this.log.debug(`Connection Check: Feed not enabled and I received home list from api - good connection`);
+				} else {
+					this.setState("info.connection", false, true);
+					this.log.debug(`Connection Check: Feed not enabled and I do not get home list from api - bad connection`);
+				}
+			}
+			*/
 
-		// is called if a subscribed state changes
-		stateChange: (id, state) => {
+			// sentry.io ping
+			if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
+				const sentryInstance = this.getPluginInstance("sentry");
+				const today = new Date();
+				const last = await this.getStateAsync("info.LastSentryLogDay");
+				if (last?.val != (await today.getDate())) {
+					if (sentryInstance) {
+						const Sentry = sentryInstance.getSentryObject();
+						// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+						Sentry &&
+							Sentry.withScope((scope: { setLevel: (arg0: string) => void; setTag: (arg0: string, arg1: number) => void }) => {
+								scope.setLevel("info");
+								scope.setTag("SentryDay", today.getDate());
+								//scope.setTag("usedAdminAdapter", version);
+								Sentry.captureMessage("Adapter TeslaFi started", "info"); // Level "info"
+							});
+					}
+					this.setState("info.LastSentryLogDay", { val: today.getDate(), ack: true });
+				}
+			}
+
+			// if no homeIDs available - adapter can't do that much and restarts
+			/*
+			if (this.homeInfoList.length === 0) {
+				this.log.warn(`Got no homes in your account - probably by a Tibber Server Error - adapter restarts in 2 minutes`);
+				await this.delay(2 * 60 * 1000);
+				this.restart();
+			}
+			*/
+
+			// if there are any homes the adapter will do something
+			// Init load data and calculator for all homes
+			/*
+			if (this.homeInfoList.length > 0) {
+				// (force) get current prices and start calculator tasks once for the FIRST time
+				if (!(await teslaFiAPICaller.updateCurrentPriceAllHomes(this.homeInfoList, true))) {
+				}
+				this.jobPricesTodayLOOP(tibberAPICaller);
+				this.jobPricesTomorrowLOOP(tibberAPICaller);
+				// Get consumption data for the first time
+				teslaFiAPICaller.updateConsumptionAllHomes();
+
+				const jobCurrentPrice = CronJob.from({
+					cronTime: "20 57 * * * *", //"20 57 * * * *" = 3 minuten vor 00:00:20 jede Stunde
+					onTick: async () => {
+						let okPrice = false;
+						do {
+							await this.delay(this.getRandomDelay(3, 5));
+							okPrice = await teslaFiAPICaller.updateCurrentPriceAllHomes(this.homeInfoList);
+							this.log.debug(`Cron job CurrentPrice - okPrice: ${okPrice}`);
+						} while (!okPrice);
+						teslaFiAPICaller.updateConsumptionAllHomes();
+					},
+					start: true,
+					timeZone: "system",
+					runOnInit: false,
+				});
+				if (jobCurrentPrice) this.cronList.push(jobCurrentPrice);
+
+				//#region *** If user uses live feed - start feed connection ***
+				if (this.homeInfoList.some((info) => info.FeedActive)) {
+					// array with configs of feeds, init with base data set
+					const tibberFeedConfigs: IConfig[] = Array.from({ length: this.homeInfoList.length }, () => {
+						return {
+							active: true,
+							apiEndpoint: {
+								apiKey: this.config.TeslaFiAPIToken,
+								queryUrl: this.queryUrl,
+								userAgent: `${this.config.TeslaFiAPIToken.slice(5, 20).split("").reverse().join("")}${Date.now}`,
+							},
+							timestamp: true,
+						};
+					});
+					const tibberPulseInstances = new Array(this.homeInfoList.length); // array for TibberPulse-instances
+
+					if (!this.homeInfoList.some((homeInfo) => homeInfo.ID == `None available - restart adapter after entering token`)) {
+						this.delObjectAsync(`Homes.None available - restart adapter after entering token`, { recursive: true });
+					}
+
+					for (const index in this.homeInfoList) {
+						if (!this.homeInfoList[index].FeedActive || !this.homeInfoList[index].RealTime) {
+							this.log.warn(`skipping feed of live data - no Pulse configured for this home according to Tibber server`);
+							continue;
+						}
+						this.log.debug(`Trying to establish feed of live data for home: ${this.homeInfoList[index].ID}`);
+						try {
+							// define the fields for datafeed
+							tibberFeedConfigs[index].homeId = this.homeInfoList[index].ID;
+							tibberFeedConfigs[index].power = true;
+							if (this.config.FeedConfigLastMeterConsumption) tibberFeedConfigs[index].lastMeterConsumption = true;
+							if (this.config.FeedConfigSignalStrength) tibberFeedConfigs[index].signalStrength = true;
+							tibberPulseInstances[index] = new TibberPulse(tibberFeedConfigs[index], this); // add new instance to array
+							tibberPulseInstances[index].ConnectPulseStream();
+						} catch (error) {
+							this.log.warn((error as Error).message);
+						}
+					}
+				}
+				//#endregion
+			}
+			*/
+		}
+	}
+
+	/**
+	 * Is called from adapter config screen
+	 */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	private onMessage(obj: any): void {
+		if (obj) {
+			switch (obj.command) {
+				case "WiP":
+					if (obj.callback) {
+						try {
+							this.log.warn("onMessage called");
+						} catch {
+							this.sendTo(obj.from, obj.command, [{ label: "None available", value: "None available" }], obj.callback);
+						}
+					}
+					break;
+			}
+		}
+	}
+
+	/**
+	 * Is called when adapter shuts down - callback has to be called under any circumstances!
+	 */
+	private onUnload(callback: () => void): void {
+		try {
+			// Here you must clear all timeouts or intervals that may still be active
+			for (const cronJob of this.cronList) {
+				cronJob.stop();
+			}
+			this.setState("info.connection", false, true);
+			callback();
+		} catch (e) {
+			this.log.warn((e as Error).message);
+			callback();
+		}
+	}
+
+	/**
+	 * Is called if a subscribed state changes
+	 */
+	private onStateChange(id: string, state: ioBroker.State | null | undefined): void {
+		try {
 			if (state) {
 				// The state was changed
-				adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+				// this.adapter.subscribeStates(`Homes.${homeId}.Calculations.${channel}.*`);
+				if (!state.ack) {
+					if (id.includes(`.Calculations.`)) {
+						const statePath = id.split(".");
+						//const homeIDToMatch = statePath[3];
+						const calcChannel = parseInt(statePath[5]);
+						const settingType = statePath[6];
+						if (!isNaN(calcChannel) && settingType !== undefined) {
+							/*
+							switch (settingType) {
+								case "Active":
+									// Update .chActive based on state.val if it's a boolean
+									if (typeof state.val === "boolean") {
+									} else {
+										this.log.warn(`Wrong type for channel: ${calcChannel} - chActive: ${state.val}`);
+									}
+									break;
+								case "AmountHours":
+									// Update .chAmountHours based on state.val if it's a number
+									if (typeof state.val === "number") {
+									} else {
+										this.log.warn(`Wrong type for channel: ${calcChannel} - chAmountHours: ${state.val}`);
+									}
+									break;
+								case "StartTime":
+									// Update .chStartTime based on state.val if it's a datetime
+									if (typeof state.val === "string") {
+									} else {
+										this.log.warn(`Wrong type for channel: ${calcChannel} - chStartTime: ${state.val}`);
+									}
+									break;
+								default:
+									this.log.debug(`unknown value for setting type: ${settingType}`);
+							}
+							*/
+						}
+					}
+				}
 			} else {
 				// The state was deleted
-				adapter.log.info(`state ${id} deleted`);
+				this.log.warn(`state ${id} deleted`);
 			}
-		},
-
-		// If you need to accept messages in your adapter, uncomment the following block.
-		// /**
-		//  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
-		//  * Using this method requires "common.messagebox" property to be set to true in io-package.json
-		//  */
-		// message: (obj) => {
-		// 	if (typeof obj === "object" && obj.message) {
-		// 		if (obj.command === "send") {
-		// 			// e.g. send email or pushover or whatever
-		// 			adapter.log.info("send command");
-
-		// 			// Send response in callback if required
-		// 			if (obj.callback) adapter.sendTo(obj.from, obj.command, "Message received", obj.callback);
-		// 		}
-		// 	}
-		// },
-	}));
-}
-
-async function main(): Promise<void> {
-	// The adapters config (in the instance object everything under the attribute "native") is accessible via
-	// adapter.config:
-	adapter.log.info("config FIcode: " + adapter.config.APIToken);
-
-	/*
-		For every state in the system there has to be also an object of type state
-		Here a simple template for a boolean variable named "testVariable"
-		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-	*/
-	await adapter.setObjectNotExistsAsync("testVariable", {
-		type: "state",
-		common: {
-			name: "testVariable",
-			type: "boolean",
-			role: "indicator",
-			read: true,
-			write: true,
-		},
-		native: {},
-	});
-
-	// In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-	adapter.subscribeStates("testVariable");
-	// You can also add a subscription for multiple states. The following line watches all states starting with "lights."
-	// adapter.subscribeStates("lights.*");
-	// Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
-	// adapter.subscribeStates("*");
-
-	/*
-		setState examples
-		you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-	*/
-	// the variable testVariable is set to true as command (ack=false)
-	await adapter.setStateAsync("testVariable", true);
-
-	// same thing, but the value is flagged "ack"
-	// ack should be always set to true if the value is received from or acknowledged from the target system
-	await adapter.setStateAsync("testVariable", { val: true, ack: true });
-
-	// same thing, but the state is deleted after 30s (getState will return null afterwards)
-	await adapter.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
-
-	// examples for the checkPassword/checkGroup functions
-	adapter.checkPassword("admin", "iobroker", (res) => {
-		adapter.log.info("check user admin pw iobroker: " + res);
-	});
-
-	adapter.checkGroup("admin", "admin", (res) => {
-		adapter.log.info("check group user admin group admin: " + res);
-	});
+		} catch (e) {
+			this.log.error(`Unhandled exception processing onstateChange: ${e}`);
+		}
+	}
 }
 
 if (require.main !== module) {
-	// Export startAdapter in compact mode
-	module.exports = startAdapter;
+	// Export the constructor in compact mode
+	module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new TeslaFi(options);
 } else {
 	// otherwise start the instance directly
-	startAdapter();
+	(() => new TeslaFi())();
 }
