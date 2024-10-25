@@ -35,12 +35,12 @@
 						"uk": "Токен для API TeslaFi",
 						"zh-cn": "TeslaFi API 的令牌"
 					},
-					"maxLength": 60,
+					"maxLength": 100,
 					"xs": 12,
 					"sm": 12,
-					"md": 6,
-					"lg": 6,
-					"xl": 4,
+					"md": 8,
+					"lg": 8,
+					"xl": 6,
 					"newLine": true
 				},
 				"UpdateInterval": {
