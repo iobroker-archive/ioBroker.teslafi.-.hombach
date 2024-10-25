@@ -1,5 +1,8 @@
 {
 	"type": "tabs",
+	"tabsStyle": {
+		"width": "calc(100% - 100px)"
+	},
 	"items": {
 		"_StandardTab": {
 			"type": "panel",
@@ -33,9 +36,11 @@
 						"zh-cn": "TeslaFi API 的令牌"
 					},
 					"maxLength": 60,
+					"xs": 12,
 					"sm": 12,
 					"md": 6,
 					"lg": 6,
+					"xl": 4,
 					"newLine": true
 				},
 				"UpdateInterval": {
@@ -57,7 +62,13 @@
 					"min": 30,
 					"max": 3600,
 					"step": 1,
-					"default": 60
+					"default": 60,
+					"xs": 12,
+					"sm": 12,
+					"md": 6,
+					"lg": 6,
+					"xl": 4,
+					"newLine": true
 				},
 
 				"_headerDocumentation": {
