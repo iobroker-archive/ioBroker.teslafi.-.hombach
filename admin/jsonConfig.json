@@ -41,17 +41,17 @@
 				"UpdateInterval": {
 					"type": "number",
 					"label": {
-						"en": "seconds",
-						"de": "Sekunden",
-						"ru": "секунды",
-						"pt": "segundos",
-						"nl": "seconden",
-						"fr": "secondes",
-						"it": "secondi",
-						"es": "segundos",
-						"pl": "sekundy",
-						"uk": "секунди",
-						"zh-cn": "秒"
+						"en": "Update interval in seconds",
+						"de": "Aktualisierungsintervall in Sekunden",
+						"ru": "Интервал обновления в секундах",
+						"pt": "Intervalo de atualização em segundos",
+						"nl": "Update-interval in seconden",
+						"fr": "Intervalle de mise à jour en secondes",
+						"it": "Intervallo di aggiornamento in secondi",
+						"es": "Intervalo de actualización en segundos",
+						"pl": "Interwał aktualizacji w sekundach",
+						"uk": "Інтервал оновлення у секундах",
+						"zh-cn": "更新间隔（秒）"
 					},
 					"hidden": "!data.TeslaFiAPIToken",
 					"min": 30,
