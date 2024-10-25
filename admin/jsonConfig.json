@@ -1,10 +1,99 @@
 {
-	"type": "panel",
+	"type": "tabs",
 	"items": {
-		"APIToken": {
-			"type": "text",
-			"label": "FIcode",
-			"newLine": true
+		"_StandardTab": {
+			"type": "panel",
+			"label": {
+				"en": "Standard settings",
+				"de": "Standard-Einstellungen",
+				"ru": "Стандартные настройки",
+				"pt": "Configurações padrão",
+				"nl": "Standaardinstellingen",
+				"fr": "Paramètres standard",
+				"it": "Impostazioni predefinite",
+				"es": "Configuración estándar",
+				"pl": "Ustawienia standardowe",
+				"uk": "Стандартні налаштування",
+				"zh-cn": "标准设置"
+			},
+			"items": {
+				"TeslaFiAPIToken": {
+					"type": "text",
+					"label": {
+						"en": "Token for TeslaFi API",
+						"de": "Token für TeslaFi API",
+						"ru": "Токен для TeslaFi API",
+						"pt": "Token para a API TeslaFi",
+						"nl": "Token voor TeslaFi API",
+						"fr": "Token pour l'API TeslaFi",
+						"it": "Token per l'API di TeslaFi",
+						"es": "Token para la API de TeslaFi",
+						"pl": "Token do API TeslaFi",
+						"uk": "Токен для API TeslaFi",
+						"zh-cn": "TeslaFi API 的令牌"
+					},
+					"maxLength": 60,
+					"sm": 12,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"UpdateInterval": {
+					"type": "number",
+					"label": {
+						"en": "seconds",
+						"de": "Sekunden",
+						"ru": "секунды",
+						"pt": "segundos",
+						"nl": "seconden",
+						"fr": "secondes",
+						"it": "secondi",
+						"es": "segundos",
+						"pl": "sekundy",
+						"uk": "секунди",
+						"zh-cn": "秒"
+					},
+					"hidden": "!data.TeslaFiAPIToken",
+					"min": 30,
+					"max": 3600,
+					"step": 1,
+					"default": 60
+				},
+
+				"_headerDocumentation": {
+					"type": "header",
+					"text": "",
+					"noTranslation": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"size": 3
+				},
+				"_helpLink": {
+					"type": "staticLink",
+					"button": true,
+					"variant": "contained",
+					"icon": "info",
+					"label": {
+						"en": "Show adapter documentation",
+						"de": "Adapter-Dokumentation anzeigen",
+						"ru": "Показать документацию по адаптеру",
+						"pt": "Mostrar documentação do adaptador",
+						"nl": "Toon adapterdocumentatie",
+						"fr": "Afficher la documentation de l'adaptateur",
+						"it": "Mostra la documentazione dell'adattatore",
+						"es": "Mostrar la documentación del adaptador",
+						"pl": "Pokaż dokumentację adaptera",
+						"uk": "Показати документацію адаптера",
+						"zh-cn": "显示适配器文档"
+					},
+					"href": "https://github.com/hombach/ioBroker.teslafi/blob/master/README.md",
+					"newLine": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12
+				}
+			}
 		}
 	}
 }
