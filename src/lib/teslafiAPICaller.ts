@@ -20,7 +20,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 
 	/****************************************************************************************
 	 * ReadTeslaFi **************************************************************************/
-	async ReadTeslaFi() {
+	async ReadTeslaFi(): Promise<boolean> {
 		await axios
 			.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}`, { transformResponse: (r) => r })
 			.then((response) => {
@@ -41,10 +41,12 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 			})
 			.catch((error) => {
 				this.HandleConnectionError(error, `TeslaFi API call`, `FI0`);
+				return false;
 			});
 
 		await resolveAfterXSeconds(2);
-
+		// eslint-disable-next-line no-constant-condition
+		if (true) return true;
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const DemoERGTeslaFiSLEEP = {
 			data_id: 2307428,

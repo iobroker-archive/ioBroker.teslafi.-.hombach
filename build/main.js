@@ -54,8 +54,11 @@ class TeslaFi extends utils.Adapter {
             // Now read TeslaFi data from API for the first time
             const teslaFiAPICaller = new teslafiAPICaller_1.TeslaFiAPICaller(this);
             try {
-                //this.homeInfoList = await teslaFiAPICaller.ReadTeslaFi();
-                await teslaFiAPICaller.ReadTeslaFi();
+                // set info.connection if data received
+                if (await teslaFiAPICaller.ReadTeslaFi()) {
+                    this.setState("info.connection", true, true);
+                    this.log.debug(`received data in first poll - good connection`);
+                }
                 /*
                 if (this.homeInfoList.length > 0) {
                     //set data in homeinfolist according to config data
@@ -92,18 +95,6 @@ class TeslaFi extends utils.Adapter {
             catch (error) {
                 this.log.error(teslaFiAPICaller.generateErrorMessage(error, `pull of homes from Tibber-Server`));
             }
-            // if feed is not used - set info.connection if data received
-            /*
-            if (this.config.HomesList?.every((info) => !info.feedActive)) {
-                if (this.homeInfoList.length > 0) {
-                    this.setState("info.connection", true, true);
-                    this.log.debug(`Connection Check: Feed not enabled and I received home list from api - good connection`);
-                } else {
-                    this.setState("info.connection", false, true);
-                    this.log.debug(`Connection Check: Feed not enabled and I do not get home list from api - bad connection`);
-                }
-            }
-            */
             // sentry.io ping
             if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
                 const sentryInstance = this.getPluginInstance("sentry");
