@@ -81,7 +81,7 @@ class TeslaFi extends utils.Adapter {
                             Sentry.withScope((scope) => {
                                 scope.setLevel("info");
                                 scope.setTag("SentryDay", today.getDate());
-                                //scope.setTag("usedAdminAdapter", version);
+                                scope.setTag("usedInterval", this.config.UpdateInterval);
                                 Sentry.captureMessage("Adapter TeslaFi started", "info"); // Level "info"
                             });
                     }
