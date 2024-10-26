@@ -57,7 +57,7 @@
 			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
 		},
 		"authors": ["Hombach <TeslaFi@homba.ch>"],
-		"keywords": ["ioBroker", "TeslaFi", "Tesla", "EV", "Car"],
+		"keywords": ["TeslaFi", "Tesla", "EV", "Car"],
 		"licenseInformation": {
 			"license": "MIT",
 			"type": "free"

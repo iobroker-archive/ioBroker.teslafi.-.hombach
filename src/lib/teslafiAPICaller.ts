@@ -55,13 +55,18 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Time to full charge`);
 									break;
 								case "charge_current_request": //"16"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `requested charge current by your car`, "A");
+									this.checkAndSetValueNumber(
+										`vehicle-data.${key}`,
+										parseFloat(value as string),
+										`requested charge current by your car`,
+										"A",
+									);
 									break;
 								case "charger_power": //"0"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `current charge power`, "kW");
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `current charge power`, "kW");
 									break;
 								case "charge_limit_soc": //"80"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `charge limit defined in your Tesla`, "%");
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `charge limit defined in your Tesla`, "%");
 									break;
 								case "usable_battery_level": //"75"
 									this.checkAndSetValueNumber(
@@ -72,10 +77,10 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									);
 									break;
 								case "battery_level": //"76"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `battery SoC of your Tesla`, "%");
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `battery SoC of your Tesla`, "%");
 									break;
 								case "est_battery_range": //"208.25"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `estimated battery range`, "mi");
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `estimated battery range`, "mi");
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}_km`,
 										parseFloat(((value as number) * 1.60934).toFixed(2)),
@@ -84,7 +89,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									);
 									break;
 								case "inside_temp": //"15.8"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `inside temperature in your Tesla`, "°C");
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `inside temperature in your Tesla`, "°C");
 									break;
 								case "longitude": //"9.899749"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Current position longitude of your Tesla`);
@@ -101,10 +106,20 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									);
 									break;
 								case "outside_temp": //"14.0"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `outside temperature near your Tesla`, "°C");
+									this.checkAndSetValueNumber(
+										`vehicle-data.${key}`,
+										parseFloat(value as string),
+										`outside temperature near your Tesla`,
+										"°C",
+									);
 									break;
 								case "odometer": // "16434.079511"
-									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `current odometer level of your Tesla`, "mi");
+									this.checkAndSetValueNumber(
+										`vehicle-data.${key}`,
+										parseFloat(value as string),
+										`current odometer level of your Tesla`,
+										"mi",
+									);
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}_km`,
 										parseFloat(((value as number) * 1.60934).toFixed(2)),
