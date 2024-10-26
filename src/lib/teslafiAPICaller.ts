@@ -116,7 +116,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 								case "odometer": // "16434.079511"
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
-										parseFloat(value as string),
+										parseFloat((value as number).toFixed(2)),
 										`current odometer level of your Tesla`,
 										"mi",
 									);

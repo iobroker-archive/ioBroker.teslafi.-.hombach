@@ -91,7 +91,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `outside temperature near your Tesla`, "°C");
                                 break;
                             case "odometer": // "16434.079511"
-                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `current odometer level of your Tesla`, "mi");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value.toFixed(2)), `current odometer level of your Tesla`, "mi");
                                 this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value * 1.60934).toFixed(2)), `current odometer level of your Tesla`, "km");
                                 break;
                             case "car_version": //"2024.32.7 3f0d0fff88"
