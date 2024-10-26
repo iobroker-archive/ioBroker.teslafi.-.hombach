@@ -38,8 +38,8 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 				} else {
 					this.adapter.log.debug(`TeslaFI data read - result data: ${JSON.stringify(result)}`);
 					// Other handling logic here,
-					this.fetchVehicleData(result);
-
+					if (result.state) this.checkAndSetValue("car-state", result.state, "State of your Tesla");
+					//this.fetchVehicleData(result);
 					return true;
 				}
 			})
@@ -706,11 +706,13 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 	}
 	*/
 
+	/*
 	private emptyingPriceAverage(homeId: string, objectDestination: string): void {
 		this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "total"), 0, "The todays total price average");
 		this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "energy"), 0, "The todays avarage spotmarket price");
 		this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "tax"), 0, "The todays avarage tax price");
 	}
+	*/
 
 	/*****************************************************************************************/
 	private async HandleConnectionError(stError: AxiosError, sOccasion: string, sErrorOccInt: string): Promise<void> {

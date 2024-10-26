@@ -25,18 +25,10 @@ class TeslaFiHelper {
         this.adapter = adapter;
     }
     //	protected getStatePrefix(homeId: string, space: string, id: string, name?: string): { [key: string]: string } {
-    getStatePrefix(homeId, space, id, name) {
+    getStatePrefix(id, name) {
         const statePrefix = {
             key: name ? name : id,
-            value: `Homes.${homeId}.${space}.${id}`,
-        };
-        return statePrefix;
-    }
-    //	protected getStatePrefixLocal(pulse: number, id: string, name?: string): { [key: string]: string } {
-    getStatePrefixLocal(pulse, id, name) {
-        const statePrefix = {
-            key: name ? name : id,
-            value: `LocalPulse.${pulse}.${id}`,
+            value: `Cars.${id}`,
         };
         return statePrefix;
     }
@@ -130,7 +122,7 @@ class TeslaFiHelper {
     /**
      * Checks if a string state exists, creates it if necessary, and updates its value.
      *
-     * @param stateName - An object containing the key and value for the name of the state.
+     * @param stateName - A string containing the name of the state.
      * @param value - The string value to set for the state.
      * @param description - Optional description for the state (default is "-").
      * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
@@ -138,13 +130,11 @@ class TeslaFiHelper {
      * @param forceMode - Optional boolean indicating if the state should be reinitiated if it already exists (default is false).
      * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
      */
-    async checkAndSetValue(
-    //stateName: { [key: string]: string },
-    stateName, value, description = "-", writeable = false, dontUpdate = false, forceMode = false) {
+    async checkAndSetValue(stateName, value, description = "-", writeable = false, dontUpdate = false, forceMode = false) {
         if (value != undefined) {
             if (value.trim().length > 0) {
                 const commonObj = {
-                    name: stateName.key,
+                    name: stateName,
                     type: "string",
                     role: "text",
                     desc: description,
@@ -152,21 +142,21 @@ class TeslaFiHelper {
                     write: writeable,
                 };
                 if (!forceMode) {
-                    await this.adapter.setObjectNotExistsAsync(stateName.value, {
+                    await this.adapter.setObjectNotExistsAsync(stateName, {
                         type: "state",
                         common: commonObj,
                         native: {},
                     });
                 }
                 else {
-                    await this.adapter.setObjectAsync(stateName.value, {
+                    await this.adapter.setObjectAsync(stateName, {
                         type: "state",
                         common: commonObj,
                         native: {},
                     });
                 }
-                if (!dontUpdate || (await this.adapter.getStateAsync(stateName.value)) === null) {
-                    await this.adapter.setStateAsync(stateName.value, { val: value, ack: true });
+                if (!dontUpdate || (await this.adapter.getStateAsync(stateName)) === null) {
+                    await this.adapter.setState(stateName, { val: value, ack: true });
                 }
             }
         }
