@@ -136,7 +136,6 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 							}
 						}
 					}
-					return true;
 				}
 			})
 			.catch((error) => {
@@ -144,8 +143,8 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 				return false;
 			});
 
+		//#region *** DEMO DATA ***
 		/*
-		
 		DemoERGTeslaFiSLEEP = {
 			data_id: 2307428,
 			Date: "2024-10-25 12:20:33",
@@ -498,10 +497,10 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 			tpms_rear_right: "41.0",
 		};
 		*/
+		//#endregion
 
 		await resolveAfterXSeconds(2);
-		// eslint-disable-next-line no-constant-condition
-		if (true) return true;
+		return true;
 	} // END ReadTeslaFi
 
 	/**

@@ -117,22 +117,15 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                         }
                     }
                 }
-                return true;
             }
         })
             .catch((error) => {
             this.HandleConnectionError(error, `TeslaFi API call`, `FI0`);
             return false;
         });
-        await resolveAfterXSeconds(2);
-        // eslint-disable-next-line no-constant-condition
-        if (true)
-            return true;
-    } // END ReadTeslaFi
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    async fetchVehicleData(result) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const DemoERGTeslaFiSLEEP = {
+        //#region *** DEMO DATA ***
+        /*
+        DemoERGTeslaFiSLEEP = {
             data_id: 2307428,
             Date: "2024-10-25 12:20:33",
             calendar_enabled: "169",
@@ -307,8 +300,8 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
             tpms_rear_left: "39.5",
             tpms_rear_right: "39.2",
         };
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const DemoERGTeslaFiAWAKE = {
+        
+        DemoERGTeslaFiAWAKE = {
             data_id: 2307502,
             Date: "2024-10-25 20:43:33",
             calendar_enabled: null,
@@ -483,72 +476,11 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
             tpms_rear_left: "41.7",
             tpms_rear_right: "41.0",
         };
-        //this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "tax"), price.tax, "Tax part of the price (energy, tax, VAT...)");
-        //this.checkAndSetValue("car-state", result.state, "State of your Tesla");
-        // Check if the response indicates an unauthorized access  {"response":{"reason":"","result":"unauthorized"}}
-        //if (result.response?.state != none) {
-        //		this.adapter.log.info(`TeslaFI data read - unauthorized access detected - please verify your API-TOKEN`);
-        //	}
-    }
-    /*
-    async updateTeslaFromAPI(): Promise<IHomeInfo[]> {
-        try {
-            this.adapter.log.debug(`Got homes from tibber api: ${JSON.stringify(Homes)}`);
-            const homeInfoList: IHomeInfo[] = [];
-            for (const index in Homes) {
-                const currentHome = Homes[index];
-                homeInfoList.push({
-                    ID: currentHome.id,
-                    NameInApp: currentHome.appNickname,
-                    RealTime: currentHome.features.realTimeConsumptionEnabled,
-                    FeedActive: false,
-                    PriceDataPollActive: true,
-                });
-                // Set HomeId in tibberConfig for further API Calls
-                // Home GENERAL
-                this.checkAndSetValue(this.getStatePrefix(currentHome.id, "General", "Id"), currentHome.id, "ID of your home");
-                this.checkAndSetValue(this.getStatePrefix(currentHome.id, "General", "Timezone"), currentHome.timeZone, "The time zone the home resides in");
-                this.checkAndSetValue(this.getStatePrefix(currentHome.id, "General", "NameInApp"), currentHome.appNickname, "The nickname given to the home");
-                this.checkAndSetValue(
-                    this.getStatePrefix(currentHome.id, "General", "AvatarInApp"),
-                    currentHome.appAvatar,
-                    "The chosen app avatar for the home",
-                );
-                // Values: APARTMENT, ROWHOUSE, FLOORHOUSE1, FLOORHOUSE2, FLOORHOUSE3, COTTAGE, CASTLE
-                this.checkAndSetValue(this.getStatePrefix(currentHome.id, "General", "Type"), currentHome.type, "The type of home.");
-                // Values: APARTMENT, ROWHOUSE, HOUSE, COTTAGE
-                this.checkAndSetValue(
-                    this.getStatePrefix(currentHome.id, "General", "PrimaryHeatingSource"),
-                    currentHome.primaryHeatingSource,
-                    "The primary form of heating in the home",
-                );
-                // Values: AIR2AIR_HEATPUMP, ELECTRICITY, GROUND, DISTRICT_HEATING, ELECTRIC_BOILER, AIR2WATER_HEATPUMP, OTHER
-                this.checkAndSetValueNumber(this.getStatePrefix(currentHome.id, "General", "Size"), currentHome.size, "The size of the home in square meters");
-                this.checkAndSetValueNumber(
-                    this.getStatePrefix(currentHome.id, "General", "NumberOfResidents"),
-                    currentHome.numberOfResidents,
-                    "The number of people living in the home",
-                );
-                this.checkAndSetValueNumber(this.getStatePrefix(currentHome.id, "General", "MainFuseSize"), currentHome.mainFuseSize, "The main fuse size");
-                this.checkAndSetValueBoolean(
-                    this.getStatePrefix(currentHome.id, "General", "HasVentilationSystem"),
-                    currentHome.hasVentilationSystem,
-                    "Whether the home has a ventilation system",
-                );
-
-                this.checkAndSetValueBoolean(
-                    this.getStatePrefix(currentHome.id, "Features", "RealTimeConsumptionEnabled"),
-                    currentHome.features.realTimeConsumptionEnabled,
-                    "Whether Tibber server will send consumption data by API",
-                );
-            }
-            return homeInfoList;
-        } catch (error) {
-            this.adapter.log.error(this.generateErrorMessage(error, "fetching homes from Tibber API"));
-            return [];
-        }
-    }
-    */
+        */
+        //#endregion
+        await resolveAfterXSeconds(2);
+        return true;
+    } // END ReadTeslaFi
     /**
      * updates current price of one home
      *
@@ -595,97 +527,6 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
         } catch (error: any) {
             if (forceUpdate) this.adapter.log.error(this.generateErrorMessage(error, `pull of current price`));
             else this.adapter.log.warn(this.generateErrorMessage(error, `pull of current price`));
-            return false;
-        }
-        return false;
-    }
-    */
-    /**
-     * updates lists of todays prices of all homes
-     *
-     * @param homeInfoList - homeInfo list object
-     * @param forceUpdate - OPTIONAL: force mode, without verification if existing data is fitting to current date, default: false
-     * @returns okprice - got correct data
-     */
-    /*
-    async updatePricesTodayAllHomes(homeInfoList: IHomeInfo[], forceUpdate = false): Promise<boolean> {
-        let okprice = true;
-        for (const curHomeInfo of homeInfoList) {
-            if (!curHomeInfo.PriceDataPollActive) continue;
-            if (!(await this.updatePricesToday(curHomeInfo.ID, forceUpdate))) {
-                okprice = false;
-            } else {
-                const now = new Date();
-                this.checkAndSetValue(this.getStatePrefix(curHomeInfo.ID, "PricesToday", "lastUpdate"), now.toString(), `last update of prices today`);
-            }
-        }
-        return okprice;
-    }
-    */
-    /**
-     * updates list of todays prices of one home
-     *
-     * @param homeId - homeId string
-     * @param forceUpdate - OPTIONAL: force mode, without verification if existing data is fitting to current date, default: false
-     * @returns okprice - got correct data
-     */
-    /*
-    private async updatePricesToday(homeId: string, forceUpdate = false): Promise<boolean> {
-        try {
-            let exDate: Date | null = null;
-            let exPricesToday: IPrice[] = [];
-            if (!forceUpdate) {
-                exPricesToday = JSON.parse(await this.getStateValue(`Homes.${homeId}.PricesToday.json`));
-            }
-            if (Array.isArray(exPricesToday) && exPricesToday[2] && exPricesToday[2].startsAt) {
-                exDate = new Date(exPricesToday[2].startsAt);
-            }
-            const today = new Date();
-            today.setHours(0, 0, 0, 0); // sets clock to 0:00
-            if (!exDate || exDate <= today || forceUpdate) {
-                const pricesToday = await this.tibberQuery.getTodaysEnergyPrices(homeId);
-                if (!(Array.isArray(pricesToday) && pricesToday.length > 0 && pricesToday[2] && pricesToday[2].total)) {
-                    throw new Error(`Got invalid data structure from Tibber [you might not have a valid (or fully confirmed) contract]`);
-                }
-                this.adapter.log.debug(`Got prices today from tibber api: ${JSON.stringify(pricesToday)} Force: ${forceUpdate}`);
-                this.checkAndSetValue(this.getStatePrefix(homeId, "PricesToday", "json"), JSON.stringify(pricesToday), "The prices today as json"); // write also it might be empty
-                this.fetchPriceRemainingAverage(homeId, `PricesToday.averageRemaining`, pricesToday);
-                this.fetchPriceMinimum(
-                    homeId,
-                    `PricesToday.minimum`,
-                    pricesToday.sort((a, b) => a.total - b.total),
-                );
-                for (const i in pricesToday) {
-                    const price = pricesToday[i];
-                    const hour = new Date(price.startsAt.substr(0, 19)).getHours();
-                    await this.fetchPrice(homeId, `PricesToday.${hour}`, price);
-                }
-                if (Array.isArray(pricesToday) && pricesToday[2] && pricesToday[2].startsAt) {
-                    this.checkAndSetValue(
-                        this.getStatePrefix(homeId, "PricesToday", "jsonBYpriceASC"),
-                        JSON.stringify(pricesToday.sort((a, b) => a.total - b.total)),
-                        "prices sorted by cost ascending as json",
-                    );
-                    exDate = new Date(pricesToday[2].startsAt);
-                    if (exDate && exDate >= today) {
-                        return true;
-                    }
-                } else {
-                    // Handle the case when pricesToday is not an array, it's empty!, so just don't sort and write
-                    this.checkAndSetValue(
-                        this.getStatePrefix(homeId, "PricesToday", "jsonBYpriceASC"),
-                        JSON.stringify(pricesToday),
-                        "prices sorted by cost ascending as json",
-                    );
-                    return false;
-                }
-            } else {
-                this.adapter.log.debug(`Existing date (${exDate}) of price info is already the today date, polling of prices today from Tibber skipped`);
-                return true;
-            }
-        } catch (error: any) {
-            if (forceUpdate) this.adapter.log.error(this.generateErrorMessage(error, `force pull of prices today`));
-            else this.adapter.log.warn(this.generateErrorMessage(error, `pull of prices today`));
             return false;
         }
         return false;
@@ -772,13 +613,6 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
             else this.adapter.log.warn(this.generateErrorMessage(error, `pull of prices tomorrow`));
             return false;
         }
-    }
-    */
-    /*
-    private emptyingPriceAverage(homeId: string, objectDestination: string): void {
-        this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "total"), 0, "The todays total price average");
-        this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "energy"), 0, "The todays avarage spotmarket price");
-        this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "tax"), 0, "The todays avarage tax price");
     }
     */
     /*****************************************************************************************/

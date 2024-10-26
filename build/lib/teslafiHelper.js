@@ -1,24 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TeslaFiHelper = exports.enCalcType = void 0;
-exports.getCalcTypeDescription = getCalcTypeDescription;
-var enCalcType;
-(function (enCalcType) {
-    enCalcType[enCalcType["BestCost"] = 1] = "BestCost";
-    enCalcType[enCalcType["BestSingleHours"] = 2] = "BestSingleHours";
-    enCalcType[enCalcType["BestHoursBlock"] = 3] = "BestHoursBlock";
-    enCalcType[enCalcType["BestCostLTF"] = 4] = "BestCostLTF";
-})(enCalcType || (exports.enCalcType = enCalcType = {}));
-function getCalcTypeDescription(calcType) {
-    switch (calcType) {
-        case enCalcType.BestCost:
-            return `best cost`;
-        case enCalcType.BestSingleHours:
-            return `best single hours`;
-        default:
-            return "Unknown";
-    }
-}
+exports.TeslaFiHelper = void 0;
 class TeslaFiHelper {
     adapter;
     constructor(adapter) {
