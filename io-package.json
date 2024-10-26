@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.0.1",
+		"version": "0.1.0",
 		"news": {
+			"0.1.0": {
+				"en": "First working version",
+				"de": "Erste funktionsfähige Version",
+				"ru": "Первая рабочая версия",
+				"pt": "Primeira versão funcional",
+				"nl": "Eerste werkende versie",
+				"fr": "Première version fonctionnelle",
+				"it": "Prima versione funzionante",
+				"es": "Primera versión funcional",
+				"pl": "Pierwsza działająca wersja",
+				"uk": "Перша робоча версія",
+				"zh-cn": "第一个工作版本"
+			},
 			"0.0.1": {
 				"en": "initial release",
 				"de": "Erstveröffentlichung",
@@ -43,16 +56,8 @@
 			"uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
 			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
 		},
-		"authors": [
-			"Hombach <TeslaFi@homba.ch>"
-		],
-		"keywords": [
-			"ioBroker",
-			"TeslaFi",
-			"Tesla",
-			"EV",
-			"Car"
-		],
+		"authors": ["Hombach <TeslaFi@homba.ch>"],
+		"keywords": ["ioBroker", "TeslaFi", "Tesla", "EV", "Car"],
 		"licenseInformation": {
 			"license": "MIT",
 			"type": "free"

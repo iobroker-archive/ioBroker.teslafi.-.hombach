@@ -39,9 +39,84 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
             else {
                 this.adapter.log.debug(`TeslaFI data read - result data: ${JSON.stringify(result)}`);
                 // Other handling logic here,
-                if (result.state)
-                    this.checkAndSetValue("car-state", result.state, "State of your Tesla");
+                if (result.state !== null)
+                    this.checkAndSetValue(`vehicle-data.state`, result.state, `State of your Tesla`);
                 //this.fetchVehicleData(result);
+                // Iterate over each key-value pair in the result object and log non-null values
+                for (const [key, value] of Object.entries(result)) {
+                    if (value !== null) {
+                        switch (key) {
+                            case "Date": //"2024-10-25 20:43:33"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Last connection to your Tesla`);
+                                break;
+                            case "display_name": //"Red Elephant"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Name of your Tesla`);
+                                break;
+                            case "vin": //"LRWYGCEKXNC44xxxx"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `VIN of your Tesla`);
+                                break;
+                            case "state": //"online"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `State of your Tesla`);
+                                break;
+                            case "time_to_full_charge": //"0.0"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Time to full charge`);
+                                break;
+                            case "charge_current_request": //"16"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `requested charge current by your car`, "A");
+                                break;
+                            case "charger_power": //"0"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `current charge power`, "kW");
+                                break;
+                            case "charge_limit_soc": //"80"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `charge limit defined in your Tesla`, "%");
+                                break;
+                            case "usable_battery_level": //"75"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `usable battery SoC at this temperature conditions`, "%");
+                                break;
+                            case "battery_level": //"76"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `battery SoC of your Tesla`, "%");
+                                break;
+                            case "est_battery_range": //"208.25"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `estimated battery range`, "mi");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value / 1.60934).toFixed(2)), `estimated battery range`, "km");
+                                break;
+                            case "inside_temp": //"15.8"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `inside temperature in your Tesla`, "°C");
+                                break;
+                            case "longitude": //"9.899749"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Current position longitude of your Tesla`);
+                                break;
+                            case "latitude": //"49.873095"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Current position latitude of your Tesla`);
+                                break;
+                            case "speed": //null
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value.toFixed(2)), `current speed of your Tesla`, "km/h");
+                                break;
+                            case "outside_temp": //"14.0"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `outside temperature near your Tesla`, "°C");
+                                break;
+                            case "odometer": // "16434.079511"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `current odometer level of your Tesla`, "mi");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value / 1.60934).toFixed(2)), `current odometer level of your Tesla`, "km");
+                                break;
+                            case "car_version": //"2024.32.7 3f0d0fff88"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Current software version`);
+                                break;
+                            case "carState": //"Idling"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Sleep-state of your Tesla`);
+                                break;
+                            case "location": //"Home"
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Location of your Tesla`);
+                                break;
+                            case "newVersion": //" "
+                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Next software version if available`);
+                                break;
+                            default:
+                                this.adapter.log.debug(`Unhandled field with data - ${key}: ${value}`);
+                                break;
+                        }
+                    }
+                }
                 return true;
             }
         })
