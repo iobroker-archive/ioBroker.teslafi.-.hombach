@@ -29,7 +29,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
             if (!response.data) {
                 throw new Error(`Empty answer from TeslaFi.`);
             }
-            this.adapter.log.debug(`TeslaFI data read - response data: ${response.data}`);
+            // this.adapter.log.debug(`TeslaFI data read - response data: ${response.data}`);
             const result = JSON.parse(response.data);
             // Check if the response indicates an unauthorized access  {"response":{"reason":"","result":"unauthorized"}}
             if (result.response?.result === "unauthorized") {
@@ -66,7 +66,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `charge limit defined in your Tesla`, "%");
                                 break;
                             case "usable_battery_level": //"75"
-                                this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `usable battery SoC at this temperature conditions`, "%");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `usable battery SoC at this temperature conditions`, "%");
                                 break;
                             case "battery_level": //"76"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `battery SoC of your Tesla`, "%");

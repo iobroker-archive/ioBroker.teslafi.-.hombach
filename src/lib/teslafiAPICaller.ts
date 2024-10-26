@@ -27,7 +27,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 				if (!response.data) {
 					throw new Error(`Empty answer from TeslaFi.`);
 				}
-				this.adapter.log.debug(`TeslaFI data read - response data: ${response.data}`);
+				// this.adapter.log.debug(`TeslaFI data read - response data: ${response.data}`);
 				const result = JSON.parse(response.data);
 
 				// Check if the response indicates an unauthorized access  {"response":{"reason":"","result":"unauthorized"}}
@@ -71,7 +71,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 								case "usable_battery_level": //"75"
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
-										value as number,
+										parseFloat(value as string),
 										`usable battery SoC at this temperature conditions`,
 										"%",
 									);
