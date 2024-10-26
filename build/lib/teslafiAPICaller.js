@@ -73,7 +73,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                                 break;
                             case "est_battery_range": //"208.25"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `estimated battery range`, "mi");
-                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value / 1.60934).toFixed(2)), `estimated battery range`, "km");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value * 1.60934).toFixed(2)), `estimated battery range`, "km");
                                 break;
                             case "inside_temp": //"15.8"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `inside temperature in your Tesla`, "°C");
@@ -92,7 +92,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                                 break;
                             case "odometer": // "16434.079511"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, value, `current odometer level of your Tesla`, "mi");
-                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value / 1.60934).toFixed(2)), `current odometer level of your Tesla`, "km");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value * 1.60934).toFixed(2)), `current odometer level of your Tesla`, "km");
                                 break;
                             case "car_version": //"2024.32.7 3f0d0fff88"
                                 this.checkAndSetValue(`vehicle-data.${key}`, value, `Current software version`);

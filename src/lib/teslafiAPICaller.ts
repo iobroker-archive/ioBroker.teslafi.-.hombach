@@ -78,7 +78,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `estimated battery range`, "mi");
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}_km`,
-										parseFloat(((value as number) / 1.60934).toFixed(2)),
+										parseFloat(((value as number) * 1.60934).toFixed(2)),
 										`estimated battery range`,
 										"km",
 									);
@@ -107,7 +107,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, value as number, `current odometer level of your Tesla`, "mi");
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}_km`,
-										parseFloat(((value as number) / 1.60934).toFixed(2)),
+										parseFloat(((value as number) * 1.60934).toFixed(2)),
 										`current odometer level of your Tesla`,
 										"km",
 									);
