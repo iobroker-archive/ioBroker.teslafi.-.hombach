@@ -1,31 +1,5 @@
 import * as utils from "@iobroker/adapter-core";
 
-export enum enCalcType {
-	BestCost = 1,
-	BestSingleHours = 2,
-	BestHoursBlock = 3,
-	BestCostLTF = 4,
-}
-
-export function getCalcTypeDescription(calcType: enCalcType): string {
-	switch (calcType) {
-		case enCalcType.BestCost:
-			return `best cost`;
-		case enCalcType.BestSingleHours:
-			return `best single hours`;
-		default:
-			return "Unknown";
-	}
-}
-
-export interface IHomeInfo {
-	ID: string;
-	NameInApp: string;
-	RealTime: boolean;
-	FeedActive: boolean;
-	PriceDataPollActive: boolean;
-}
-
 export class TeslaFiHelper {
 	adapter: utils.AdapterInstance;
 
