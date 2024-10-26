@@ -37,11 +37,6 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                 return false;
             }
             else {
-                this.adapter.log.debug(`TeslaFI data read - result data: ${JSON.stringify(result)}`);
-                // Other handling logic here,
-                if (result.state !== null)
-                    this.checkAndSetValue(`vehicle-data.state`, result.state, `State of your Tesla`);
-                //this.fetchVehicleData(result);
                 // Iterate over each key-value pair in the result object and log non-null values
                 for (const [key, value] of Object.entries(result)) {
                     if (value !== null) {
@@ -112,7 +107,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                                 this.checkAndSetValue(`vehicle-data.${key}`, value, `Next software version if available`);
                                 break;
                             default:
-                                this.adapter.log.debug(`Unhandled field with data - ${key}: ${value}`);
+                                // this.adapter.log.debug(`Unhandled field with data - ${key}: ${value}`);
                                 break;
                         }
                     }

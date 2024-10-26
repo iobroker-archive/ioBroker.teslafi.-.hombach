@@ -1,10 +1,9 @@
 // The adapter-core module gives you access to the core ioBroker functions you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
-import { CronJob } from "cron";
 import { TeslaFiAPICaller } from "./lib/teslafiAPICaller";
 
 class TeslaFi extends utils.Adapter {
-	cronList: CronJob[];
+	intervalList: NodeJS.Timeout[];
 
 	public constructor(options: Partial<utils.AdapterOptions> = {}) {
 		super({
@@ -16,7 +15,7 @@ class TeslaFi extends utils.Adapter {
 		// this.on("objectChange", this.onObjectChange.bind(this));
 		this.on("message", this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
-		this.cronList = [];
+		this.intervalList = [];
 	}
 
 	/**
@@ -66,17 +65,13 @@ class TeslaFi extends utils.Adapter {
 				}
 			}
 
-			// Init Cron job
-			const jobVehicleData = CronJob.from({
-				cronTime: "20 57 * * * *", //"20 57 * * * *" = 3 minuten vor 00:00:20 jede Stunde
-				onTick: async () => {
-					this.log.debug(`Cron job VehicleData - Result: ${teslaFiAPICaller.ReadTeslaFi}`);
-				},
-				start: true,
-				timeZone: "system",
-				runOnInit: false,
-			});
-			if (jobVehicleData) this.cronList.push(jobVehicleData);
+			// Init Interval job
+			const jobVehicleData = setInterval(async () => {
+				this.log.debug(`Interval job VehicleData - Result: ${teslaFiAPICaller.ReadTeslaFi}`);
+			}, this.config.UpdateInterval * 1000);
+
+			// Optional: Füge das Intervall zur Liste hinzu, wenn du es später benötigst
+			this.intervalList.push(jobVehicleData);
 		}
 	}
 
@@ -106,8 +101,8 @@ class TeslaFi extends utils.Adapter {
 	private onUnload(callback: () => void): void {
 		try {
 			// Here you must clear all timeouts or intervals that may still be active
-			for (const cronJob of this.cronList) {
-				cronJob.stop();
+			for (const intervalJob of this.intervalList) {
+				clearInterval(intervalJob);
 			}
 			this.setState("info.connection", false, true);
 			callback();

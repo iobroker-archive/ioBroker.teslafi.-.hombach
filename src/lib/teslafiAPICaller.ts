@@ -27,7 +27,6 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 				if (!response.data) {
 					throw new Error(`Empty answer from TeslaFi.`);
 				}
-
 				this.adapter.log.debug(`TeslaFI data read - response data: ${response.data}`);
 				const result = JSON.parse(response.data);
 
@@ -36,11 +35,6 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 					this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API-TOKEN`);
 					return false;
 				} else {
-					this.adapter.log.debug(`TeslaFI data read - result data: ${JSON.stringify(result)}`);
-					// Other handling logic here,
-					if (result.state !== null) this.checkAndSetValue(`vehicle-data.state`, result.state, `State of your Tesla`);
-					//this.fetchVehicleData(result);
-
 					// Iterate over each key-value pair in the result object and log non-null values
 					for (const [key, value] of Object.entries(result)) {
 						if (value !== null) {
@@ -131,7 +125,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Next software version if available`);
 									break;
 								default:
-									this.adapter.log.debug(`Unhandled field with data - ${key}: ${value}`);
+									// this.adapter.log.debug(`Unhandled field with data - ${key}: ${value}`);
 									break;
 							}
 						}
