@@ -28,23 +28,7 @@
 
 ## Adapter to poll TeslaFi data of your car
 
-This adapter facilitates the connection of data from your TeslaFi account's API to be used within ioBroker.
-
-## Developer manual
-
-### Test the adapter manually with dev-server
-
-Please use `dev-server` to test and debug your adapter.
-
-You may install and start `dev-server` by calling from your dev directory:
-
-```bash
-npm install --global @iobroker/dev-server
-dev-server setup
-dev-server watch
-```
-
-Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev-server#readme) for more details.
+This adapter facilitates the connection of data from your TeslaFi account API to be used within ioBroker.
 
 ## Sentry
 
@@ -57,7 +41,7 @@ If you enjoyed this project � or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.1.0 (2024-10-xx)
+### 0.1.0 (2024-10-26)
 
 -   (hombach) first working version
 
