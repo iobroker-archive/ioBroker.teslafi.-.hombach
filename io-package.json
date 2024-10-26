@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.1.0",
+		"version": "0.1.1",
 		"news": {
+			"0.1.1": {
+				"en": "Fix npm error",
+				"de": "NPM-Fehler behoben",
+				"ru": "Исправить ошибку npm",
+				"pt": "Corrigir erro npm",
+				"nl": "Los npm-fout op",
+				"fr": "Corriger l'erreur npm",
+				"it": "Correggere l'errore npm",
+				"es": "Corregir error de npm",
+				"pl": "Napraw błąd npm",
+				"uk": "Виправити помилку npm",
+				"zh-cn": "修复 npm 错误"
+			},
 			"0.1.0": {
 				"en": "First working version",
 				"de": "Erste funktionsfähige Version",

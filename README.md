@@ -41,6 +41,10 @@ If you enjoyed this project � or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.1.1 (2024-10-26)
+
+-   (hombach) fix npm error
+
 ### 0.1.0 (2024-10-26)
 
 -   (hombach) first working version
