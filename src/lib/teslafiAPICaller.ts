@@ -22,22 +22,26 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 	 * ReadTeslaFi **************************************************************************/
 	async ReadTeslaFi(): Promise<boolean> {
 		await axios
-			.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}`, { transformResponse: (r) => r })
+			.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, { transformResponse: (r) => r })
 			.then((response) => {
-				//.status == 200
-				// access parsed JSON response data using response.data field
 				if (!response.data) {
-					throw new Error(`Empty answear from TeslaFi.`);
+					throw new Error(`Empty answer from TeslaFi.`);
 				}
+
 				this.adapter.log.debug(`TeslaFI data read - response data: ${response.data}`);
 				const result = JSON.parse(response.data);
-				this.adapter.log.debug(`TeslaFI data read - result data: ${JSON.stringify(result)}`);
-				//InverterType = result[0].value;
-				//this.setState("Info.InverterType", { val: InverterType, ack: true });
-				//InverterAPIPiko = true;
-				//this.setState("info.connection", { val: true, ack: true });
-				//InverterUIVersion = result[1].value;
-				//this.setState("Info.InverterName", { val: result[2].value, ack: true });
+
+				// Check if the response indicates an unauthorized access  {"response":{"reason":"","result":"unauthorized"}}
+				if (result.response?.result === "unauthorized") {
+					this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API-TOKEN`);
+					return false;
+				} else {
+					this.adapter.log.debug(`TeslaFI data read - result data: ${JSON.stringify(result)}`);
+					// Other handling logic here,
+					this.fetchVehicleData(result);
+
+					return true;
+				}
 			})
 			.catch((error) => {
 				this.HandleConnectionError(error, `TeslaFi API call`, `FI0`);
@@ -47,6 +51,10 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 		await resolveAfterXSeconds(2);
 		// eslint-disable-next-line no-constant-condition
 		if (true) return true;
+	} // END ReadTeslaFi
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	private async fetchVehicleData(result: JSON): Promise<void> {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const DemoERGTeslaFiSLEEP = {
 			data_id: 2307428,
@@ -223,7 +231,6 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 			tpms_rear_left: "39.5",
 			tpms_rear_right: "39.2",
 		};
-
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const DemoERGTeslaFiAWAKE = {
 			data_id: 2307502,
@@ -400,7 +407,15 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 			tpms_rear_left: "41.7",
 			tpms_rear_right: "41.0",
 		};
-	} // END ReadTeslaFi
+
+		//this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "tax"), price.tax, "Tax part of the price (energy, tax, VAT...)");
+		//this.checkAndSetValue("car-state", result.state, "State of your Tesla");
+
+		// Check if the response indicates an unauthorized access  {"response":{"reason":"","result":"unauthorized"}}
+		//if (result.response?.state != none) {
+		//		this.adapter.log.info(`TeslaFI data read - unauthorized access detected - please verify your API-TOKEN`);
+		//	}
+	}
 
 	/*
 	async updateTeslaFromAPI(): Promise<IHomeInfo[]> {
@@ -688,24 +703,6 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 			else this.adapter.log.warn(this.generateErrorMessage(error, `pull of prices tomorrow`));
 			return false;
 		}
-	}
-	*/
-
-	/**
-	 * Updates the list of tomorrow's prices for one home.
-	 *
-	 * @param homeId - The unique identifier of the home.
-	 * @param objectDestination - The destination object for storing price data.
-	 * @param price - The price object containing price information.
-	 * @returns Promise<void> - Resolves when the price data is successfully fetched and updated.
-	 */
-	/*
-	private async fetchPrice(homeId: string, objectDestination: string): Promise<void> {
-		await this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "total"), price.total, "Total price (energy + taxes)");
-		this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "energy"), price.energy, "Spotmarket energy price");
-		this.checkAndSetValueNumber(this.getStatePrefix(homeId, objectDestination, "tax"), price.tax, "Tax part of the price (energy, tax, VAT...)");
-		this.checkAndSetValue(this.getStatePrefix(homeId, objectDestination, "startsAt"), price.startsAt, "Start time of the price");
-		this.checkAndSetValue(this.getStatePrefix(homeId, objectDestination, "level"), price.level, "Price level compared to recent price values");
 	}
 	*/
 
