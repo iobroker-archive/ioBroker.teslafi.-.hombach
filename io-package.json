@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.1.1",
+		"version": "0.1.2",
 		"news": {
+			"0.1.2": {
+				"en": "Introduce to ioBroker latest repo\nBump dependencies",
+				"de": "In ioBroker-Latest-Repo einführen\nAbhängigkeiten aktualisieren",
+				"ru": "Введение в последний репозиторий ioBroker\nОбновлены зависимости",
+				"pt": "Introduzir ao repositório mais recente do ioBroker\nAtualizar dependências",
+				"nl": "Introductie in ioBroker nieuwste repo\nAfhankelijkheden bijwerken",
+				"fr": "Introduction dans le dernier dépôt ioBroker\nMettre à jour les dépendances",
+				"it": "Introduzione al repository più recente di ioBroker\nAggiorna le dipendenze",
+				"es": "Introducir en el repositorio más reciente de ioBroker\nActualizar dependencias",
+				"pl": "Wprowadzenie do najnowszego repozytorium ioBroker\nZaktualizuj zależności",
+				"uk": "Введення в останнє репозиторій ioBroker\nОновити залежності",
+				"zh-cn": "引入到 ioBroker 最新仓库\n更新依赖项"
+			},
 			"0.1.1": {
 				"en": "Fix npm error",
 				"de": "NPM-Fehler behoben",
