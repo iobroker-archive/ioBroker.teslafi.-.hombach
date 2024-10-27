@@ -28,19 +28,6 @@
 				"pl": "Pierwsza działająca wersja",
 				"uk": "Перша робоча версія",
 				"zh-cn": "第一个工作版本"
-			},
-			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"uk": "Початковий випуск",
-				"zh-cn": "首次出版"
 			}
 		},
 		"titleLang": {
