@@ -37,7 +37,7 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 ## Donate
 
 <a href="https://www.paypal.com/donate/?hosted_button_id=6EE4YUJRK7UWC"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/docu/bluePayPal.svg" height="40"></a>
-If you enjoyed this project � or just feeling generous, consider buying me a beer. Cheers! :beers:
+If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
 
