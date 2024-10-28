@@ -28,19 +28,6 @@
 				"pl": "Napraw błąd npm",
 				"uk": "Виправити помилку npm",
 				"zh-cn": "修复 npm 错误"
-			},
-			"0.1.0": {
-				"en": "First working version",
-				"de": "Erste funktionsfähige Version",
-				"ru": "Первая рабочая версия",
-				"pt": "Primeira versão funcional",
-				"nl": "Eerste werkende versie",
-				"fr": "Première version fonctionnelle",
-				"it": "Prima versione funzionante",
-				"es": "Primera versión funcional",
-				"pl": "Pierwsza działająca wersja",
-				"uk": "Перша робоча версія",
-				"zh-cn": "第一个工作版本"
 			}
 		},
 		"titleLang": {
