@@ -45,7 +45,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.1.2 (2024-10-xx)
+### 0.1.2 (2024-10-28)
 
 -   (hombach) introduce to ioBroker latest repo
 -   (hombach) bump dependencies
