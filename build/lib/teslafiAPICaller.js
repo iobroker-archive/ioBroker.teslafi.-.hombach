@@ -33,7 +33,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
             const result = JSON.parse(response.data);
             // Check if the response indicates an unauthorized access  {"response":{"reason":"","result":"unauthorized"}}
             if (result.response?.result === "unauthorized") {
-                this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API-TOKEN`);
+                this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API Token`);
                 return false;
             }
             else {
@@ -558,22 +558,22 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
             switch (stError.code) {
                 case "ETIMEDOUT":
                     this.adapter.log.warn(`Connection timeout error when calling ${sOccasion}`);
-                    this.adapter.log.warn(`Please verify the API Token or adapt yout poll interval, (e${sErrorOccInt}.2)`);
+                    this.adapter.log.warn(`Please verify the API Token or adapt your poll interval, (e${sErrorOccInt}.2)`);
                     break;
                 case "EHOSTUNREACH":
                     this.adapter.log.warn(`TeslaFi not reachable error when calling ${sOccasion}`);
-                    this.adapter.log.warn(`Please verify yout network environment, (e${sErrorOccInt}.2)`);
+                    this.adapter.log.warn(`Please verify your network environment, (e${sErrorOccInt}.2)`);
                     break;
                 case "ENETUNREACH":
                     this.adapter.log.warn(`Inverter network not reachable error when calling ${sOccasion}`);
-                    this.adapter.log.warn(`Please verify yout network environment, (e${sErrorOccInt}.2)`);
+                    this.adapter.log.warn(`Please verify your network environment, (e${sErrorOccInt}.2)`);
                     break;
             }
             // errors: 'Unexpected end of JSON input' 'read ECONNRESET' 'connect ECONNREFUSED 192.168.0.1:80'
         }
         else {
             this.adapter.log.error(`Unknown error when calling ${sOccasion}: ${stError.message}`);
-            this.adapter.log.error(`Please verify the API Token or adapt yout poll interval, (e${sErrorOccInt}.3)`);
+            this.adapter.log.error(`Please verify the API Token or adapt your poll interval, (e${sErrorOccInt}.3)`);
             if (this.adapter.supportsFeature && this.adapter.supportsFeature("PLUGINS")) {
                 // send Sentry error
                 const sentryInstance = this.adapter.getPluginInstance("sentry");
