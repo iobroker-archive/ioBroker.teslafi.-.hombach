@@ -48,6 +48,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.1.3 (2024-10-xx)
 
 -   (hombach) fix typo in error text
+-   (hombach) optimize responsive design
+-   (hombach) bump dependencies
 
 ### 0.1.2 (2024-10-28)
 
