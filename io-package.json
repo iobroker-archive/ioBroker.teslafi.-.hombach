@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.1.3",
+		"version": "0.1.4",
 		"news": {
+			"0.1.4": {
+				"en": "Fix conversion error",
+				"de": "Fehler bei der Umwandlung beheben",
+				"ru": "Исправить ошибку преобразования",
+				"pt": "Corrigir erro de conversão",
+				"nl": "Fout in conversie oplossen",
+				"fr": "Correction de l'erreur de conversion",
+				"it": "Correggi errore di conversione",
+				"es": "Corregir error de conversión",
+				"pl": "Napraw błąd konwersji",
+				"uk": "Виправити помилку перетворення",
+				"zh-cn": "修复转换错误"
+			},
 			"0.1.3": {
 				"en": "Fix typo in error text\nOptimize responsive design\nBump dependencies",
 				"de": "Tippfehler im Fehlermeldungstext korrigieren\nResponsives Design optimieren\nAbhängigkeiten aktualisieren",

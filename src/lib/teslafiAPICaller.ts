@@ -83,7 +83,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `estimated battery range`, "mi");
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}_km`,
-										parseFloat(((value as number) * 1.60934).toFixed(2)),
+										Math.round((value as number) * 160.934) / 100,
 										`estimated battery range`,
 										"km",
 									);
@@ -100,7 +100,7 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 								case "speed": //null
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
-										parseFloat((value as number).toFixed(2)),
+										Math.round((value as number) * 100) / 100,
 										`current speed of your Tesla`,
 										"km/h",
 									);
@@ -116,13 +116,13 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 								case "odometer": // "16434.079511"
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
-										parseFloat((value as number).toFixed(2)),
+										Math.round((value as number) * 100) / 100,
 										`current odometer level of your Tesla`,
 										"mi",
 									);
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}_km`,
-										parseFloat(((value as number) * 1.60934).toFixed(2)),
+										Math.round((value as number) * 160.934) / 100,
 										`current odometer level of your Tesla`,
 										"km",
 									);
@@ -511,68 +511,6 @@ export class TeslaFiAPICaller extends TeslaFiHelper {
 		await resolveAfterXSeconds(2);
 		return true;
 	} // END ReadTeslaFi
-
-	/**
-	 * updates list of tomorrows prices of one home
-	 *
-	 * @param homeId - homeId string
-	 * @param forceUpdate - OPTIONAL: force mode, without verification if existing data is fitting to current date, default: false
-	 * @returns okprice - got new data
-	 */
-	/*
-	private async updatePricesTomorrow(homeId: string, forceUpdate = false): Promise<boolean> {
-		try {
-			let exDate: Date | null = null;
-			let exPricesTomorrow: IPrice[] = [];
-			if (!forceUpdate) {
-				exPricesTomorrow = JSON.parse(await this.getStateValue(`Homes.${homeId}.PricesTomorrow.json`));
-			}
-			if (Array.isArray(exPricesTomorrow) && exPricesTomorrow[2] && exPricesTomorrow[2].startsAt) {
-				exDate = new Date(exPricesTomorrow[2].startsAt);
-			}
-			const morgen = new Date();
-			morgen.setDate(morgen.getDate() + 1);
-			morgen.setHours(0, 0, 0, 0); // sets clock to 0:00
-			if (!exDate || exDate < morgen || forceUpdate) {
-				const pricesTomorrow = await this.tibberQuery.getTomorrowsEnergyPrices(homeId);
-				this.adapter.log.debug(`Got prices tomorrow from tibber api: ${JSON.stringify(pricesTomorrow)} Force: ${forceUpdate}`);
-				this.checkAndSetValue(this.getStatePrefix(homeId, "PricesTomorrow", "json"), JSON.stringify(pricesTomorrow), "The prices tomorrow as json"); // write also it might be empty
-				if (pricesTomorrow.length === 0) {
-					// pricing not known, before about 13:00 - delete all the states
-					this.adapter.log.debug(`Emptying prices tomorrow and average cause existing ones are obsolete...`);
-					this.emptyingPriceAverage(homeId, `PricesTomorrow.average`);
-					this.checkAndSetValue(
-						this.getStatePrefix(homeId, "PricesTomorrow", "jsonBYpriceASC"),
-						JSON.stringify(pricesTomorrow),
-						"prices sorted by cost ascending as json",
-					);
-					return false;
-				} else if (Array.isArray(pricesTomorrow)) {
-					// pricing known, after about 13:00 - write the states
-					this.checkAndSetValue(
-						this.getStatePrefix(homeId, "PricesTomorrow", "jsonBYpriceASC"),
-						JSON.stringify(pricesTomorrow.sort((a, b) => a.total - b.total)),
-						"prices sorted by cost ascending as json",
-					);
-					exDate = new Date(pricesTomorrow[2].startsAt);
-					if (exDate && exDate >= morgen) {
-						return true;
-					} else {
-						return false;
-					}
-				}
-			} else if (exDate && exDate >= morgen) {
-				this.adapter.log.debug(`Existing date (${exDate}) of price info is already the tomorrow date, polling of prices tomorrow from Tibber skipped`);
-				return true;
-			}
-			return false;
-		} catch (error: any) {
-			if (forceUpdate) this.adapter.log.error(this.generateErrorMessage(error, `force pull of prices tomorrow`));
-			else this.adapter.log.warn(this.generateErrorMessage(error, `pull of prices tomorrow`));
-			return false;
-		}
-	}
-	*/
 
 	/*****************************************************************************************/
 	private async HandleConnectionError(stError: AxiosError, sOccasion: string, sErrorOccInt: string): Promise<void> {

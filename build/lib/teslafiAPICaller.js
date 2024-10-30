@@ -73,7 +73,7 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                                 break;
                             case "est_battery_range": //"208.25"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `estimated battery range`, "mi");
-                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value * 1.60934).toFixed(2)), `estimated battery range`, "km");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, Math.round(value * 160.934) / 100, `estimated battery range`, "km");
                                 break;
                             case "inside_temp": //"15.8"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `inside temperature in your Tesla`, "°C");
@@ -85,14 +85,14 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
                                 this.checkAndSetValue(`vehicle-data.${key}`, value, `Current position latitude of your Tesla`);
                                 break;
                             case "speed": //null
-                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value.toFixed(2)), `current speed of your Tesla`, "km/h");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current speed of your Tesla`, "km/h");
                                 break;
                             case "outside_temp": //"14.0"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `outside temperature near your Tesla`, "°C");
                                 break;
                             case "odometer": // "16434.079511"
-                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value.toFixed(2)), `current odometer level of your Tesla`, "mi");
-                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, parseFloat((value * 1.60934).toFixed(2)), `current odometer level of your Tesla`, "km");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current odometer level of your Tesla`, "mi");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, Math.round(value * 160.934) / 100, `current odometer level of your Tesla`, "km");
                                 break;
                             case "car_version": //"2024.32.7 3f0d0fff88"
                                 this.checkAndSetValue(`vehicle-data.${key}`, value, `Current software version`);
@@ -476,67 +476,6 @@ class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
         await resolveAfterXSeconds(2);
         return true;
     } // END ReadTeslaFi
-    /**
-     * updates list of tomorrows prices of one home
-     *
-     * @param homeId - homeId string
-     * @param forceUpdate - OPTIONAL: force mode, without verification if existing data is fitting to current date, default: false
-     * @returns okprice - got new data
-     */
-    /*
-    private async updatePricesTomorrow(homeId: string, forceUpdate = false): Promise<boolean> {
-        try {
-            let exDate: Date | null = null;
-            let exPricesTomorrow: IPrice[] = [];
-            if (!forceUpdate) {
-                exPricesTomorrow = JSON.parse(await this.getStateValue(`Homes.${homeId}.PricesTomorrow.json`));
-            }
-            if (Array.isArray(exPricesTomorrow) && exPricesTomorrow[2] && exPricesTomorrow[2].startsAt) {
-                exDate = new Date(exPricesTomorrow[2].startsAt);
-            }
-            const morgen = new Date();
-            morgen.setDate(morgen.getDate() + 1);
-            morgen.setHours(0, 0, 0, 0); // sets clock to 0:00
-            if (!exDate || exDate < morgen || forceUpdate) {
-                const pricesTomorrow = await this.tibberQuery.getTomorrowsEnergyPrices(homeId);
-                this.adapter.log.debug(`Got prices tomorrow from tibber api: ${JSON.stringify(pricesTomorrow)} Force: ${forceUpdate}`);
-                this.checkAndSetValue(this.getStatePrefix(homeId, "PricesTomorrow", "json"), JSON.stringify(pricesTomorrow), "The prices tomorrow as json"); // write also it might be empty
-                if (pricesTomorrow.length === 0) {
-                    // pricing not known, before about 13:00 - delete all the states
-                    this.adapter.log.debug(`Emptying prices tomorrow and average cause existing ones are obsolete...`);
-                    this.emptyingPriceAverage(homeId, `PricesTomorrow.average`);
-                    this.checkAndSetValue(
-                        this.getStatePrefix(homeId, "PricesTomorrow", "jsonBYpriceASC"),
-                        JSON.stringify(pricesTomorrow),
-                        "prices sorted by cost ascending as json",
-                    );
-                    return false;
-                } else if (Array.isArray(pricesTomorrow)) {
-                    // pricing known, after about 13:00 - write the states
-                    this.checkAndSetValue(
-                        this.getStatePrefix(homeId, "PricesTomorrow", "jsonBYpriceASC"),
-                        JSON.stringify(pricesTomorrow.sort((a, b) => a.total - b.total)),
-                        "prices sorted by cost ascending as json",
-                    );
-                    exDate = new Date(pricesTomorrow[2].startsAt);
-                    if (exDate && exDate >= morgen) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }
-            } else if (exDate && exDate >= morgen) {
-                this.adapter.log.debug(`Existing date (${exDate}) of price info is already the tomorrow date, polling of prices tomorrow from Tibber skipped`);
-                return true;
-            }
-            return false;
-        } catch (error: any) {
-            if (forceUpdate) this.adapter.log.error(this.generateErrorMessage(error, `force pull of prices tomorrow`));
-            else this.adapter.log.warn(this.generateErrorMessage(error, `pull of prices tomorrow`));
-            return false;
-        }
-    }
-    */
     /*****************************************************************************************/
     async HandleConnectionError(stError, sOccasion, sErrorOccInt) {
         if (stError.response) {
