@@ -45,7 +45,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.1.3 (2024-10-xx)
+### 0.1.3 (2024-10-30)
 
 -   (hombach) fix typo in error text
 -   (hombach) optimize responsive design
