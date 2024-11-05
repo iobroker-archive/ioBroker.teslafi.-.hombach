@@ -1,18 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TeslaFiHelper = void 0;
-class TeslaFiHelper {
+exports.ProjectUtils = void 0;
+class ProjectUtils {
     adapter;
     constructor(adapter) {
         this.adapter = adapter;
-    }
-    //	protected getStatePrefix(homeId: string, space: string, id: string, name?: string): { [key: string]: string } {
-    getStatePrefix(id, name) {
-        const statePrefix = {
-            key: name ? name : id,
-            value: `Cars.${id}`,
-        };
-        return statePrefix;
     }
     /**
      * Retrieves the value of a given state by its name.
@@ -37,7 +29,6 @@ class TeslaFiHelper {
      * @param stateName - A string representing the name of the state to retrieve.
      * @returns A Promise that resolves with the object of the state if it exists, otherwise resolves with null.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async getState(stateName) {
         try {
             if (await this.verifyStateAvailable(stateName)) {
@@ -62,7 +53,6 @@ class TeslaFiHelper {
      * @param stateName - A string representing the name of the state to verify.
      * @returns A Promise that resolves with true if the state exists, otherwise resolves with false.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async verifyStateAvailable(stateName) {
         const stateObject = await this.adapter.getObjectAsync(stateName); // Check state existence
         if (!stateObject) {
@@ -70,6 +60,52 @@ class TeslaFiHelper {
             return false;
         }
         return true;
+    }
+    /**
+     * Get foreign state value
+     * @param {string}      stateName  - Full path to state, like 0_userdata.0.other.isSummer
+     * @return {Promise<*>}            - State value, or null if error
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async asyncGetForeignStateVal(stateName) {
+        try {
+            const stateObject = await this.asyncGetForeignState(stateName);
+            if (stateObject == null)
+                return null; // errors thrown already in asyncGetForeignState()
+            return stateObject.val;
+        }
+        catch (error) {
+            this.adapter.log.error(`[asyncGetForeignStateValue](${stateName}): ${error}`);
+            return null;
+        }
+    }
+    /**
+     * Get foreign state
+     *
+     * @param {string}      stateName  - Full path to state, like 0_userdata.0.other.isSummer
+     * @return {Promise<object>}       - State object: {val: false, ack: true, ts: 1591117034451, …}, or null if error
+     */
+    async asyncGetForeignState(stateName) {
+        try {
+            const stateObject = await this.adapter.getForeignObjectAsync(stateName); // Check state existence
+            if (!stateObject) {
+                throw `State '${stateName}' does not exist.`;
+            }
+            else {
+                // Get state value, so like: {val: false, ack: true, ts: 1591117034451, …}
+                const stateValueObject = await this.adapter.getForeignStateAsync(stateName);
+                if (!this.isLikeEmpty(stateValueObject)) {
+                    return stateValueObject;
+                }
+                else {
+                    throw `Unable to retrieve info from state '${stateName}'.`;
+                }
+            }
+        }
+        catch (error) {
+            this.adapter.log.error(`[asyncGetForeignState](${stateName}): ${error}`);
+            return null;
+        }
     }
     /**
      * Checks if the given input variable is effectively empty.
@@ -104,7 +140,7 @@ class TeslaFiHelper {
     /**
      * Checks if a string state exists, creates it if necessary, and updates its value.
      *
-     * @param stateName - A string containing the name of the state.
+     * @param stateName - A string representing the name of the state.
      * @param value - The string value to set for the state.
      * @param description - Optional description for the state (default is "-").
      * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
@@ -116,7 +152,7 @@ class TeslaFiHelper {
         if (value != undefined) {
             if (value.trim().length > 0) {
                 const commonObj = {
-                    name: stateName,
+                    name: stateName.split(".").pop(),
                     type: "string",
                     role: "text",
                     desc: description,
@@ -146,7 +182,7 @@ class TeslaFiHelper {
     /**
      * Checks if a number state exists, creates it if necessary, and updates its value.
      *
-     * @param stateName - A string containing the name of the state.
+     * @param stateName - A string representing the name of the state.
      * @param value - The number value to set for the state.
      * @param description - Optional description for the state (default is "-").
      * @param unit - Optional unit string to set for the state (default is undefined).
@@ -156,9 +192,9 @@ class TeslaFiHelper {
      * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
      */
     async checkAndSetValueNumber(stateName, value, description = "-", unit, writeable = false, dontUpdate = false, forceMode = false) {
-        if (value || value === 0) {
+        if (value !== undefined) {
             const commonObj = {
-                name: stateName,
+                name: stateName.split(".").pop(),
                 type: "number",
                 role: "value",
                 desc: description,
@@ -191,24 +227,24 @@ class TeslaFiHelper {
     /**
      * Checks if a boolean state exists, creates it if necessary, and updates its value.
      *
-     * @param stateName - A string containing the name of the state.
+     * @param stateName - A string representing the name of the state.
      * @param value - The boolean value to set for the state.
      * @param description - Optional description for the state (default is "-").
      * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
      * @param dontUpdate - Optional boolean indicating if the state should not be updated if it already exists (default is false).
      * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
      */
-    async checkAndSetValueBoolean(stateName, value, description = "-", writeable = false, dontUpdate = false) {
+    async checkAndSetValueBoolean(stateName, value, description = "-", writeable = false, dontUpdate = false, forceMode = false) {
         if (value !== undefined && value !== null) {
             const commonObj = {
-                name: stateName,
+                name: stateName.split(".").pop(),
                 type: "boolean",
                 role: "indicator",
                 desc: description,
                 read: true,
                 write: writeable,
             };
-            if (stateName.split(".").pop() === stateName) {
+            if (!forceMode) {
                 await this.adapter.setObjectNotExistsAsync(stateName, {
                     type: "state",
                     common: commonObj,
@@ -222,7 +258,6 @@ class TeslaFiHelper {
                     native: {},
                 });
             }
-            // Update the state value if not in don't update mode or the state does not exist
             if (!dontUpdate || (await this.adapter.getStateAsync(stateName)) === null) {
                 await this.adapter.setState(stateName, { val: value, ack: true });
             }
@@ -257,5 +292,5 @@ class TeslaFiHelper {
         return `Error (${error.statusMessage || error.statusText || "Unknown Status"}) occurred during: -${context}- : ${errorMessages}`;
     }
 }
-exports.TeslaFiHelper = TeslaFiHelper;
-//# sourceMappingURL=teslafiHelper.js.map
+exports.ProjectUtils = ProjectUtils;
+//# sourceMappingURL=projectUtils.js.map

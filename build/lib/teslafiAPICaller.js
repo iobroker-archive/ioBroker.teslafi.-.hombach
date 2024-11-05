@@ -5,8 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TeslaFiAPICaller = void 0;
 const axios_1 = __importDefault(require("axios"));
-const teslafiHelper_1 = require("./teslafiHelper");
-//import { IHomeInfo, TeslaFiHelper } from "./teslafiHelper";
+const projectUtils_1 = require("./projectUtils");
 function resolveAfterXSeconds(x) {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -14,7 +13,7 @@ function resolveAfterXSeconds(x) {
         }, x * 1000);
     });
 }
-class TeslaFiAPICaller extends teslafiHelper_1.TeslaFiHelper {
+class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
     queryUrl = "";
     constructor(adapter) {
         super(adapter);

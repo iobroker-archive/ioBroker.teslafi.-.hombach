@@ -1,7 +1,6 @@
 import * as utils from "@iobroker/adapter-core";
 import axios, { AxiosError } from "axios";
-import { TeslaFiHelper } from "./teslafiHelper";
-//import { IHomeInfo, TeslaFiHelper } from "./teslafiHelper";
+import { ProjectUtils } from "./projectUtils";
 
 function resolveAfterXSeconds(x: number) {
 	return new Promise((resolve) => {
@@ -11,7 +10,7 @@ function resolveAfterXSeconds(x: number) {
 	});
 }
 
-export class TeslaFiAPICaller extends TeslaFiHelper {
+export class TeslaFiAPICaller extends ProjectUtils {
 	queryUrl = "";
 	constructor(adapter: utils.AdapterInstance) {
 		super(adapter);
