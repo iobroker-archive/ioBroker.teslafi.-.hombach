@@ -44,19 +44,19 @@ export class TeslaFiAPICaller extends ProjectUtils {
 								case "Date": //"2024-10-25 20:43:33"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Last connection to your Tesla`);
 									break;
-								// calendar_enabled: null, remote_start_enabled: "1",
+								// calendar_enabled: null, remote_start_enabled: "1"
 								case "display_name": //"Red Elephant"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Name of your Tesla`);
 									break;
-								// color: "1 FanOnly ", fast_charger_brand: "", notifications_enabled: null,
+								// color: "1 FanOnly ", fast_charger_brand: "", notifications_enabled: null
 								case "vin": //"LRWYGCEKXNC44xxxx"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `VIN of your Tesla`);
 									break;
-								// conn_charge_cable: "IEC", id: "NULL", charge_port_cold_weather_mode: "0", id_s: "",
+								// conn_charge_cable: "IEC", id: "NULL", charge_port_cold_weather_mode: "0", id_s: ""
 								case "state": //"online"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `State of your Tesla`);
 									break;
-								// option_codes: null, user_charge_enable_request: null,
+								// option_codes: null, user_charge_enable_request: null
 								case "time_to_full_charge": //"0.0"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Time to full charge`);
 									break;
@@ -68,18 +68,18 @@ export class TeslaFiAPICaller extends ProjectUtils {
 										"A",
 									);
 									break;
-								// charge_enable_request: "1", charge_to_max_range: "",
+								// charge_enable_request: "1", charge_to_max_range: ""
 								case "charger_phases": //"3",
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `current number of charge phases`, "");
 									break;
-								// battery_heater_on: "0", managed_charging_start_time: "", battery_range: "237.17",
+								// battery_heater_on: "0", managed_charging_start_time: "", battery_range: "237.17"
 								case "charger_power": //"0"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `current charge power`, "kW");
 									break;
 								case "charge_limit_soc": //"80"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `charge limit defined in your Tesla`, "%");
 									break;
-								// charger_pilot_current: "16", charge_port_latch: "Engaged", battery_current: "", charger_actual_current: "0", scheduled_charging_pending: "0", fast_charger_type: "",
+								// charger_pilot_current: "16", charge_port_latch: "Engaged", battery_current: "", charger_actual_current: "0", scheduled_charging_pending: "0", fast_charger_type: ""
 								case "usable_battery_level": //"75"
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
@@ -88,12 +88,12 @@ export class TeslaFiAPICaller extends ProjectUtils {
 										"%",
 									);
 									break;
-								// motorized_charge_port: null, charge_limit_soc_std: null, not_enough_power_to_heat: null,
+								// motorized_charge_port: null, charge_limit_soc_std: null, not_enough_power_to_heat: null
 								case "battery_level": //"76"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `battery SoC of your Tesla`, "%");
 									break;
 								// charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17", managed_charging_active: "",
-								// charging_state: "NoPower", fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null,
+								// charging_state: "NoPower", fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
 								case "est_battery_range": //"208.25"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `estimated battery range`, "mi");
 									this.checkAndSetValueNumber(
@@ -103,14 +103,14 @@ export class TeslaFiAPICaller extends ProjectUtils {
 										"km",
 									);
 									break;
-								// charge_rate: "0.0", charger_voltage: "1", charge_current_request_max: "16", eu_vehicle: "1", charge_miles_added_ideal: "0.0", charge_limit_soc_min: null, charge_miles_added_rated: "0.0",
+								// charge_rate: "0.0", charger_voltage: "1", charge_current_request_max: "16", eu_vehicle: "1", charge_miles_added_ideal: "0.0", charge_limit_soc_min: null, charge_miles_added_rated: "0.0"
 								case "inside_temp": //"15.8"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `inside temperature in your Tesla`, "°C");
 									break;
 								case "longitude": //"9.899749"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Current position longitude of your Tesla`);
 									break;
-								// heading: "", gps_as_of: null,
+								// heading: "", gps_as_of: null
 								case "latitude": //"49.873095"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Current position latitude of your Tesla`);
 									break;
@@ -122,7 +122,19 @@ export class TeslaFiAPICaller extends ProjectUtils {
 										"km/h",
 									);
 									break;
-								// shift_state: null, seat_heater_rear_right: "0", seat_heater_rear_left_back: "", seat_heater_left: "0", passenger_temp_setting: "20.5", is_auto_conditioning_on: "0",
+								// shift_state: null
+								case "seat_heater_rear_right": //"0"
+									this.checkAndSetValueBoolean(
+										`vehicle-data.${key}`,
+										Boolean(Number(value as string)),
+										`state of the right second row seat heater`,
+									);
+									break;
+								case "seat_heater_rear_left_back": //""
+									break;
+								case "seat_heater_left": //"0"
+									break;
+								// passenger_temp_setting: "20.5", is_auto_conditioning_on: "0"
 								case "driver_temp_setting": //"20.5"
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
@@ -139,9 +151,19 @@ export class TeslaFiAPICaller extends ProjectUtils {
 										"°C",
 									);
 									break;
-								// seat_heater_rear_center: "0", is_rear_defroster_on: "0", seat_heater_rear_right_back: "", smart_preconditioning: "", seat_heater_right: "0", fan_status: "0", is_front_defroster_on: "0",
-								// seat_heater_rear_left: "0", gui_charge_rate_units: null, gui_24_hour_time: null, gui_temperature_units: null, gui_range_display: null, gui_distance_units: null, sun_roof_installed: null,
-								// rhd: "0", remote_start_supported: null, homelink_nearby: "0", parsed_calendar_supported: null, spoiler_type: null, ft: "0",
+								case "seat_heater_rear_center": //"0"
+									break;
+								// is_rear_defroster_on: "0"
+								case "seat_heater_rear_right_back": //""
+									break;
+								// smart_preconditioning: ""
+								case "seat_heater_right": //"0"
+									break;
+								// fan_status: "0", is_front_defroster_on: "0"
+								case "seat_heater_rear_left": //"0"
+									break;
+								// gui_charge_rate_units: null, gui_24_hour_time: null, gui_temperature_units: null, gui_range_display: null, gui_distance_units: null, sun_roof_installed: null,
+								// rhd: "0", remote_start_supported: null, homelink_nearby: "0", parsed_calendar_supported: null, spoiler_type: null, ft: "0"
 								case "odometer": // "16434.079511"
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
@@ -158,14 +180,14 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									break;
 								// remote_start: null, pr: "0", climate_keeper_mode: "off", roof_color: null, perf_config: null, valet_mode: "0", calendar_supported: null, pf: "0", sun_roof_percent_open: null, third_row_seats: null,
 								// seat_type: null, api_version: null, rear_seat_heaters: null, rt: "0", exterior_color: null, df: "0", autopark_state: "NULL", sun_roof_state: null, notifications_supported: null, vehicle_name: null,
-								// dr: "0", autopark_style: null, car_type: null, wheel_type: "Apollo19MetallicShad", locked: "1", center_display_state: null, last_autopark_error: null,
+								// dr: "0", autopark_style: null, car_type: null, wheel_type: "Apollo19MetallicShad", locked: "1", center_display_state: null, last_autopark_error: null
 								case "car_version": //"2024.32.7 3f0d0fff88"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Current software version`);
 									break;
 								// defrost_mode: "0", autopark_state_v2: null, is_preconditioning: "0", inside_tempF: "60", driver_temp_settingF: "", outside_tempF: "57", battery_heater: "0", Notes: "", odometerF: "", idleNumber: 14780,
 								// sleepNumber: 0, driveNumber: 0, chargeNumber: 0, polling: "", idleTime: 1, maxRange: "314.14", left_temp_direction: null, max_avail_temp: null, is_climate_on: "0", right_temp_direction: null,
 								// min_avail_temp: null, is_user_present: "0", in_service: "0", valet_pin_needed: null, charge_port_led_color: null, timestamp: null, power: "0", side_mirror_heaters: "0", wiper_blade_heater: "0",
-								// steering_wheel_heater: "0", elevation: "", sentry_mode: "0", fd_window: "0", fp_window: "0", rd_window: "0", rp_window: "0", measure: "metric", temperature: "C", currency: "â‚¬",
+								// steering_wheel_heater: "0", elevation: "", sentry_mode: "0", fd_window: "0", fp_window: "0", rd_window: "0", rp_window: "0", measure: "metric", temperature: "C", currency: "â‚¬"
 								case "carState": //"Idling"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Sleep-state of your Tesla`);
 									break;
@@ -177,7 +199,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Next software version if available`);
 									break;
 								// newVersionStatus: "", allow_cabin_overheat_protection: "1", cabin_overheat_protection: "FanOnly", cabin_overheat_protection_actively_cooling: "", cop_activation_temperature: null, pressure: null,
-								// tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0",
+								// tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0"
 								default:
 									// this.adapter.log.debug(`Unhandled field with data - ${key}: ${value}`);
 									break;
