@@ -45,9 +45,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.1.5 (2024-11-xx) - WiP
+### 0.1.5 (2024-11-06)
 
 -   (hombach) harmonize project tools
+-   (hombach) removed doubled texts in state names
 
 ### 0.1.4 (2024-11-01)
 

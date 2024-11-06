@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.1.4",
+		"version": "0.1.5",
 		"news": {
+			"0.1.5": {
+				"en": "Harmonize project tools\nRemoved duplicated texts in state names",
+				"de": "Projektwerkzeuge harmonisieren\nDoppelte Texte in Zustandsnamen entfernt",
+				"ru": "Унифицировать инструменты проекта\nУдалены дублирующиеся тексты в названиях состояний",
+				"pt": "Harmonizar ferramentas do projeto\nRemovidos textos duplicados nos nomes dos estados",
+				"nl": "Projecttools harmoniseren\nDubbele teksten in statusnamen verwijderd",
+				"fr": "Harmoniser les outils du projet\nSuppression des textes en double dans les noms d'état",
+				"it": "Armonizzare gli strumenti del progetto\nRimossi i testi duplicati nei nomi degli stati",
+				"es": "Armonizar herramientas del proyecto\nEliminados textos duplicados en nombres de estados",
+				"pl": "Ujednolicenie narzędzi projektu\nUsunięto zduplikowane teksty w nazwach stanów",
+				"uk": "Уніфікація інструментів проекту\nВилучено дубльовані тексти в назвах станів",
+				"zh-cn": "协调项目工具\n删除状态名称中的重复文本"
+			},
 			"0.1.4": {
 				"en": "Fix conversion error",
 				"de": "Fehler bei der Umwandlung beheben",
