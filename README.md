@@ -45,6 +45,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.2.0 (2024-11-xx) - WiP
+
+-   (hombach) implement raw data state (#26)
+
 ### 0.1.5 (2024-11-06)
 
 -   (hombach) harmonize project tools

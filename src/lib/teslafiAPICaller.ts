@@ -34,6 +34,9 @@ export class TeslaFiAPICaller extends ProjectUtils {
 					this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API Token`);
 					return false;
 				} else {
+					// file raw data as state
+					this.checkAndSetValue(`vehicle-data.rawJSON`, response.data, `JSON raw data from TeslaFi`);
+
 					// Iterate over each key-value pair in the result object and log non-null values
 					for (const [key, value] of Object.entries(result)) {
 						if (value !== null) {
