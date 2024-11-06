@@ -51,6 +51,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 -   (hombach) implement charger_phases (#28)
 -   (hombach) implement driver_temp_setting (#31)
 -   (hombach) implement seat and steeringwheel heater states (#30)
+-   (hombach) implement managed charging values (#29)
 
 ### 0.1.5 (2024-11-06)
 

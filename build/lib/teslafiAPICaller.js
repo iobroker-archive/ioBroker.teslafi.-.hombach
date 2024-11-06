@@ -101,7 +101,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                                 this.checkAndSetValue(`vehicle-data.${key}`, value, `Current position latitude of your Tesla`);
                                 break;
                             case "speed": //null
-                                this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current speed of your Tesla`, "km/h");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current driving speed`, "km/h");
                                 break;
                             // shift_state: null
                             case "seat_heater_rear_right": //"3"
@@ -121,7 +121,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `outside temperature near your Tesla`, "°C");
                                 break;
                             case "seat_heater_rear_center": //"0"
-                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `level of the center second row seat heater`);
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `level of the second row center seat heater`);
                                 break;
                             // is_rear_defroster_on: "0"
                             case "seat_heater_rear_right_back": //""
@@ -138,8 +138,8 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                             // gui_charge_rate_units: null, gui_24_hour_time: null, gui_temperature_units: null, gui_range_display: null, gui_distance_units: null, sun_roof_installed: null,
                             // rhd: "0", remote_start_supported: null, homelink_nearby: "0", parsed_calendar_supported: null, spoiler_type: null, ft: "0"
                             case "odometer": // "16434.079511"
-                                this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current odometer level of your Tesla`, "mi");
-                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, Math.round(value * 160.934) / 100, `current odometer level of your Tesla`, "km");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current odometer level`, "mi");
+                                this.checkAndSetValueNumber(`vehicle-data.${key}_km`, Math.round(value * 160.934) / 100, `current odometer level`, "km");
                                 break;
                             // remote_start: null, pr: "0", climate_keeper_mode: "off", roof_color: null, perf_config: null, valet_mode: "0", calendar_supported: null, pf: "0", sun_roof_percent_open: null, third_row_seats: null,
                             // seat_type: null, api_version: null, rear_seat_heaters: null, rt: "0", exterior_color: null, df: "0", autopark_state: "NULL", sun_roof_state: null, notifications_supported: null, vehicle_name: null,

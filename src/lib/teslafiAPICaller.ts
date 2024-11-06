@@ -72,7 +72,11 @@ export class TeslaFiAPICaller extends ProjectUtils {
 								case "charger_phases": //"3",
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `current number of charge phases`, "");
 									break;
-								// battery_heater_on: "0", managed_charging_start_time: "", battery_range: "237.17"
+								// battery_heater_on: "0"
+
+								// managed_charging_start_time: ""
+
+								// battery_range: "237.17"
 								case "charger_power": //"0"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `current charge power`, "kW");
 									break;
@@ -92,7 +96,10 @@ export class TeslaFiAPICaller extends ProjectUtils {
 								case "battery_level": //"76"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `battery SoC of your Tesla`, "%");
 									break;
-								// charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17", managed_charging_active: "",
+								// charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17"
+
+								// managed_charging_active: ""
+
 								// charging_state: "NoPower", fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
 								case "est_battery_range": //"208.25"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `estimated battery range`, "mi");
@@ -118,7 +125,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
 										Math.round((value as number) * 100) / 100,
-										`current speed of your Tesla`,
+										`current driving speed`,
 										"km/h",
 									);
 									break;
@@ -157,7 +164,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
 										parseFloat(value as string),
-										`level of the center second row seat heater`,
+										`level of the second row center seat heater`,
 									);
 									break;
 								// is_rear_defroster_on: "0"
@@ -178,13 +185,13 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
 										Math.round((value as number) * 100) / 100,
-										`current odometer level of your Tesla`,
+										`current odometer level`,
 										"mi",
 									);
 									this.checkAndSetValueNumber(
 										`vehicle-data.${key}_km`,
 										Math.round((value as number) * 160.934) / 100,
-										`current odometer level of your Tesla`,
+										`current odometer level`,
 										"km",
 									);
 									break;
