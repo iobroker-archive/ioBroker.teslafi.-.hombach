@@ -48,6 +48,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.2.0 (2024-11-xx) - WiP
 
 -   (hombach) implement raw data state (#26)
+-   (hombach) implement charger phases (#28)
 
 ### 0.1.5 (2024-11-06)
 
