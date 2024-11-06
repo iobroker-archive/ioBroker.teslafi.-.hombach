@@ -1,8 +1,11 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.1.5",
+		"version": "0.2.0",
 		"news": {
+			"0.2.0": {
+				"en": "implement raw data state (#26)\nimplement charger_phases (#28)\nimplement driver_temp_setting (#31)"
+			},
 			"0.1.5": {
 				"en": "Harmonize project tools\nRemoved duplicated texts in state names",
 				"de": "Projektwerkzeuge harmonisieren\nDoppelte Texte in Zustandsnamen entfernt",

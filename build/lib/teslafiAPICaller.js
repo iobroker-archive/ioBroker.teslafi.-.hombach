@@ -65,7 +65,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `requested charge current by your car`, "A");
                                 break;
                             // charge_enable_request: "1", charge_to_max_range: "",
-                            case "charger_phases": //null,
+                            case "charger_phases": //"3",
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `current number of charge phases`, "");
                                 break;
                             // battery_heater_on: "0", managed_charging_start_time: "", battery_range: "237.17",
@@ -103,7 +103,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                             case "speed": //null
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current speed of your Tesla`, "km/h");
                                 break;
-                            // shift_state: null, seat_heater_rear_right: "0", seat_heater_rear_left_back: "", seat_heater_left: "0", passenger_temp_setting: "20.5", is_auto_conditioning_on: "0", driver_temp_setting: "20.5",
+                            // shift_state: null, seat_heater_rear_right: "0", seat_heater_rear_left_back: "", seat_heater_left: "0", passenger_temp_setting: "20.5", is_auto_conditioning_on: "0",
+                            case "driver_temp_setting": //"20.5"
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `inside temperature setting of your Tesla`, "°C");
+                                break;
                             case "outside_temp": //"14.0"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `outside temperature near your Tesla`, "°C");
                                 break;
