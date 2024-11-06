@@ -123,16 +123,18 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									);
 									break;
 								// shift_state: null
-								case "seat_heater_rear_right": //"0"
-									this.checkAndSetValueBoolean(
+								case "seat_heater_rear_right": //"3"
+									this.checkAndSetValueNumber(
 										`vehicle-data.${key}`,
-										Boolean(Number(value as string)),
-										`state of the right second row seat heater`,
+										parseFloat(value as string),
+										`level of the right second row seat heater`,
 									);
 									break;
 								case "seat_heater_rear_left_back": //""
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `level of the left third row seat heater`);
 									break;
-								case "seat_heater_left": //"0"
+								case "seat_heater_left": //"2"
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `level of the left first row seat heater`);
 									break;
 								// passenger_temp_setting: "20.5", is_auto_conditioning_on: "0"
 								case "driver_temp_setting": //"20.5"
@@ -152,15 +154,23 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									);
 									break;
 								case "seat_heater_rear_center": //"0"
+									this.checkAndSetValueNumber(
+										`vehicle-data.${key}`,
+										parseFloat(value as string),
+										`level of the center second row seat heater`,
+									);
 									break;
 								// is_rear_defroster_on: "0"
 								case "seat_heater_rear_right_back": //""
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `level of the right third row seat heater`);
 									break;
 								// smart_preconditioning: ""
 								case "seat_heater_right": //"0"
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `level of the right seat heater`);
 									break;
 								// fan_status: "0", is_front_defroster_on: "0"
 								case "seat_heater_rear_left": //"0"
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `level of the left second row seat heater`);
 									break;
 								// gui_charge_rate_units: null, gui_24_hour_time: null, gui_temperature_units: null, gui_range_display: null, gui_distance_units: null, sun_roof_installed: null,
 								// rhd: "0", remote_start_supported: null, homelink_nearby: "0", parsed_calendar_supported: null, spoiler_type: null, ft: "0"
@@ -187,7 +197,10 @@ export class TeslaFiAPICaller extends ProjectUtils {
 								// defrost_mode: "0", autopark_state_v2: null, is_preconditioning: "0", inside_tempF: "60", driver_temp_settingF: "", outside_tempF: "57", battery_heater: "0", Notes: "", odometerF: "", idleNumber: 14780,
 								// sleepNumber: 0, driveNumber: 0, chargeNumber: 0, polling: "", idleTime: 1, maxRange: "314.14", left_temp_direction: null, max_avail_temp: null, is_climate_on: "0", right_temp_direction: null,
 								// min_avail_temp: null, is_user_present: "0", in_service: "0", valet_pin_needed: null, charge_port_led_color: null, timestamp: null, power: "0", side_mirror_heaters: "0", wiper_blade_heater: "0",
-								// steering_wheel_heater: "0", elevation: "", sentry_mode: "0", fd_window: "0", fp_window: "0", rd_window: "0", rp_window: "0", measure: "metric", temperature: "C", currency: "â‚¬"
+								case "steering_wheel_heater": //"0"
+									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `level of the steering wheel heater`);
+									break;
+								// elevation: "", sentry_mode: "0", fd_window: "0", fp_window: "0", rd_window: "0", rp_window: "0", measure: "metric", temperature: "C", currency: "â‚¬"
 								case "carState": //"Idling"
 									this.checkAndSetValue(`vehicle-data.${key}`, value as string, `Sleep-state of your Tesla`);
 									break;
