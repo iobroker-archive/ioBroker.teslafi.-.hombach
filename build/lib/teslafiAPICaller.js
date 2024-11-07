@@ -83,8 +83,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                             case "battery_level": //"76"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `battery SoC of your Tesla`, "%");
                                 break;
-                            // charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17", managed_charging_active: "",
-                            // charging_state: "NoPower", fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
+                            // charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17"
+                            // managed_charging_active: ""
+                            // charging_state: "NoPower"
+                            // fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
                             case "est_battery_range": //"208.25"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `estimated battery range`, "mi");
                                 this.checkAndSetValueNumber(`vehicle-data.${key}_km`, Math.round(value * 160.934) / 100, `estimated battery range`, "km");

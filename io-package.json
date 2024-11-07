@@ -4,17 +4,17 @@
 		"version": "0.2.0",
 		"news": {
 			"0.2.0": {
-				"en": "Implement raw data state (#26)\nImplement charger phases (#28)\nImplement driver temperature setting (#31)\nImplement seat and steering wheel heater states (#30)\nImplement managed charging values (#29)",
-				"de": "Rohdatensatz implementieren (#26)\nLadephasen implementieren (#28)\nFahrertemperatureinstellung implementieren (#31)\nSitz- und Lenkradheizung implementieren (#30)\nVerwaltete Ladewerte implementieren (#29)",
-				"ru": "Реализовать состояние необработанных данных (#26)\nРеализовать фазы зарядки (#28)\nРеализовать настройку температуры водителя (#31)\nРеализовать состояния обогрева сидений и руля (#30)\nРеализовать управляемые значения зарядки (#29)",
-				"pt": "Implementar estado de dados brutos (#26)\nImplementar fases de carregamento (#28)\nImplementar configuração de temperatura do motorista (#31)\nImplementar estados do aquecedor de assento e volante (#30)\nImplementar valores de carregamento gerenciados (#29)",
-				"nl": "Implementeren ruwe datastatus (#26)\nImplementeer laadfasen (#28)\nImplementeer de temperatuurinstelling van de bestuurder (#31)\nImplementeer stoel- en stuurverwarmingsstatus (#30)\nImplementeer beheerde laadwaarden (#29)",
-				"fr": "Implémenter l'état des données brutes (#26)\nImplémenter les phases de chargeur (#28)\nImplémenter le réglage de température du conducteur (#31)\nImplémenter les états de chauffage des sièges et du volant (#30)\nImplémenter les valeurs de charge gérées (#29)",
-				"it": "Implementare stato dei dati grezzi (#26)\nImplementare le fasi di ricarica (#28)\nImplementare la regolazione della temperatura del conducente (#31)\nImplementare stati del riscaldamento del sedile e del volante (#30)\nImplementare valori di ricarica gestiti (#29)",
-				"es": "Implementar estado de datos en bruto (#26)\nImplementar fases de carga (#28)\nImplementar ajuste de temperatura del conductor (#31)\nImplementar estados del calentador del asiento y volante (#30)\nImplementar valores de carga gestionados (#29)",
-				"pl": "Zaimplementuj stan surowych danych (#26)\nZaimplementuj fazy ładowarki (#28)\nZaimplementuj ustawienie temperatury kierowcy (#31)\nZaimplementuj stany podgrzewania siedzeń i kierownicy (#30)\nZaimplementuj zarządzane wartości ładowania (#29)",
-				"uk": "Реалізувати стан сирих даних (#26)\nРеалізувати фази зарядного пристрою (#28)\nРеалізувати налаштування температури водія (#31)\nРеалізувати стани підігріву сидіння та керма (#30)\nРеалізувати керовані значення заряджання (#29)",
-				"zh-cn": "实现原始数据状态 (#26)\n实现充电器阶段 (#28)\n实现驾驶员温度设置 (#31)\n实现座椅和方向盘加热状态 (#30)\n实现管理的充电值 (#29)"
+				"en": "Implement raw data state (#26)\nImplement charger phases (#28)\nImplement driver temperature setting (#31)\nImplement seat and steering wheel heater states (#30)",
+				"de": "Rohdatensatz implementieren (#26)\nLadephasen implementieren (#28)\nFahrertemperatureinstellung implementieren (#31)\nSitz- und Lenkradheizung implementieren (#30)",
+				"ru": "Реализовать состояние необработанных данных (#26)\nРеализовать фазы зарядки (#28)\nРеализовать настройку температуры водителя (#31)\nРеализовать состояния обогрева сидений и руля (#30)",
+				"pt": "Implementar estado de dados brutos (#26)\nImplementar fases de carregamento (#28)\nImplementar configuração de temperatura do motorista (#31)\nImplementar estados do aquecedor de assento e volante (#30)",
+				"nl": "Implementeren ruwe datastatus (#26)\nImplementeer laadfasen (#28)\nImplementeer de temperatuurinstelling van de bestuurder (#31)\nImplementeer stoel- en stuurverwarmingsstatus (#30)",
+				"fr": "Implémenter l'état des données brutes (#26)\nImplémenter les phases de chargeur (#28)\nImplémenter le réglage de température du conducteur (#31)\nImplémenter les états de chauffage des sièges et du volant (#30)",
+				"it": "Implementare stato dei dati grezzi (#26)\nImplementare le fasi di ricarica (#28)\nImplementare la regolazione della temperatura del conducente (#31)\nImplementare stati del riscaldamento del sedile e del volante (#30)",
+				"es": "Implementar estado de datos en bruto (#26)\nImplementar fases de carga (#28)\nImplementar ajuste de temperatura del conductor (#31)\nImplementar estados del calentador del asiento y volante (#30)",
+				"pl": "Zaimplementuj stan surowych danych (#26)\nZaimplementuj fazy ładowarki (#28)\nZaimplementuj ustawienie temperatury kierowcy (#31)\nZaimplementuj stany podgrzewania siedzeń i kierownicy (#30)",
+				"uk": "Реалізувати стан сирих даних (#26)\nРеалізувати фази зарядного пристрою (#28)\nРеалізувати налаштування температури водія (#31)\nРеалізувати стани підігріву сидіння та керма (#30)",
+				"zh-cn": "实现原始数据状态 (#26)\n实现充电器阶段 (#28)\n实现驾驶员温度设置 (#31)\n实现座椅和方向盘加热状态 (#30)"
 			},
 			"0.1.5": {
 				"en": "Harmonize project tools\nRemoved duplicated texts in state names",

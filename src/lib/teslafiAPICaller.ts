@@ -72,11 +72,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 								case "charger_phases": //"3",
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `current number of charge phases`, "");
 									break;
-								// battery_heater_on: "0"
-
-								// managed_charging_start_time: ""
-
-								// battery_range: "237.17"
+								// battery_heater_on: "0", managed_charging_start_time: "", battery_range: "237.17"
 								case "charger_power": //"0"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `current charge power`, "kW");
 									break;
@@ -97,10 +93,11 @@ export class TeslaFiAPICaller extends ProjectUtils {
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `battery SoC of your Tesla`, "%");
 									break;
 								// charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17"
-
 								// managed_charging_active: ""
 
-								// charging_state: "NoPower", fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
+								// charging_state: "NoPower"
+
+								// fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
 								case "est_battery_range": //"208.25"
 									this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value as string), `estimated battery range`, "mi");
 									this.checkAndSetValueNumber(
