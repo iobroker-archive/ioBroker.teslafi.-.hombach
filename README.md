@@ -45,6 +45,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.2.1 (2024-11-xx) WiP
+
+-   (hombach) change 'time_to_full_charge' type to number (#38)
+
 ### 0.2.0 (2024-11-07)
 
 -   (hombach) implement raw data state (#26)

@@ -59,7 +59,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                                 break;
                             // option_codes: null, user_charge_enable_request: null
                             case "time_to_full_charge": //"0.0"
-                                this.checkAndSetValue(`vehicle-data.${key}`, value, `Time to full charge`);
+                                this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `Time to full charge`);
                                 break;
                             case "charge_current_request": //"16"
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, parseFloat(value), `requested charge current by your car`, "A");
@@ -143,7 +143,8 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                                 this.checkAndSetValueNumber(`vehicle-data.${key}`, Math.round(value * 100) / 100, `current odometer level`, "mi");
                                 this.checkAndSetValueNumber(`vehicle-data.${key}_km`, Math.round(value * 160.934) / 100, `current odometer level`, "km");
                                 break;
-                            // remote_start: null, pr: "0", climate_keeper_mode: "off", roof_color: null, perf_config: null, valet_mode: "0", calendar_supported: null, pf: "0", sun_roof_percent_open: null, third_row_seats: null,
+                            // remote_start: null, pr: "0", climate_keeper_mode: "off", roof_color: null, perf_config: null, valet_mode: "0", calendar_supported: null, pf: "0", sun_roof_percent_open: null,
+                            // third_row_seats: null
                             // seat_type: null, api_version: null, rear_seat_heaters: null, rt: "0", exterior_color: null, df: "0", autopark_state: "NULL", sun_roof_state: null, notifications_supported: null, vehicle_name: null,
                             // dr: "0", autopark_style: null, car_type: null, wheel_type: "Apollo19MetallicShad", locked: "1", center_display_state: null, last_autopark_error: null
                             case "car_version": //"2024.32.7 3f0d0fff88"

@@ -1,8 +1,11 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.2.0",
+		"version": "0.2.1",
 		"news": {
+			"0.2.1": {
+				"en": "change 'time_to_full_charge' type to number (#38)"
+			},
 			"0.2.0": {
 				"en": "Implement raw data state (#26)\nImplement charger phases (#28)\nImplement driver temperature setting (#31)\nImplement seat and steering wheel heater states (#30)",
 				"de": "Rohdatensatz implementieren (#26)\nLadephasen implementieren (#28)\nFahrertemperatureinstellung implementieren (#31)\nSitz- und Lenkradheizung implementieren (#30)",
