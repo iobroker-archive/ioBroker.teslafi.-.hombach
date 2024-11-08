@@ -1,6 +1,6 @@
 import * as utils from "@iobroker/adapter-core";
 import axios, { AxiosError } from "axios";
-import { add, format } from "date-fns";
+import { add, format, fromUnixTime } from "date-fns";
 import { ProjectUtils } from "./projectUtils";
 
 interface VehicleData {
@@ -87,6 +87,11 @@ function resolveAfterXSeconds(x: number) {
 	});
 }
 */
+
+function convertUnixToLocalTime(unixTimestamp: number, dateFormat = "dd.MM.yyyy HH:mm:ss"): string {
+	const date = fromUnixTime(unixTimestamp);
+	return format(date, dateFormat);
+}
 
 function calculateEndTimeFromNow(hours: number, dateFormat = "dd.MM.yyyy HH:mm:ss"): string {
 	const totalSeconds = hours * 3600;
@@ -290,11 +295,26 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				this.checkAndSetValue(`battery-state.time_to_finish_charge`, `---`, stVD.time_to_full_charge.desc);
 			}
 
-			//if (stVD.managed_charging_active.value !== null) {
-			// "1"; ""
-			//if (stVD.managed_charging_start_time.value !== null) {
-			// ""; "1731031200"
-
+			if (stVD.managed_charging_active.value !== null) {
+				// "1"; ""; null
+				this.checkAndSetValue(
+					`battery-state.${stVD.managed_charging_active.key}`,
+					stVD.managed_charging_active.value,
+					stVD.managed_charging_active.desc,
+				);
+			} else {
+				this.checkAndSetValue(`battery-state.${stVD.managed_charging_active.key}`, ``, stVD.managed_charging_active.desc);
+			}
+			if (stVD.managed_charging_start_time.value !== null) {
+				// ""; "1731031200"
+				this.checkAndSetValue(
+					`battery-state.${stVD.managed_charging_start_time.key}`,
+					convertUnixToLocalTime(parseFloat(stVD.managed_charging_start_time.value)),
+					stVD.managed_charging_start_time.desc,
+				);
+			} else {
+				this.checkAndSetValue(`battery-state.${stVD.managed_charging_start_time.key}`, `---`, stVD.managed_charging_start_time.desc);
+			}
 			//#endregion
 
 			//#region *** "thermal-state" properties ***

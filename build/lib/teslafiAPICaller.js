@@ -84,6 +84,10 @@ function resolveAfterXSeconds(x: number) {
     });
 }
 */
+function convertUnixToLocalTime(unixTimestamp, dateFormat = "dd.MM.yyyy HH:mm:ss") {
+    const date = (0, date_fns_1.fromUnixTime)(unixTimestamp);
+    return (0, date_fns_1.format)(date, dateFormat);
+}
 function calculateEndTimeFromNow(hours, dateFormat = "dd.MM.yyyy HH:mm:ss") {
     const totalSeconds = hours * 3600;
     const endTime = (0, date_fns_1.add)(new Date(), { seconds: totalSeconds });
@@ -234,10 +238,20 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
                 this.checkAndSetValue(`battery-state.time_to_finish_charge`, `---`, stVD.time_to_full_charge.desc);
             }
-            //if (stVD.managed_charging_active.value !== null) {
-            // "1"; ""
-            //if (stVD.managed_charging_start_time.value !== null) {
-            // ""; "1731031200"
+            if (stVD.managed_charging_active.value !== null) {
+                // "1"; ""; null
+                this.checkAndSetValue(`battery-state.${stVD.managed_charging_active.key}`, stVD.managed_charging_active.value, stVD.managed_charging_active.desc);
+            }
+            else {
+                this.checkAndSetValue(`battery-state.${stVD.managed_charging_active.key}`, ``, stVD.managed_charging_active.desc);
+            }
+            if (stVD.managed_charging_start_time.value !== null) {
+                // ""; "1731031200"
+                this.checkAndSetValue(`battery-state.${stVD.managed_charging_start_time.key}`, convertUnixToLocalTime(parseFloat(stVD.managed_charging_start_time.value)), stVD.managed_charging_start_time.desc);
+            }
+            else {
+                this.checkAndSetValue(`battery-state.${stVD.managed_charging_start_time.key}`, `---`, stVD.managed_charging_start_time.desc);
+            }
             //#endregion
             //#region *** "thermal-state" properties ***
             if (stVD.inside_temp.value !== null) {
