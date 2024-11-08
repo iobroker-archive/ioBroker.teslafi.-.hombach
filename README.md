@@ -48,6 +48,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.2.1 (2024-11-xx) WiP
 
 -   (hombach) change 'time_to_full_charge' type to number (#38)
+-   (hombach) total rework of vehicle data parser
+-   (hombach) set speed to 0 if null in API data (#39)
 
 ### 0.2.0 (2024-11-07)
 

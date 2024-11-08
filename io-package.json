@@ -4,7 +4,17 @@
 		"version": "0.2.1",
 		"news": {
 			"0.2.1": {
-				"en": "change 'time_to_full_charge' type to number (#38)"
+				"en": "Change 'time_to_full_charge' type to number (#38)\nTotal rework of vehicle data parser\nSet speed to 0 if null in API data (#39)",
+				"de": "Ändere den Typ von 'time_to_full_charge' auf Zahl (#38)\nKomplette Überarbeitung des Fahrzeugdatenparsers\nSetze Geschwindigkeit auf 0, wenn in den API-Daten null (#39)",
+				"ru": "Изменить тип 'time_to_full_charge' на число (#38)\nПолная переработка парсера данных транспортного средства\nУстановить скорость 0, если в API данных null (#39)",
+				"pt": "Alterar tipo de 'time_to_full_charge' para número (#38)\nReformulação total do analisador de dados do veículo\nDefinir velocidade como 0 se nulo nos dados da API (#39)",
+				"nl": "Wijzig 'time_to_full_charge'-type naar nummer (#38)\nVolledige herwerking van voertuiggegevensparser\nStel snelheid in op 0 als null in API-gegevens (#39)",
+				"fr": "Changer le type de 'time_to_full_charge' en nombre (#38)\nRefonte totale de l'analyseur de données du véhicule\nRégler la vitesse sur 0 si null dans les données API (#39)",
+				"it": "Cambia il tipo di 'time_to_full_charge' in numero (#38)\nRifacimento totale del parser dei dati del veicolo\nImposta la velocità a 0 se nulla nei dati API (#39)",
+				"es": "Cambiar el tipo de 'time_to_full_charge' a número (#38)\nRevisión total del analizador de datos del vehículo\nEstablecer la velocidad en 0 si es null en los datos de la API (#39)",
+				"pl": "Zmień typ 'time_to_full_charge' na liczbę (#38)\nCałkowita przebudowa parsera danych pojazdu\nUstaw prędkość na 0, jeśli w danych API jest null (#39)",
+				"uk": "Змінити тип 'time_to_full_charge' на число (#38)\nПовна переробка парсера даних транспортного засобу\nВстановити швидкість 0, якщо null в даних API (#39)",
+				"zh-cn": "将 'time_to_full_charge' 类型更改为数字 (#38)\n车辆数据解析器的全面重做\n如果 API 数据中为空，则将速度设置为 0 (#39)"
 			},
 			"0.2.0": {
 				"en": "Implement raw data state (#26)\nImplement charger phases (#28)\nImplement driver temperature setting (#31)\nImplement seat and steering wheel heater states (#30)",
