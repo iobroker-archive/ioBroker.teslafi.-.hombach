@@ -45,7 +45,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.3.0 (2024-11-xx) WiP
+### 0.3.0 (2024-11-08)
 
 -   (hombach) implement string for time to finish charge (#42)
 -   (hombach) reorganize data in folders (#43)
