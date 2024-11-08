@@ -1,5 +1,6 @@
 import * as utils from "@iobroker/adapter-core";
 import axios, { AxiosError } from "axios";
+import { add, format } from "date-fns";
 import { ProjectUtils } from "./projectUtils";
 
 interface VehicleData {
@@ -441,6 +442,12 @@ function resolveAfterXSeconds(x: number) {
 }
 */
 
+function formatDecimalHoursToTimeString(hours: number): string {
+	const totalMilliseconds = hours * 3600;
+	const time = add(new Date(0), { seconds: totalMilliseconds });
+	return format(time, "H:mm:ss");
+}
+
 export class TeslaFiAPICaller extends ProjectUtils {
 	queryUrl = "";
 	constructor(adapter: utils.AdapterInstance) {
@@ -506,8 +513,14 @@ export class TeslaFiAPICaller extends ProjectUtils {
 					parseFloat(stVD.time_to_full_charge.value),
 					stVD.time_to_full_charge.desc,
 				);
+				this.checkAndSetValue(
+					`vehicle-data.${stVD.time_to_full_charge.key}_string`,
+					formatDecimalHoursToTimeString(parseFloat(stVD.time_to_full_charge.value)),
+					stVD.time_to_full_charge.desc,
+				);
 			} else {
 				this.checkAndSetValueNumber(`vehicle-data.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
+				this.checkAndSetValue(`vehicle-data.${stVD.time_to_full_charge.key}_string`, `---`, stVD.time_to_full_charge.desc);
 			}
 
 			if (stVD.charge_current_request.value !== null) {

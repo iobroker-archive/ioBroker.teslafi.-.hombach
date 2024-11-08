@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TeslaFiAPICaller = void 0;
 const axios_1 = __importDefault(require("axios"));
+const date_fns_1 = require("date-fns");
 const projectUtils_1 = require("./projectUtils");
 // structure of vehicle data
 const stVD = {
@@ -436,6 +437,11 @@ function resolveAfterXSeconds(x: number) {
     });
 }
 */
+function formatDecimalHoursToTimeString(hours) {
+    const totalMilliseconds = hours * 3600;
+    const time = (0, date_fns_1.add)(new Date(0), { seconds: totalMilliseconds });
+    return (0, date_fns_1.format)(time, "H:mm:ss");
+}
 class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
     queryUrl = "";
     constructor(adapter) {
@@ -486,9 +492,11 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             if (stVD.time_to_full_charge.value !== null) {
                 //"0.0"
                 this.checkAndSetValueNumber(`vehicle-data.${stVD.time_to_full_charge.key}`, parseFloat(stVD.time_to_full_charge.value), stVD.time_to_full_charge.desc);
+                this.checkAndSetValue(`vehicle-data.${stVD.time_to_full_charge.key}_string`, formatDecimalHoursToTimeString(parseFloat(stVD.time_to_full_charge.value)), stVD.time_to_full_charge.desc);
             }
             else {
                 this.checkAndSetValueNumber(`vehicle-data.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
+                this.checkAndSetValue(`vehicle-data.${stVD.time_to_full_charge.key}_string`, `---`, stVD.time_to_full_charge.desc);
             }
             if (stVD.charge_current_request.value !== null) {
                 //"16"
