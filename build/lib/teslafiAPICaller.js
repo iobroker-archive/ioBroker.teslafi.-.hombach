@@ -57,7 +57,7 @@ const stVD = {
     // rhd: "0", remote_start_supported: null, homelink_nearby: "0", parsed_calendar_supported: null, spoiler_type: null, ft: "0"
     odometer: { key: `odometer`, desc: `current odometer level`, value: null },
     // remote_start: null, pr: "0", climate_keeper_mode: "off", roof_color: null, perf_config: null, valet_mode: "0", calendar_supported: null, pf: "0", sun_roof_percent_open: null,
-    // third_row_seats: null
+    third_row_seats: { key: `third_row_seats`, desc: `third seating row present`, value: null },
     // seat_type: null, api_version: null, rear_seat_heaters: null, rt: "0", exterior_color: null, df: "0", autopark_state: "NULL", sun_roof_state: null, notifications_supported: null, vehicle_name: null,
     // dr: "0", autopark_style: null, car_type: null, wheel_type: "Apollo19MetallicShad", locked: "1", center_display_state: null, last_autopark_error: null
     car_version: { key: `car_version`, desc: `Current software version`, value: null },
@@ -82,18 +82,9 @@ function resolveAfterXSeconds(x: number) {
     });
 }
 */
-/*
-function formatDecimalHoursToTimeString(hours: number): string {
-    const totalSeconds = hours * 3600;
-    const time = add(new Date(0), { seconds: totalSeconds });
-    return format(time, "H:mm:ss");
-}
-*/
 function calculateEndTimeFromNow(hours, dateFormat = "dd.MM.yyyy HH:mm:ss") {
-    // const startDate = new Date();
     const totalSeconds = hours * 3600;
     const endTime = (0, date_fns_1.add)(new Date(), { seconds: totalSeconds });
-    // const endTime2 = add(startDate, { seconds: totalSeconds });
     return (0, date_fns_1.format)(endTime, dateFormat);
 }
 class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
@@ -113,7 +104,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 throw new Error(`Empty answer from TeslaFi.`);
             }
             const result = JSON.parse(response.data);
-            // Unauthorized check
+            // verify authorized access
             if (result.response?.result === "unauthorized") {
                 this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API Token`);
                 return false;
@@ -126,153 +117,163 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                     stVD[key].value = value; // Wert direkt in die Struktur einfügen
                 }
             }
-            // process structure
+            // process property structure
+            //#region *** "vehicle-data" properties ***
             if (stVD.Date.value !== null) {
                 //"2024-10-25 20:43:33"
                 this.checkAndSetValue(`vehicle-data.${stVD.Date.key}`, stVD.Date.value, stVD.Date.desc);
-            }
-            if (stVD.display_name.value !== null) {
-                //"Red Elephant"
-                this.checkAndSetValue(`vehicle-data.${stVD.display_name.key}`, stVD.display_name.value, stVD.display_name.desc);
             }
             if (stVD.vin.value !== null) {
                 //"LRWYGCEKXNC44xxxx"
                 this.checkAndSetValue(`vehicle-data.${stVD.vin.key}`, stVD.vin.value, stVD.vin.desc);
             }
+            if (stVD.display_name.value !== null) {
+                //"Red Elephant"
+                this.checkAndSetValue(`vehicle-data.${stVD.display_name.key}`, stVD.display_name.value, stVD.display_name.desc);
+            }
+            //#endregion
+            //#region *** "vehicle-state" properties ***
+            if (stVD.carState.value !== null) {
+                //"Idling"
+                this.checkAndSetValue(`vehicle-state.${stVD.carState.key}`, stVD.carState.value, stVD.carState.desc);
+            }
             if (stVD.state.value !== null) {
                 //"online"
-                this.checkAndSetValue(`vehicle-data.${stVD.state.key}`, stVD.state.value, stVD.state.desc);
-            }
-            if (stVD.time_to_full_charge.value !== null) {
-                //"0.0"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.time_to_full_charge.key}`, parseFloat(stVD.time_to_full_charge.value), stVD.time_to_full_charge.desc);
-                this.checkAndSetValue(`vehicle-data.time_to_finish_charge`, calculateEndTimeFromNow(parseFloat(stVD.time_to_full_charge.value)), stVD.time_to_full_charge.desc);
-            }
-            else {
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
-                this.checkAndSetValue(`vehicle-data.${stVD.time_to_full_charge.key}_string`, `---`, stVD.time_to_full_charge.desc);
-            }
-            if (stVD.charge_current_request.value !== null) {
-                //"16"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.charge_current_request.key}`, parseFloat(stVD.charge_current_request.value), stVD.charge_current_request.desc, "A");
-            }
-            else {
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.charge_current_request.key}`, 0, stVD.charge_current_request.desc, "A");
-            }
-            if (stVD.charger_phases.value !== null) {
-                //"3"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.charger_phases.key}`, parseFloat(stVD.charger_phases.value), stVD.charger_phases.desc);
-            }
-            else {
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.charger_phases.key}`, 0, stVD.charger_phases.desc);
-            }
-            if (stVD.charger_power.value !== null) {
-                //"0"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.charger_power.key}`, parseFloat(stVD.charger_power.value), stVD.charger_power.desc, "kW");
-            }
-            else {
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.charger_power.key}`, 0, stVD.charger_power.desc, "kW");
-            }
-            if (stVD.charge_limit_soc.value !== null) {
-                //"80"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.charge_limit_soc.key}`, parseFloat(stVD.charge_limit_soc.value), stVD.charge_limit_soc.desc, "%");
-            }
-            if (stVD.usable_battery_level.value !== null) {
-                //"75"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.usable_battery_level.key}`, parseFloat(stVD.usable_battery_level.value), stVD.usable_battery_level.desc, "%");
-            }
-            if (stVD.battery_level.value !== null) {
-                //"76"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.battery_level.key}`, parseFloat(stVD.battery_level.value), stVD.battery_level.desc, "%");
-            }
-            if (stVD.est_battery_range.value !== null) {
-                //"208.25"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.est_battery_range.key}`, parseFloat(stVD.est_battery_range.value), stVD.est_battery_range.desc, "mi");
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.est_battery_range.key}_km`, Math.round(parseFloat(stVD.est_battery_range.value) * 160.934) / 100, stVD.est_battery_range.desc, "km");
-            }
-            if (stVD.inside_temp.value !== null) {
-                //"15.8"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.inside_temp.key}`, parseFloat(stVD.inside_temp.value), stVD.inside_temp.desc, "°C");
-            }
-            if (stVD.speed.value !== null) {
-                //"28"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.speed.key}`, Math.round(parseFloat(stVD.speed.value) * 100) / 100, stVD.speed.desc, "km/h");
-            }
-            else {
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.speed.key}`, 0, stVD.speed.desc, "km/h");
-            }
-            if (stVD.seat_heater_left.value !== null) {
-                //"2"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.seat_heater_left.key}`, parseFloat(stVD.seat_heater_left.value), stVD.seat_heater_left.desc);
-            }
-            if (stVD.seat_heater_right.value !== null) {
-                //"0"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.seat_heater_right.key}`, parseFloat(stVD.seat_heater_right.value), stVD.seat_heater_right.desc);
-            }
-            if (stVD.seat_heater_rear_left.value !== null) {
-                //"2"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.seat_heater_rear_left.key}`, parseFloat(stVD.seat_heater_rear_left.value), stVD.seat_heater_rear_left.desc);
-            }
-            if (stVD.seat_heater_rear_center.value !== null) {
-                //"0"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.seat_heater_rear_center.key}`, parseFloat(stVD.seat_heater_rear_center.value), stVD.seat_heater_rear_center.desc);
-            }
-            if (stVD.seat_heater_rear_right.value !== null) {
-                //"3"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.seat_heater_rear_right.key}`, parseFloat(stVD.seat_heater_rear_right.value), stVD.seat_heater_rear_right.desc);
-            }
-            if (stVD.seat_heater_rear_left_back.value !== null) {
-                //"3"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.seat_heater_rear_left_back.key}`, parseFloat(stVD.seat_heater_rear_left_back.value), stVD.seat_heater_rear_left_back.desc);
-            }
-            if (stVD.seat_heater_rear_right_back.value !== null) {
-                //"2"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.seat_heater_rear_right_back.key}`, parseFloat(stVD.seat_heater_rear_right_back.value), stVD.seat_heater_rear_right_back.desc);
-            }
-            if (stVD.steering_wheel_heater.value !== null) {
-                //"0"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.steering_wheel_heater.key}`, parseFloat(stVD.steering_wheel_heater.value), stVD.steering_wheel_heater.desc);
-            }
-            if (stVD.driver_temp_setting.value !== null) {
-                //"20.5"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.driver_temp_setting.key}`, parseFloat(stVD.driver_temp_setting.value), stVD.driver_temp_setting.desc, "°C");
-            }
-            if (stVD.outside_temp.value !== null) {
-                //"14.0"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.outside_temp.key}`, parseFloat(stVD.outside_temp.value), stVD.outside_temp.desc, "°C");
-            }
-            if (stVD.odometer.value !== null) {
-                //"16434.079511"
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.odometer.key}`, Math.round(parseFloat(stVD.odometer.value) * 100) / 100, stVD.odometer.desc, "mi");
-                this.checkAndSetValueNumber(`vehicle-data.${stVD.odometer.key}_km`, Math.round(parseFloat(stVD.odometer.value) * 160.934) / 100, stVD.odometer.desc, "km");
+                this.checkAndSetValue(`vehicle-state.${stVD.state.key}`, stVD.state.value, stVD.state.desc);
             }
             if (stVD.car_version.value !== null) {
                 //"2024.32.7 3f0d0fff88"
-                this.checkAndSetValue(`vehicle-data.${stVD.car_version.key}`, stVD.car_version.value, stVD.car_version.desc);
-            }
-            if (stVD.carState.value !== null) {
-                //"Idling"
-                this.checkAndSetValue(`vehicle-data.${stVD.carState.key}`, stVD.carState.value, stVD.carState.desc);
-            }
-            if (stVD.location.value !== null) {
-                //"Home"
-                this.checkAndSetValue(`vehicle-data.${stVD.location.key}`, stVD.location.value, stVD.location.desc);
-            }
-            if (stVD.longitude.value !== null) {
-                //"9.899749"
-                this.checkAndSetValue(`vehicle-data.${stVD.longitude.key}`, stVD.longitude.value, stVD.longitude.desc);
-            }
-            if (stVD.latitude.value !== null) {
-                //"49.873095"
-                this.checkAndSetValue(`vehicle-data.${stVD.latitude.key}`, stVD.latitude.value, stVD.latitude.desc);
+                this.checkAndSetValue(`vehicle-state.${stVD.car_version.key}`, stVD.car_version.value, stVD.car_version.desc);
             }
             if (stVD.newVersion.value !== null) {
                 //" "
-                this.checkAndSetValue(`vehicle-data.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
+                this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
             }
             else {
-                this.checkAndSetValue(`vehicle-data.${stVD.newVersion.key}`, ``, stVD.newVersion.desc);
+                this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, ``, stVD.newVersion.desc);
             }
+            if (stVD.location.value !== null) {
+                //"Home"
+                this.checkAndSetValue(`vehicle-state.${stVD.location.key}`, stVD.location.value, stVD.location.desc);
+            }
+            if (stVD.longitude.value !== null) {
+                //"9.899749"
+                this.checkAndSetValue(`vehicle-state.${stVD.longitude.key}`, stVD.longitude.value, stVD.longitude.desc);
+            }
+            if (stVD.latitude.value !== null) {
+                //"49.873095"
+                this.checkAndSetValue(`vehicle-state.${stVD.latitude.key}`, stVD.latitude.value, stVD.latitude.desc);
+            }
+            if (stVD.odometer.value !== null) {
+                //"16434.079511"
+                this.checkAndSetValueNumber(`vehicle-state.${stVD.odometer.key}`, Math.round(parseFloat(stVD.odometer.value) * 100) / 100, stVD.odometer.desc, "mi");
+                this.checkAndSetValueNumber(`vehicle-state.${stVD.odometer.key}_km`, Math.round(parseFloat(stVD.odometer.value) * 160.934) / 100, stVD.odometer.desc, "km");
+            }
+            if (stVD.speed.value !== null) {
+                //"28"
+                this.checkAndSetValueNumber(`vehicle-state.${stVD.speed.key}`, Math.round(parseFloat(stVD.speed.value) * 100) / 100, stVD.speed.desc, "km/h");
+            }
+            else {
+                this.checkAndSetValueNumber(`vehicle-state.${stVD.speed.key}`, 0, stVD.speed.desc, "km/h");
+            }
+            //#endregion
+            //#region *** "battery-state" properties ***
+            if (stVD.battery_level.value !== null) {
+                //"76"
+                this.checkAndSetValueNumber(`battery-state.${stVD.battery_level.key}`, parseFloat(stVD.battery_level.value), stVD.battery_level.desc, "%");
+            }
+            if (stVD.usable_battery_level.value !== null) {
+                //"75"
+                this.checkAndSetValueNumber(`battery-state.${stVD.usable_battery_level.key}`, parseFloat(stVD.usable_battery_level.value), stVD.usable_battery_level.desc, "%");
+            }
+            if (stVD.est_battery_range.value !== null) {
+                //"208.25"
+                this.checkAndSetValueNumber(`battery-state.${stVD.est_battery_range.key}`, parseFloat(stVD.est_battery_range.value), stVD.est_battery_range.desc, "mi");
+                this.checkAndSetValueNumber(`battery-state.${stVD.est_battery_range.key}_km`, Math.round(parseFloat(stVD.est_battery_range.value) * 160.934) / 100, stVD.est_battery_range.desc, "km");
+            }
+            if (stVD.charge_current_request.value !== null) {
+                //"16"
+                this.checkAndSetValueNumber(`battery-state.${stVD.charge_current_request.key}`, parseFloat(stVD.charge_current_request.value), stVD.charge_current_request.desc, "A");
+            }
+            else {
+                this.checkAndSetValueNumber(`battery-state.${stVD.charge_current_request.key}`, 0, stVD.charge_current_request.desc, "A");
+            }
+            if (stVD.charge_limit_soc.value !== null) {
+                //"80"
+                this.checkAndSetValueNumber(`battery-state.${stVD.charge_limit_soc.key}`, parseFloat(stVD.charge_limit_soc.value), stVD.charge_limit_soc.desc, "%");
+            }
+            if (stVD.charger_phases.value !== null) {
+                //"3"
+                this.checkAndSetValueNumber(`battery-state.${stVD.charger_phases.key}`, parseFloat(stVD.charger_phases.value), stVD.charger_phases.desc);
+            }
+            else {
+                this.checkAndSetValueNumber(`battery-state.${stVD.charger_phases.key}`, 0, stVD.charger_phases.desc);
+            }
+            if (stVD.charger_power.value !== null) {
+                //"0"
+                this.checkAndSetValueNumber(`battery-state.${stVD.charger_power.key}`, parseFloat(stVD.charger_power.value), stVD.charger_power.desc, "kW");
+            }
+            else {
+                this.checkAndSetValueNumber(`battery-state.${stVD.charger_power.key}`, 0, stVD.charger_power.desc, "kW");
+            }
+            if (stVD.time_to_full_charge.value !== null) {
+                //"0.0"
+                this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, parseFloat(stVD.time_to_full_charge.value), stVD.time_to_full_charge.desc, "h");
+                this.checkAndSetValue(`battery-state.time_to_finish_charge`, calculateEndTimeFromNow(parseFloat(stVD.time_to_full_charge.value)), stVD.time_to_full_charge.desc);
+            }
+            else {
+                this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
+                this.checkAndSetValue(`battery-state.time_to_finish_charge`, `---`, stVD.time_to_full_charge.desc);
+            }
+            //#endregion
+            //#region *** "thermal-state" properties ***
+            if (stVD.inside_temp.value !== null) {
+                //"15.8"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.inside_temp.key}`, parseFloat(stVD.inside_temp.value), stVD.inside_temp.desc, "°C");
+            }
+            if (stVD.outside_temp.value !== null) {
+                //"14.0"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.outside_temp.key}`, parseFloat(stVD.outside_temp.value), stVD.outside_temp.desc, "°C");
+            }
+            if (stVD.driver_temp_setting.value !== null) {
+                //"20.5"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.driver_temp_setting.key}`, parseFloat(stVD.driver_temp_setting.value), stVD.driver_temp_setting.desc, "°C");
+            }
+            if (stVD.seat_heater_left.value !== null) {
+                //"2"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.seat_heater_left.key}`, parseFloat(stVD.seat_heater_left.value), stVD.seat_heater_left.desc);
+            }
+            if (stVD.seat_heater_right.value !== null) {
+                //"0"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.seat_heater_right.key}`, parseFloat(stVD.seat_heater_right.value), stVD.seat_heater_right.desc);
+            }
+            if (stVD.seat_heater_rear_left.value !== null) {
+                //"2"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.seat_heater_rear_left.key}`, parseFloat(stVD.seat_heater_rear_left.value), stVD.seat_heater_rear_left.desc);
+            }
+            if (stVD.seat_heater_rear_center.value !== null) {
+                //"0"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.seat_heater_rear_center.key}`, parseFloat(stVD.seat_heater_rear_center.value), stVD.seat_heater_rear_center.desc);
+            }
+            if (stVD.seat_heater_rear_right.value !== null) {
+                //"3"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.seat_heater_rear_right.key}`, parseFloat(stVD.seat_heater_rear_right.value), stVD.seat_heater_rear_right.desc);
+            }
+            if (stVD.third_row_seats.value !== null) {
+                if (stVD.seat_heater_rear_left_back.value !== null) {
+                    //"3"
+                    this.checkAndSetValueNumber(`thermal-state.${stVD.seat_heater_rear_left_back.key}`, parseFloat(stVD.seat_heater_rear_left_back.value), stVD.seat_heater_rear_left_back.desc);
+                }
+                if (stVD.seat_heater_rear_right_back.value !== null) {
+                    //"2"
+                    this.checkAndSetValueNumber(`thermal-state.${stVD.seat_heater_rear_right_back.key}`, parseFloat(stVD.seat_heater_rear_right_back.value), stVD.seat_heater_rear_right_back.desc);
+                }
+            }
+            if (stVD.steering_wheel_heater.value !== null) {
+                //"0"
+                this.checkAndSetValueNumber(`thermal-state.${stVD.steering_wheel_heater.key}`, parseFloat(stVD.steering_wheel_heater.value), stVD.steering_wheel_heater.desc);
+            }
+            //#endregion
             return true;
         }
         catch (error) {

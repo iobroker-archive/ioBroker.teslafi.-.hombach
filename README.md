@@ -47,7 +47,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.3.0 (2024-11-xx) WiP
 
--   (hombach) implement string for time to full charge (#42)
+-   (hombach) implement string for time to finish charge (#42)
+-   (hombach) reorganize data in folders (#43)
+-   (hombach) show 3rd row seat heater only if 3rd row is available (#40)
 
 ### 0.2.1 (2024-11-08)
 
