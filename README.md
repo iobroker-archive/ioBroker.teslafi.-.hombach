@@ -45,7 +45,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.2.1 (2024-11-xx) WiP
+### 0.2.1 (2024-11-08)
 
 -   (hombach) change 'time_to_full_charge' type to number (#38)
 -   (hombach) total rework of vehicle data parser
