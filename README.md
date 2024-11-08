@@ -50,6 +50,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 -   (hombach) implement string for time to finish charge (#42)
 -   (hombach) reorganize data in folders (#43)
 -   (hombach) show 3rd row seat heater only if 3rd row is available (#40)
+-   (hombach) implement 'charging_state' (#37)
 
 ### 0.2.1 (2024-11-08)
 

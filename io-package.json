@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.2.1",
+		"version": "0.3.0",
 		"news": {
+			"0.3.0": {
+				"en": "Implement string for time to finish charge (#42)\nReorganize data in folders (#43)\nShow 3rd row seat heater only if 3rd row is available (#40)\nImplement 'charging_state' (#37)",
+				"de": "Implementiere Zeichenkette für die Zeit bis zum Abschluss des Ladens (#42)\nOrganisiere Daten in Ordnern neu (#43)\nZeige Sitzheizung der dritten Reihe nur an, wenn eine dritte Reihe vorhanden ist (#40)\nImplementiere 'charging_state' (#37)",
+				"ru": "Реализовать строку для времени до завершения зарядки (#42)\nРеорганизовать данные по папкам (#43)\nПоказывать обогрев сидений третьего ряда только если третий ряд доступен (#40)\nРеализовать 'charging_state' (#37)",
+				"pt": "Implementar string para tempo de conclusão da carga (#42)\nReorganizar dados em pastas (#43)\nMostrar aquecedor do assento da 3ª fila apenas se a 3ª fila estiver disponível (#40)\nImplementar 'charging_state' (#37)",
+				"nl": "Implementeer string voor tijd om op te laden (#42)\nHergeorganiseer gegevens in mappen (#43)\nToon stoelverwarming van de derde rij alleen als de derde rij beschikbaar is (#40)\nImplementeer 'charging_state' (#37)",
+				"fr": "Implémenter une chaîne pour le temps restant à charger (#42)\nRéorganiser les données dans des dossiers (#43)\nAfficher le chauffage des sièges de la 3e rangée uniquement si la 3e rangée est disponible (#40)\nImplémenter 'charging_state' (#37)",
+				"it": "Implementa stringa per il tempo di completamento della carica (#42)\nRiorganizza i dati nelle cartelle (#43)\nMostra il riscaldatore del sedile della terza fila solo se la terza fila è disponibile (#40)\nImplementa 'charging_state' (#37)",
+				"es": "Implementar cadena para el tiempo de finalización de la carga (#42)\nReorganizar datos en carpetas (#43)\nMostrar calefacción de asientos de la tercera fila solo si la tercera fila está disponible (#40)\nImplementar 'charging_state' (#37)",
+				"pl": "Wprowadź ciąg znaków dla czasu do zakończenia ładowania (#42)\nZorganizuj dane w folderach (#43)\nPokaż podgrzewanie siedzeń trzeciego rzędu tylko wtedy, gdy trzeci rząd jest dostępny (#40)\nWprowadź 'charging_state' (#37)",
+				"uk": "Реалізувати рядок для часу до завершення зарядки (#42)\nРеорганізувати дані в папках (#43)\nПоказувати обігрів сидінь третього ряду лише якщо третій ряд доступний (#40)\nРеалізувати 'charging_state' (#37)",
+				"zh-cn": "实现充电完成时间的字符串 (#42)\n将数据重新组织到文件夹中 (#43)\n仅在第三排可用时显示第三排座椅加热 (#40)\n实现 'charging_state' (#37)"
+			},
 			"0.2.1": {
 				"en": "Change 'time_to_full_charge' type to number (#38)\nTotal rework of vehicle data parser\nSet speed to 0 if null in API data (#39)",
 				"de": "Ändere den Typ von 'time_to_full_charge' auf Zahl (#38)\nKomplette Überarbeitung des Fahrzeugdatenparsers\nSetze Geschwindigkeit auf 0, wenn in den API-Daten null (#39)",
@@ -80,19 +93,6 @@
 				"pl": "Wprowadzenie do najnowszego repozytorium ioBroker\nZaktualizuj zależności",
 				"uk": "Введення в останнє репозиторій ioBroker\nОновити залежності",
 				"zh-cn": "引入到 ioBroker 最新仓库\n更新依赖项"
-			},
-			"0.1.1": {
-				"en": "Fix npm error",
-				"de": "NPM-Fehler behoben",
-				"ru": "Исправить ошибку npm",
-				"pt": "Corrigir erro npm",
-				"nl": "Los npm-fout op",
-				"fr": "Corriger l'erreur npm",
-				"it": "Correggere l'errore npm",
-				"es": "Corregir error de npm",
-				"pl": "Napraw błąd npm",
-				"uk": "Виправити помилку npm",
-				"zh-cn": "修复 npm 错误"
 			}
 		},
 		"titleLang": {

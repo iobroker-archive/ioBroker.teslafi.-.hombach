@@ -141,6 +141,13 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 //"online"
                 this.checkAndSetValue(`vehicle-state.${stVD.state.key}`, stVD.state.value, stVD.state.desc);
             }
+            if (stVD.charging_state.value !== null) {
+                //"NoPower", "Charging", null
+                this.checkAndSetValue(`vehicle-state.${stVD.charging_state.key}`, stVD.charging_state.value, stVD.charging_state.desc);
+            }
+            else {
+                this.checkAndSetValue(`vehicle-state.${stVD.charging_state.key}`, "Unknown", stVD.charging_state.desc);
+            }
             if (stVD.car_version.value !== null) {
                 //"2024.32.7 3f0d0fff88"
                 this.checkAndSetValue(`vehicle-state.${stVD.car_version.key}`, stVD.car_version.value, stVD.car_version.desc);
