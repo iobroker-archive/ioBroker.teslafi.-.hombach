@@ -21,7 +21,9 @@ const stVD = {
     charge_current_request: { key: `charge_current_request`, desc: `requested charge current by your car`, value: null },
     // charge_enable_request: "1", charge_to_max_range: ""
     charger_phases: { key: `charger_phases`, desc: `current number of charge phases`, value: null },
-    // battery_heater_on: "0", managed_charging_start_time: "", battery_range: "237.17"
+    // battery_heater_on: "0"
+    managed_charging_start_time: { key: `managed_charging_start_time`, desc: `planned managed charging time`, value: null },
+    //battery_range: "237.17"
     charger_power: { key: `charger_power`, desc: `current charge power`, value: null },
     charge_limit_soc: { key: `charge_limit_soc`, desc: `charge limit defined in your Tesla`, value: null },
     // charger_pilot_current: "16", charge_port_latch: "Engaged", battery_current: "", charger_actual_current: "0", scheduled_charging_pending: "0", fast_charger_type: ""
@@ -29,7 +31,7 @@ const stVD = {
     // motorized_charge_port: null, charge_limit_soc_std: null, not_enough_power_to_heat: null
     battery_level: { key: `battery_level`, desc: `battery SoC of your Tesla`, value: null },
     // charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17"
-    // managed_charging_active: ""
+    managed_charging_active: { key: `managed_charging_active`, desc: `managed charging planned`, value: null },
     charging_state: { key: `charging_state`, desc: `charging state of the car`, value: null },
     // fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
     est_battery_range: { key: `est_battery_range`, desc: `estimated battery range`, value: null },
@@ -232,6 +234,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
                 this.checkAndSetValue(`battery-state.time_to_finish_charge`, `---`, stVD.time_to_full_charge.desc);
             }
+            //if (stVD.managed_charging_active.value !== null) {
+            // "1"; ""
+            //if (stVD.managed_charging_start_time.value !== null) {
+            // ""; "1731031200"
             //#endregion
             //#region *** "thermal-state" properties ***
             if (stVD.inside_temp.value !== null) {
