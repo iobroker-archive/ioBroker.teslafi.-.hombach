@@ -256,7 +256,9 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, convertUnixToLocalTime(parseFloat(stVD.scheduled_charging_start_time.value)), stVD.scheduled_charging_start_time.desc);
             }
             else {
-                this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, `---`, stVD.scheduled_charging_start_time.desc);
+                if (stVD.carState.value !== "Sleeping") {
+                    this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, `---`, stVD.scheduled_charging_start_time.desc);
+                }
             }
             //#endregion
             //#region *** "thermal-state" properties ***

@@ -59,7 +59,7 @@
 						"zh-cn": "更新间隔（秒）"
 					},
 					"hidden": "!data.TeslaFiAPIToken",
-					"min": 30,
+					"min": 10,
 					"max": 3600,
 					"step": 1,
 					"default": 60,

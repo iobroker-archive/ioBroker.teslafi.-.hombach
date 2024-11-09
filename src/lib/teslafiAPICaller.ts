@@ -318,7 +318,9 @@ export class TeslaFiAPICaller extends ProjectUtils {
 					stVD.scheduled_charging_start_time.desc,
 				);
 			} else {
-				this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, `---`, stVD.scheduled_charging_start_time.desc);
+				if (stVD.carState.value !== "Sleeping") {
+					this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, `---`, stVD.scheduled_charging_start_time.desc);
+				}
 			}
 			//#endregion
 
