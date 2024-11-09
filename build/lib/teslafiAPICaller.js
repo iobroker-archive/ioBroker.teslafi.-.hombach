@@ -248,7 +248,6 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             }
             if (stVD.scheduled_charging_start_time.value !== null) {
                 // ""; "1731031200"; "1731193200",
-                this.adapter.log.warn(`Managed Charging Start Date: ${stVD.scheduled_charging_start_time.value}  -  as number: ${parseFloat(stVD.scheduled_charging_start_time.value)}`);
                 this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, convertUnixToLocalTime(parseFloat(stVD.scheduled_charging_start_time.value)), stVD.scheduled_charging_start_time.desc);
             }
             else {
