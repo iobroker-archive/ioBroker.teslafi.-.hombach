@@ -306,7 +306,10 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				this.checkAndSetValue(`battery-state.${stVD.managed_charging_active.key}`, ``, stVD.managed_charging_active.desc);
 			}
 			if (stVD.managed_charging_start_time.value !== null) {
-				// ""; "1731031200"
+				// ""; "1731031200"; "1731193200",
+				this.adapter.log.warn(
+					`Managed Charging Date: ${stVD.managed_charging_start_time.value}  -  as number: ${parseFloat(stVD.managed_charging_start_time.value)}`,
+				);
 				this.checkAndSetValue(
 					`battery-state.${stVD.managed_charging_start_time.key}`,
 					convertUnixToLocalTime(parseFloat(stVD.managed_charging_start_time.value)),
