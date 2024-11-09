@@ -48,8 +48,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.4.0 (2024-11-xx) WiP
 
 -   (hombach) implement managed charging time (#29)
+-   (hombach) implement battery range
 -   (hombach) fixed errors in 'time to finish charge'
 -   (hombach) changed min update interval to 10 sec
+-   (hombach) fixed typos
 
 ### 0.3.0 (2024-11-08)
 

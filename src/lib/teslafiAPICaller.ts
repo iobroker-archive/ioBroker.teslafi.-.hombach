@@ -25,7 +25,7 @@ const stVD: Record<string, VehicleData> = {
 	charger_phases: { key: `charger_phases`, desc: `current number of charge phases`, value: null },
 	// battery_heater_on: "0"
 	// managed_charging_start_time: { key: `managed_charging_start_time`, desc: `planned managed charging time`, value: null },
-	//battery_range: "237.17"
+	battery_range: { key: `battery_range`, desc: `current battery range`, value: null },
 	charger_power: { key: `charger_power`, desc: `current charge power`, value: null },
 	charge_limit_soc: { key: `charge_limit_soc`, desc: `charge limit defined in your Tesla`, value: null },
 	// charger_pilot_current: "16", charge_port_latch: "Engaged", battery_current: "", charger_actual_current: "0", scheduled_charging_pending: "0", fast_charger_type: ""
@@ -40,9 +40,9 @@ const stVD: Record<string, VehicleData> = {
 	est_battery_range: { key: `est_battery_range`, desc: `estimated battery range`, value: null },
 	// charge_rate: "0.0", charger_voltage: "1", charge_current_request_max: "16", eu_vehicle: "1", charge_miles_added_ideal: "0.0", charge_limit_soc_min: null, charge_miles_added_rated: "0.0"
 	inside_temp: { key: `inside_temp`, desc: `inside temperature in your Tesla`, value: null },
-	longitude: { key: `longitude`, desc: `Current position longitude of your Tesla`, value: null },
+	longitude: { key: `longitude`, desc: `current positional longitude of your Tesla`, value: null },
 	// heading: "", gps_as_of: null
-	latitude: { key: `latitude`, desc: `Current position latitude of your Tesla`, value: null },
+	latitude: { key: `latitude`, desc: `current positional latitude of your Tesla`, value: null },
 	speed: { key: `speed`, desc: `current driving speed`, value: null },
 	// shift_state: null
 	seat_heater_rear_right: { key: `seat_heater_rear_right`, desc: `level of the right second row seat heater`, value: null },
@@ -228,6 +228,16 @@ export class TeslaFiAPICaller extends ProjectUtils {
 					parseFloat(stVD.usable_battery_level.value),
 					stVD.usable_battery_level.desc,
 					"%",
+				);
+			}
+			if (stVD.battery_range.value !== null) {
+				//"237.17"
+				this.checkAndSetValueNumber(`battery-state.${stVD.battery_range.key}`, parseFloat(stVD.battery_range.value), stVD.battery_range.desc, "mi");
+				this.checkAndSetValueNumber(
+					`battery-state.${stVD.battery_range.key}_km`,
+					Math.round(parseFloat(stVD.battery_range.value) * 160.934) / 100,
+					stVD.battery_range.desc,
+					"km",
 				);
 			}
 			if (stVD.est_battery_range.value !== null) {
