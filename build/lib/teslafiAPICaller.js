@@ -233,7 +233,12 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             if (stVD.time_to_full_charge.value !== null) {
                 //"0.0"
                 this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, parseFloat(stVD.time_to_full_charge.value), stVD.time_to_full_charge.desc, "h");
-                this.checkAndSetValue(`battery-state.time_to_finish_charge`, calculateEndTimeFromNow(parseFloat(stVD.time_to_full_charge.value)), stVD.time_to_full_charge.desc);
+                if (parseFloat(stVD.time_to_full_charge.value) != 0) {
+                    this.checkAndSetValue(`battery-state.time_to_finish_charge`, calculateEndTimeFromNow(parseFloat(stVD.time_to_full_charge.value)), stVD.time_to_full_charge.desc);
+                }
+                else {
+                    this.checkAndSetValue(`battery-state.time_to_finish_charge`, `---`, stVD.time_to_full_charge.desc);
+                }
             }
             else {
                 this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
