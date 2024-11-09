@@ -24,7 +24,7 @@ const stVD: Record<string, VehicleData> = {
 	// charge_enable_request: "1", charge_to_max_range: ""
 	charger_phases: { key: `charger_phases`, desc: `current number of charge phases`, value: null },
 	// battery_heater_on: "0"
-	managed_charging_start_time: { key: `managed_charging_start_time`, desc: `planned managed charging time`, value: null },
+	// managed_charging_start_time: { key: `managed_charging_start_time`, desc: `planned managed charging time`, value: null },
 	//battery_range: "237.17"
 	charger_power: { key: `charger_power`, desc: `current charge power`, value: null },
 	charge_limit_soc: { key: `charge_limit_soc`, desc: `charge limit defined in your Tesla`, value: null },
@@ -35,7 +35,8 @@ const stVD: Record<string, VehicleData> = {
 	// charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17"
 	managed_charging_active: { key: `managed_charging_active`, desc: `managed charging planned`, value: null },
 	charging_state: { key: `charging_state`, desc: `charging state of the car`, value: null },
-	// fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null, scheduled_charging_start_time: null
+	// fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null
+	scheduled_charging_start_time: { key: `scheduled_charging_start_time`, desc: `scheduled charging start time`, value: null },
 	est_battery_range: { key: `est_battery_range`, desc: `estimated battery range`, value: null },
 	// charge_rate: "0.0", charger_voltage: "1", charge_current_request_max: "16", eu_vehicle: "1", charge_miles_added_ideal: "0.0", charge_limit_soc_min: null, charge_miles_added_rated: "0.0"
 	inside_temp: { key: `inside_temp`, desc: `inside temperature in your Tesla`, value: null },
@@ -305,18 +306,18 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			} else {
 				this.checkAndSetValue(`battery-state.${stVD.managed_charging_active.key}`, ``, stVD.managed_charging_active.desc);
 			}
-			if (stVD.managed_charging_start_time.value !== null) {
+			if (stVD.scheduled_charging_start_time.value !== null) {
 				// ""; "1731031200"; "1731193200",
 				this.adapter.log.warn(
-					`Managed Charging Date: ${stVD.managed_charging_start_time.value}  -  as number: ${parseFloat(stVD.managed_charging_start_time.value)}`,
+					`Managed Charging Start Date: ${stVD.scheduled_charging_start_time.value}  -  as number: ${parseFloat(stVD.scheduled_charging_start_time.value)}`,
 				);
 				this.checkAndSetValue(
-					`battery-state.${stVD.managed_charging_start_time.key}`,
-					convertUnixToLocalTime(parseFloat(stVD.managed_charging_start_time.value)),
-					stVD.managed_charging_start_time.desc,
+					`battery-state.${stVD.scheduled_charging_start_time.key}`,
+					convertUnixToLocalTime(parseFloat(stVD.scheduled_charging_start_time.value)),
+					stVD.scheduled_charging_start_time.desc,
 				);
 			} else {
-				this.checkAndSetValue(`battery-state.${stVD.managed_charging_start_time.key}`, `---`, stVD.managed_charging_start_time.desc);
+				this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, `---`, stVD.scheduled_charging_start_time.desc);
 			}
 			//#endregion
 
