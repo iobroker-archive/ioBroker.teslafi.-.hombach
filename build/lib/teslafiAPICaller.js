@@ -31,7 +31,7 @@ const stVD = {
     // motorized_charge_port: null, charge_limit_soc_std: null, not_enough_power_to_heat: null
     battery_level: { key: `battery_level`, desc: `battery SoC of your Tesla`, value: null },
     // charge_energy_added: "0.0", charge_port_door_open: "1", max_range_charge_counter: null, charge_limit_soc_max: null, ideal_battery_range: "237.17"
-    managed_charging_active: { key: `managed_charging_active`, desc: `managed charging planned`, value: null },
+    // managed_charging_active: { key: `managed_charging_active`, desc: `managed charging planned`, value: null },
     charging_state: { key: `charging_state`, desc: `charging state of the car`, value: null },
     // fast_charger_present: "0", trip_charging: "1", managed_charging_user_canceled: null
     scheduled_charging_start_time: { key: `scheduled_charging_start_time`, desc: `scheduled charging start time`, value: null },
@@ -248,13 +248,6 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             else {
                 this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
                 this.checkAndSetValue(`battery-state.time_to_finish_charge`, `---`, stVD.time_to_full_charge.desc);
-            }
-            if (stVD.managed_charging_active.value !== null) {
-                // "1"; ""; null
-                this.checkAndSetValue(`battery-state.${stVD.managed_charging_active.key}`, stVD.managed_charging_active.value, stVD.managed_charging_active.desc);
-            }
-            else {
-                this.checkAndSetValue(`battery-state.${stVD.managed_charging_active.key}`, ``, stVD.managed_charging_active.desc);
             }
             if (stVD.scheduled_charging_start_time.value !== null) {
                 // ""; "1731031200"; "1731193200",
