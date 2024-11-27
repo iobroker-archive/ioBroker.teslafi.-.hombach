@@ -45,6 +45,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.4.1 (2024-11-xx)
+
+-   (hombach) fix typo
+-   (hombach) remove message handler
+
 ### 0.4.0 (2024-11-10)
 
 -   (hombach) implement managed charging time (#29)

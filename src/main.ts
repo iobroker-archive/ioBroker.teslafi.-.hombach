@@ -13,7 +13,7 @@ class TeslaFi extends utils.Adapter {
 		this.on("ready", this.onReady.bind(this));
 		this.on("stateChange", this.onStateChange.bind(this));
 		// this.on("objectChange", this.onObjectChange.bind(this));
-		this.on("message", this.onMessage.bind(this));
+		// this.on("message", this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 		this.intervalList = [];
 	}
@@ -41,7 +41,7 @@ class TeslaFi extends utils.Adapter {
 					this.restart();
 				}
 			} catch (error) {
-				this.log.error(teslaFiAPICaller.generateErrorMessage(error, `pull of homes from Tibber-Server`));
+				this.log.error(teslaFiAPICaller.generateErrorMessage(error, `pull of data from TeslaFi-Server`));
 			}
 
 			// sentry.io ping
@@ -70,26 +70,6 @@ class TeslaFi extends utils.Adapter {
 				this.log.debug(`Interval job VehicleData - Result: ${await teslaFiAPICaller.ReadTeslaFi()}`);
 			}, this.config.UpdateInterval * 1000);
 			this.intervalList.push(jobVehicleData);
-		}
-	}
-
-	/**
-	 * Is called from adapter config screen
-	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	private onMessage(obj: any): void {
-		if (obj) {
-			switch (obj.command) {
-				case "WiP":
-					if (obj.callback) {
-						try {
-							this.log.warn("onMessage called");
-						} catch {
-							this.sendTo(obj.from, obj.command, [{ label: "None available", value: "None available" }], obj.callback);
-						}
-					}
-					break;
-			}
 		}
 	}
 
