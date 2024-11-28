@@ -1,83 +1,78 @@
 {
-  "name": "iobroker.teslafi",
-  "version": "0.4.1",
-  "description": "Adapter to poll TeslaFi data of your car",
-  "author": {
-    "name": "Hombach",
-    "email": "TeslaFi@homba.ch"
-  },
-  "homepage": "https://github.com/hombach/ioBroker.teslafi",
-  "license": "MIT",
-  "keywords": [
-    "ioBroker",
-    "TeslaFi",
-    "Tesla",
-    "EV",
-    "Car"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hombach/ioBroker.teslafi.git"
-  },
-  "engines": {
-    "node": ">= 18.18"
-  },
-  "dependencies": {
-    "@iobroker/adapter-core": "^3.2.2",
-    "axios": "^1.7.7",
-    "cron": "^3.2.1",
-    "date-fns": "^4.1.0"
-  },
-  "devDependencies": {
-    "@alcalzone/pak": "^0.11.0",
-    "@eslint/eslintrc": "^3.2.0",
-    "@iobroker/eslint-config": "^1.0.0",
-    "@iobroker/testing": "^5.0.0",
-    "@iobroker/types": "^6.0.11",
-    "@types/chai": "^4.3.11",
-    "@types/chai-as-promised": "^7.1.8",
-    "@types/eslint__eslintrc": "^2.1.2",
-    "@types/eslint__js": "^8.42.3",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^22.10.0",
-    "@types/proxyquire": "^1.3.31",
-    "@types/sinon": "^17.0.3",
-    "@types/sinon-chai": "^3.2.12",
-    "@typescript-eslint/eslint-plugin": "^8.16.0",
-    "@typescript-eslint/parser": "^8.15.0",
-    "chai": "^4.5.0",
-    "chai-as-promised": "^7.1.2",
-    "mocha": "^10.8.2",
-    "proxyquire": "^2.1.3",
-    "sinon": "^19.0.2",
-    "sinon-chai": "^3.7.0",
-    "ts-node": "^10.9.2",
-    "typescript": "~5.7.2"
-  },
-  "main": "build/main.js",
-  "files": [
-    "admin/",
-    "build/",
-    "docu/",
-    "lib/",
-    "io-package.json",
-    "LICENSE"
-  ],
-  "scripts": {
-    "build:ts": "tsc -p tsconfig.build.json",
-    "build": "npm run build:ts",
-    "watch:ts": "tsc -p tsconfig.build.json --watch",
-    "watch": "npm run watch:ts",
-    "test:ts": "mocha --config test/mocharc.custom.json src/**/*.test.ts",
-    "test:package": "mocha test/package --exit",
-    "test:integration": "mocha test/integration --exit",
-    "test": "npm run test:ts && npm run test:package",
-    "check": "tsc --noEmit",
-    "lint": "eslint -c eslint.config.mjs .",
-    "lintdebug": "eslint --debug -c eslint.config.mjs . | more"
-  },
-  "bugs": {
-    "url": "https://github.com/Hombach/ioBroker.teslafi/issues"
-  },
-  "readmeFilename": "README.md"
+	"name": "iobroker.teslafi",
+	"version": "0.4.1",
+	"description": "Adapter to poll TeslaFi data of your car",
+	"author": {
+		"name": "Hombach",
+		"email": "TeslaFi@homba.ch"
+	},
+	"homepage": "https://github.com/hombach/ioBroker.teslafi",
+	"license": "MIT",
+	"keywords": [
+		"ioBroker",
+		"TeslaFi",
+		"Tesla",
+		"EV",
+		"Car"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hombach/ioBroker.teslafi.git"
+	},
+	"engines": {
+		"node": ">= 18.18"
+	},
+	"dependencies": {
+		"@iobroker/adapter-core": "^3.2.2",
+		"axios": "^1.7.7",
+		"cron": "^3.2.1",
+		"date-fns": "^4.1.0"
+	},
+	"devDependencies": {
+		"@alcalzone/pak": "^0.11.0",
+		"@iobroker/eslint-config": "^1.0.0",
+		"@iobroker/testing": "^5.0.0",
+		"@iobroker/types": "^6.0.11",
+		"@types/chai": "^4.3.11",
+		"@types/chai-as-promised": "^7.1.8",
+		"@types/mocha": "^10.0.10",
+		"@types/node": "^22.10.0",
+		"@types/proxyquire": "^1.3.31",
+		"@types/sinon": "^17.0.3",
+		"@types/sinon-chai": "^3.2.12",
+		"chai": "^4.5.0",
+		"chai-as-promised": "^7.1.2",
+		"mocha": "^10.8.2",
+		"proxyquire": "^2.1.3",
+		"sinon": "^19.0.2",
+		"sinon-chai": "^3.7.0",
+		"ts-node": "^10.9.2",
+		"typescript": "~5.7.2"
+	},
+	"main": "build/main.js",
+	"files": [
+		"admin/",
+		"build/",
+		"docu/",
+		"lib/",
+		"io-package.json",
+		"LICENSE"
+	],
+	"scripts": {
+		"build:ts": "tsc -p tsconfig.build.json",
+		"build": "npm run build:ts",
+		"watch:ts": "tsc -p tsconfig.build.json --watch",
+		"watch": "npm run watch:ts",
+		"test:ts": "mocha --config test/mocharc.custom.json src/**/*.test.ts",
+		"test:package": "mocha test/package --exit",
+		"test:integration": "mocha test/integration --exit",
+		"test": "npm run test:ts && npm run test:package",
+		"check": "tsc --noEmit",
+		"lint": "eslint -c eslint.config.mjs .",
+		"lintdebug": "eslint --debug -c eslint.config.mjs . | more"
+	},
+	"bugs": {
+		"url": "https://github.com/Hombach/ioBroker.teslafi/issues"
+	},
+	"readmeFilename": "README.md"
 }
