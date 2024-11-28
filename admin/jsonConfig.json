@@ -60,7 +60,7 @@
 					},
 					"hidden": "!data.TeslaFiAPIToken",
 					"min": 10,
-					"max": 3600,
+					"max": 86400,
 					"step": 1,
 					"default": 60,
 					"xs": 12,

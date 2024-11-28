@@ -3,6 +3,10 @@ import axios, { AxiosError } from "axios";
 import { add, format, fromUnixTime } from "date-fns";
 import { ProjectUtils } from "./projectUtils";
 
+const axiosInstance = axios.create({
+	timeout: 5000, // Standard-Timeout von 5 Sekunden
+});
+
 interface VehicleData {
 	key: string; // the key user in API-JSON
 	desc: string; // description for ioBroker state
@@ -79,16 +83,6 @@ const stVD: Record<string, VehicleData> = {
 	// tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0"
 };
 
-/*
-function resolveAfterXSeconds(x: number) {
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			resolve(x);
-		}, x * 1000);
-	});
-}
-*/
-
 function convertUnixToLocalTime(unixTimestamp: number, dateFormat = "dd.MM.yyyy HH:mm:ss"): string {
 	const date = fromUnixTime(unixTimestamp);
 	return format(date, dateFormat);
@@ -111,7 +105,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 	 * ReadTeslaFi **************************************************************************/
 	async ReadTeslaFi(): Promise<boolean> {
 		try {
-			const response = await axios.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
+			const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
 				transformResponse: (r) => r,
 			});
 

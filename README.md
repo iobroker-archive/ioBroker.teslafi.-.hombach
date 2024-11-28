@@ -47,6 +47,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.4.1 (2024-11-xx)
 
+-   (hombach) add axios timeout
+-   (hombach) optimized code stability
 -   (hombach) fix typo
 -   (hombach) remove message handler
 

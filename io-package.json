@@ -1,8 +1,11 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.4.0",
+		"version": "0.4.1",
 		"news": {
+			"0.4.1": {
+				"en": "WIP"
+			},
 			"0.4.0": {
 				"en": "Implement managed charging time (#29)\nImplement battery range\nFixed errors in 'time to finish charge'\nChanged min update interval to 10 sec\nFixed typos",
 				"de": "Implementiere verwaltete Ladezeit (#29)\nImplementiere Batteriereichweite\nKorrigierte Fehler in 'Zeit bis zum Abschluss des Ladens'\nMinimales Aktualisierungsintervall auf 10 Sekunden geändert\nRechtschreibfehler behoben",
@@ -67,19 +70,6 @@
 				"pl": "Ujednolicenie narzędzi projektu\nUsunięto zduplikowane teksty w nazwach stanów",
 				"uk": "Уніфікація інструментів проекту\nВилучено дубльовані тексти в назвах станів",
 				"zh-cn": "协调项目工具\n删除状态名称中的重复文本"
-			},
-			"0.1.4": {
-				"en": "Fix conversion error",
-				"de": "Fehler bei der Umwandlung beheben",
-				"ru": "Исправить ошибку преобразования",
-				"pt": "Corrigir erro de conversão",
-				"nl": "Fout in conversie oplossen",
-				"fr": "Correction de l'erreur de conversion",
-				"it": "Correggi errore di conversione",
-				"es": "Corregir error de conversión",
-				"pl": "Napraw błąd konwersji",
-				"uk": "Виправити помилку перетворення",
-				"zh-cn": "修复转换错误"
 			},
 			"0.1.2": {
 				"en": "Introduce to ioBroker latest repo\nBump dependencies",

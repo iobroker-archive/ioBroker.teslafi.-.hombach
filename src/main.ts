@@ -66,12 +66,19 @@ class TeslaFi extends utils.Adapter {
 			}
 
 			// Init Interval job
-			const jobVehicleData = setInterval(async () => {
-				this.log.debug(`Interval job VehicleData - Result: ${await teslaFiAPICaller.ReadTeslaFi()}`);
-			}, this.config.UpdateInterval * 1000);
+			const jobVehicleData = setInterval(
+				async () => {
+					this.log.debug(`Interval job VehicleData - Result: ${await teslaFiAPICaller.ReadTeslaFi()}`);
+				},
+				Math.min(this.config.UpdateInterval, 86400) * 1000,
+			);
 			this.intervalList.push(jobVehicleData);
 		}
 	}
+
+	MAX_INTERVAL_MS = 24 * 60 * 60 * 1000; // 1 Tag in Millisekunden
+
+	intervalMs = Math.min(this.config.UpdateInterval * 1000, MAX_INTERVAL_MS);
 
 	/**
 	 * Is called when adapter shuts down - callback has to be called under any circumstances!
