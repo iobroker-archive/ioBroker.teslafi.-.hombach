@@ -45,7 +45,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.4.1 (2024-11-xx)
+### 0.4.1 (2024-11-28)
 
 - (hombach) intruduce 'iobroker/eslint-config' (#67)
 - (hombach) add axios timeout
