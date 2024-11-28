@@ -76,10 +76,6 @@ class TeslaFi extends utils.Adapter {
 		}
 	}
 
-	MAX_INTERVAL_MS = 24 * 60 * 60 * 1000; // 1 Tag in Millisekunden
-
-	intervalMs = Math.min(this.config.UpdateInterval * 1000, MAX_INTERVAL_MS);
-
 	/**
 	 * Is called when adapter shuts down - callback has to be called under any circumstances!
 	 */

@@ -101,7 +101,7 @@ class TeslaFi extends utils.Adapter {
             // Init Interval job
             const jobVehicleData = setInterval(async () => {
                 this.log.debug(`Interval job VehicleData - Result: ${await teslaFiAPICaller.ReadTeslaFi()}`);
-            }, this.config.UpdateInterval * 1000);
+            }, Math.min(this.config.UpdateInterval, 86400) * 1000);
             this.intervalList.push(jobVehicleData);
         }
     }

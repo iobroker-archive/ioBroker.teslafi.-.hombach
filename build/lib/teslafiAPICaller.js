@@ -7,6 +7,9 @@ exports.TeslaFiAPICaller = void 0;
 const axios_1 = __importDefault(require("axios"));
 const date_fns_1 = require("date-fns");
 const projectUtils_1 = require("./projectUtils");
+const axiosInstance = axios_1.default.create({
+    timeout: 5000, // Standard-Timeout von 5 Sekunden
+});
 // structure of vehicle data
 const stVD = {
     Date: { key: `Date`, desc: `Last connection to your Tesla`, value: null },
@@ -76,15 +79,6 @@ const stVD = {
     // newVersionStatus: "", allow_cabin_overheat_protection: "1", cabin_overheat_protection: "FanOnly", cabin_overheat_protection_actively_cooling: "", cop_activation_temperature: null, pressure: null,
     // tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0"
 };
-/*
-function resolveAfterXSeconds(x: number) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(x);
-        }, x * 1000);
-    });
-}
-*/
 function convertUnixToLocalTime(unixTimestamp, dateFormat = "dd.MM.yyyy HH:mm:ss") {
     const date = (0, date_fns_1.fromUnixTime)(unixTimestamp);
     return (0, date_fns_1.format)(date, dateFormat);
@@ -104,7 +98,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
      * ReadTeslaFi **************************************************************************/
     async ReadTeslaFi() {
         try {
-            const response = await axios_1.default.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
+            const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
                 transformResponse: (r) => r,
             });
             if (!response.data) {
