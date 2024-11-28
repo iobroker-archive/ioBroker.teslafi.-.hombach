@@ -47,70 +47,71 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.4.1 (2024-11-xx)
 
--   (hombach) add axios timeout
--   (hombach) optimized code stability
--   (hombach) fix typo
--   (hombach) remove message handler
+- (hombach) intruduce 'iobroker/eslint-config' (#67)
+- (hombach) add axios timeout
+- (hombach) optimized code stability
+- (hombach) fix typo
+- (hombach) remove message handler
 
 ### 0.4.0 (2024-11-10)
 
--   (hombach) implement managed charging time (#29)
--   (hombach) implement battery range
--   (hombach) fixed errors in 'time to finish charge'
--   (hombach) changed min update interval to 10 sec
--   (hombach) fixed typos
+- (hombach) implement managed charging time (#29)
+- (hombach) implement battery range
+- (hombach) fixed errors in 'time to finish charge'
+- (hombach) changed min update interval to 10 sec
+- (hombach) fixed typos
 
 ### 0.3.0 (2024-11-08)
 
--   (hombach) implement string for time to finish charge (#42)
--   (hombach) reorganize data in folders (#43)
--   (hombach) show 3rd row seat heater only if 3rd row is available (#40)
--   (hombach) implement 'charging_state' (#37)
+- (hombach) implement string for time to finish charge (#42)
+- (hombach) reorganize data in folders (#43)
+- (hombach) show 3rd row seat heater only if 3rd row is available (#40)
+- (hombach) implement 'charging_state' (#37)
 
 ### 0.2.1 (2024-11-08)
 
--   (hombach) change 'time_to_full_charge' type to number (#38)
--   (hombach) total rework of vehicle data parser
--   (hombach) set speed to 0 if null in API data (#39)
+- (hombach) change 'time_to_full_charge' type to number (#38)
+- (hombach) total rework of vehicle data parser
+- (hombach) set speed to 0 if null in API data (#39)
 
 ### 0.2.0 (2024-11-07)
 
--   (hombach) implement raw data state (#26)
--   (hombach) implement charger_phases (#28)
--   (hombach) implement driver_temp_setting (#31)
--   (hombach) implement seat and steeringwheel heater states (#30)
+- (hombach) implement raw data state (#26)
+- (hombach) implement charger_phases (#28)
+- (hombach) implement driver_temp_setting (#31)
+- (hombach) implement seat and steeringwheel heater states (#30)
 
 ### 0.1.5 (2024-11-06)
 
--   (hombach) harmonize project tools
--   (hombach) removed doubled texts in state names
+- (hombach) harmonize project tools
+- (hombach) removed doubled texts in state names
 
 ### 0.1.4 (2024-11-01)
 
--   (hombach) fix conversion error
+- (hombach) fix conversion error
 
 ### 0.1.3 (2024-10-30)
 
--   (hombach) fix typo in error text
--   (hombach) optimize responsive design
--   (hombach) bump dependencies
+- (hombach) fix typo in error text
+- (hombach) optimize responsive design
+- (hombach) bump dependencies
 
 ### 0.1.2 (2024-10-28)
 
--   (hombach) introduce to ioBroker latest repo
--   (hombach) bump dependencies
+- (hombach) introduce to ioBroker latest repo
+- (hombach) bump dependencies
 
 ### 0.1.1 (2024-10-26)
 
--   (hombach) fix npm error
+- (hombach) fix npm error
 
 ### 0.1.0 (2024-10-26)
 
--   (hombach) first working version
+- (hombach) first working version
 
 ### 0.0.1 (2024-10-24)
 
--   (hombach) initial release
+- (hombach) initial release
 
 ## License
 

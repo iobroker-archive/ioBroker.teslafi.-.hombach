@@ -220,7 +220,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
     async ReadTeslaFi() {
         try {
             const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
-                transformResponse: (r) => r,
+                transformResponse: r => r,
             });
             if (!response.data) {
                 throw new Error(`Empty answer from TeslaFi.`);
@@ -466,8 +466,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         else {
             this.adapter.log.error(`Unknown error when calling ${sOccasion}: ${stError.message}`);
             this.adapter.log.error(`Please verify the API Token or adapt your poll interval, (e${sErrorOccInt}.3)`);
-            if (this.adapter.supportsFeature &&
-                this.adapter.supportsFeature("PLUGINS")) {
+            if (this.adapter.supportsFeature && this.adapter.supportsFeature("PLUGINS")) {
                 // send Sentry error
                 const sentryInstance = this.adapter.getPluginInstance("sentry");
                 if (sentryInstance) {

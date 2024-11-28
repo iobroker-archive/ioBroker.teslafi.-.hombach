@@ -4,7 +4,17 @@
 		"version": "0.4.1",
 		"news": {
 			"0.4.1": {
-				"en": "WIP"
+				"en": "Introduce 'iobroker/eslint-config' (#67), add axios timeout, optimize code stability, fix typo, remove message handler",
+				"de": "'iobroker/eslint-config' einführen (#67), Axios-Timeout hinzufügen, Code-Stabilität optimieren, Tippfehler beheben, Nachrichten-Handler entfernen",
+				"ru": "Внедрение 'iobroker/eslint-config' (#67), добавление таймаута Axios, оптимизация стабильности кода, исправление опечатки, удаление обработчика сообщений",
+				"pt": "Introduzir 'iobroker/eslint-config' (#67), adicionar timeout do Axios, otimizar a estabilidade do código, corrigir erro de digitação, remover manipulador de mensagens",
+				"nl": "'iobroker/eslint-config' introduceren (#67), Axios-timeout toevoegen, code stabiliteit optimaliseren, typefout corrigeren, berichtverwerker verwijderen",
+				"fr": "Introduction de 'iobroker/eslint-config' (#67), ajout d'un délai d'attente Axios, optimisation de la stabilité du code, correction d'une faute de frappe, suppression du gestionnaire de messages",
+				"it": "Introdurre 'iobroker/eslint-config' (#67), aggiungere timeout Axios, ottimizzare la stabilità del codice, correggere un errore di battitura, rimuovere il gestore dei messaggi",
+				"es": "Introducir 'iobroker/eslint-config' (#67), añadir timeout de Axios, optimizar la estabilidad del código, corregir un error tipográfico, eliminar el manejador de mensajes",
+				"pl": "Wprowadzenie 'iobroker/eslint-config' (#67), dodanie limitu czasu Axios, optymalizacja stabilności kodu, poprawienie literówki, usunięcie obsługi komunikatów",
+				"uk": "Впровадження 'iobroker/eslint-config' (#67), додання тайм-ауту Axios, оптимізація стабільності коду, виправлення помилки друку, видалення обробника повідомлень",
+				"zh-cn": "引入 'iobroker/eslint-config' (#67)，添加 Axios 超时，优化代码稳定性，修复错别字，移除消息处理程序"
 			},
 			"0.4.0": {
 				"en": "Implement managed charging time (#29)\nImplement battery range\nFixed errors in 'time to finish charge'\nChanged min update interval to 10 sec\nFixed typos",

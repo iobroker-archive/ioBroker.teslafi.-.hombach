@@ -145,32 +145,32 @@ class TeslaFi extends utils.Adapter {
                         const settingType = statePath[6];
                         if (!isNaN(calcChannel) && settingType !== undefined) {
                             /*
-                                          switch (settingType) {
-                                              case "Active":
-                                                  // Update .chActive based on state.val if it's a boolean
-                                                  if (typeof state.val === "boolean") {
-                                                  } else {
-                                                      this.log.warn(`Wrong type for channel: ${calcChannel} - chActive: ${state.val}`);
-                                                  }
-                                                  break;
-                                              case "AmountHours":
-                                                  // Update .chAmountHours based on state.val if it's a number
-                                                  if (typeof state.val === "number") {
-                                                  } else {
-                                                      this.log.warn(`Wrong type for channel: ${calcChannel} - chAmountHours: ${state.val}`);
-                                                  }
-                                                  break;
-                                              case "StartTime":
-                                                  // Update .chStartTime based on state.val if it's a datetime
-                                                  if (typeof state.val === "string") {
-                                                  } else {
-                                                      this.log.warn(`Wrong type for channel: ${calcChannel} - chStartTime: ${state.val}`);
-                                                  }
-                                                  break;
-                                              default:
-                                                  this.log.debug(`unknown value for setting type: ${settingType}`);
-                                          }
-                                          */
+                            switch (settingType) {
+                                case "Active":
+                                    // Update .chActive based on state.val if it's a boolean
+                                    if (typeof state.val === "boolean") {
+                                    } else {
+                                        this.log.warn(`Wrong type for channel: ${calcChannel} - chActive: ${state.val}`);
+                                    }
+                                    break;
+                                case "AmountHours":
+                                    // Update .chAmountHours based on state.val if it's a number
+                                    if (typeof state.val === "number") {
+                                    } else {
+                                        this.log.warn(`Wrong type for channel: ${calcChannel} - chAmountHours: ${state.val}`);
+                                    }
+                                    break;
+                                case "StartTime":
+                                    // Update .chStartTime based on state.val if it's a datetime
+                                    if (typeof state.val === "string") {
+                                    } else {
+                                        this.log.warn(`Wrong type for channel: ${calcChannel} - chStartTime: ${state.val}`);
+                                    }
+                                    break;
+                                default:
+                                    this.log.debug(`unknown value for setting type: ${settingType}`);
+                            }
+                            */
                         }
                     }
                 }
