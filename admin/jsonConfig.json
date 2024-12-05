@@ -11,19 +11,7 @@
 			"items": {
 				"TeslaFiAPIToken": {
 					"type": "text",
-					"label": {
-						"en": "Token for TeslaFi API",
-						"de": "Token für TeslaFi API",
-						"ru": "Токен для TeslaFi API",
-						"pt": "Token para a API TeslaFi",
-						"nl": "Token voor TeslaFi API",
-						"fr": "Token pour l'API TeslaFi",
-						"it": "Token per l'API di TeslaFi",
-						"es": "Token para la API de TeslaFi",
-						"pl": "Token do API TeslaFi",
-						"uk": "Токен для API TeslaFi",
-						"zh-cn": "TeslaFi API 的令牌"
-					},
+					"label": "LBL_TeslaFiAPIToken",
 					"maxLength": 100,
 					"xs": 12,
 					"sm": 12,
@@ -34,19 +22,7 @@
 				},
 				"UpdateInterval": {
 					"type": "number",
-					"label": {
-						"en": "Update interval in seconds",
-						"de": "Aktualisierungsintervall in Sekunden",
-						"ru": "Интервал обновления в секундах",
-						"pt": "Intervalo de atualização em segundos",
-						"nl": "Update-interval in seconden",
-						"fr": "Intervalle de mise à jour en secondes",
-						"it": "Intervallo di aggiornamento in secondi",
-						"es": "Intervalo de actualización en segundos",
-						"pl": "Interwał aktualizacji w sekundach",
-						"uk": "Інтервал оновлення у секундах",
-						"zh-cn": "更新间隔（秒）"
-					},
+					"label": "LBL_UpdateInterval",
 					"hidden": "!data.TeslaFiAPIToken",
 					"min": 10,
 					"max": 86400,
@@ -76,19 +52,7 @@
 					"button": true,
 					"variant": "contained",
 					"icon": "info",
-					"label": {
-						"en": "Show adapter documentation",
-						"de": "Adapter-Dokumentation anzeigen",
-						"ru": "Показать документацию по адаптеру",
-						"pt": "Mostrar documentação do adaptador",
-						"nl": "Toon adapterdocumentatie",
-						"fr": "Afficher la documentation de l'adaptateur",
-						"it": "Mostra la documentazione dell'adattatore",
-						"es": "Mostrar la documentación del adaptador",
-						"pl": "Pokaż dokumentację adaptera",
-						"uk": "Показати документацію адаптера",
-						"zh-cn": "显示适配器文档"
-					},
+					"label": "LBL_helpLink",
 					"href": "https://github.com/hombach/ioBroker.teslafi/blob/master/README.md",
 					"newLine": true,
 					"xs": 12,
@@ -119,19 +83,7 @@
 				},
 				"_donateTx": {
 					"type": "staticText",
-					"text": {
-						"en": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",
-						"de": "Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach großzügig sind, überlegen Sie, mir ein Bier zu spendieren. Prost! 🍻",
-						"ru": "Если вам понравился этот проект — или вы просто чувствуете себя щедрым, подумайте о том, чтобы купить мне пиво. Ура! 🍻",
-						"pt": "Se você gostou deste projeto - ou está se sentindo generoso, considere me comprar uma cerveja. Saúde! 🍻",
-						"nl": "Als je genoten hebt van dit project — of gewoon gul bent, overweeg dan om me een biertje te kopen. Proost! 🍻",
-						"fr": "Si vous avez apprécié ce projet — ou si vous vous sentez généreux, envisagez de m'acheter une bière. Santé! 🍻",
-						"it": "Se ti è piaciuto questo progetto — o se ti senti generoso, considera di offrirmi una birra. Salute! 🍻",
-						"es": "Si disfrutaste de este proyecto — o simplemente te sientes generoso, considera comprarme una cerveza. ¡Salud! 🍻",
-						"pl": "Jeśli spodobał ci się ten projekt — lub po prostu czujesz się hojny, rozważ kupienie mi piwa. Na zdrowie! 🍻",
-						"uk": "Якщо вам сподобався цей проект — або ви просто хочете зробити приємне, подумайте про те, щоб купити мені пиво. Ура! 🍻",
-						"zh-cn": "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！🍻"
-					},
+					"text": "TXT_donateTx",
 					"xs": 12,
 					"sm": 12,
 					"md": 12,

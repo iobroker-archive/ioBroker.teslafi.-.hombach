@@ -1,3 +1,7 @@
 {
-	"LBL_StandardTab": "Standard Settings"
+	"LBL_StandardTab": "Standard Settings",
+	"LBL_TeslaFiAPIToken": "Token for TeslaFi API",
+	"LBL_UpdateInterval": "Update interval in seconds",
+	"LBL_helpLink": "Show adapter documentation",
+	"TXT_donateTx": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻"
 }
