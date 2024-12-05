@@ -47,7 +47,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.4.2 (2024-12-06)
 
-- (hombach) WiP intruduce i18n for translations (#41)
+- (hombach) intruduce i18n for translations (#41)
 
 ### 0.4.1 (2024-11-28)
 
