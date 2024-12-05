@@ -45,6 +45,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.4.2 (2024-12-xx) WiP
+
+- (hombach) WiP intruduce i18n for translations (#41)
+
 ### 0.4.1 (2024-11-28)
 
 - (hombach) intruduce 'iobroker/eslint-config' (#67)
