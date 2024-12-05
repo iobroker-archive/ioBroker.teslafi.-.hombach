@@ -45,7 +45,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.4.2 (2024-12-xx) WiP
+### 0.4.2 (2024-12-06)
 
 - (hombach) WiP intruduce i18n for translations (#41)
 
