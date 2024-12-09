@@ -3,7 +3,7 @@ import * as utils from "@iobroker/adapter-core";
 import { TeslaFiAPICaller } from "./lib/teslafiAPICaller";
 
 class TeslaFi extends utils.Adapter {
-	intervalList: NodeJS.Timeout[];
+	intervalList: ioBroker.Interval[];
 
 	public constructor(options: Partial<utils.AdapterOptions> = {}) {
 		super({
@@ -68,11 +68,11 @@ class TeslaFi extends utils.Adapter {
 			}
 
 			// Init Interval job
-			const jobVehicleData = setInterval(
+			const jobVehicleData = this.setInterval(
 				async () => {
 					this.log.debug(`Interval job VehicleData - Result: ${await teslaFiAPICaller.ReadTeslaFi()}`);
 				},
-				Math.min(this.config.UpdateInterval, 86400) * 1000,
+				Math.min(Math.max(this.config.UpdateInterval, 10), 86400) * 1000,
 			);
 			this.intervalList.push(jobVehicleData);
 		}
@@ -87,7 +87,7 @@ class TeslaFi extends utils.Adapter {
 		try {
 			// Here you must clear all timeouts or intervals that may still be active
 			for (const intervalJob of this.intervalList) {
-				clearInterval(intervalJob);
+				this.clearInterval(intervalJob);
 			}
 			void this.setState("info.connection", false, true);
 			callback();

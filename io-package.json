@@ -1,221 +1,208 @@
 {
-    "common": {
-        "name": "teslafi",
-        "version": "0.4.2",
-        "news": {
-            "0.4.2": {
-                "en": "Intruduce i18n for translations (#41)",
-                "de": "i18n für Übersetzungen einführen (#41)",
-                "ru": "Воспользуйтесь i18n для перевода (#41)",
-                "pt": "Apresente i18n para traduções (#41)",
-                "nl": "Introduceer i18n voor vertalingen (#41)",
-                "fr": "Introduire i18n pour les traductions (#41)",
-                "it": "Introduci i18n per le traduzioni (#41)",
-                "es": "Introduce i18n para traducciones (#41)",
-                "pl": "Wprowadź i18n do tłumaczeń (#41)",
-                "uk": "Ввести i18n для перекладів (#41)",
-                "zh-cn": "引入 i18n 进行翻译 (#41)"
-            },
-            "0.4.1": {
-                "en": "Introduce 'iobroker/eslint-config' (#67), add axios timeout, optimize code stability, fix typo, remove message handler",
-                "de": "'iobroker/eslint-config' einführen (#67), Axios-Timeout hinzufügen, Code-Stabilität optimieren, Tippfehler beheben, Nachrichten-Handler entfernen",
-                "ru": "Внедрение 'iobroker/eslint-config' (#67), добавление таймаута Axios, оптимизация стабильности кода, исправление опечатки, удаление обработчика сообщений",
-                "pt": "Introduzir 'iobroker/eslint-config' (#67), adicionar timeout do Axios, otimizar a estabilidade do código, corrigir erro de digitação, remover manipulador de mensagens",
-                "nl": "'iobroker/eslint-config' introduceren (#67), Axios-timeout toevoegen, code stabiliteit optimaliseren, typefout corrigeren, berichtverwerker verwijderen",
-                "fr": "Introduction de 'iobroker/eslint-config' (#67), ajout d'un délai d'attente Axios, optimisation de la stabilité du code, correction d'une faute de frappe, suppression du gestionnaire de messages",
-                "it": "Introdurre 'iobroker/eslint-config' (#67), aggiungere timeout Axios, ottimizzare la stabilità del codice, correggere un errore di battitura, rimuovere il gestore dei messaggi",
-                "es": "Introducir 'iobroker/eslint-config' (#67), añadir timeout de Axios, optimizar la estabilidad del código, corregir un error tipográfico, eliminar el manejador de mensajes",
-                "pl": "Wprowadzenie 'iobroker/eslint-config' (#67), dodanie limitu czasu Axios, optymalizacja stabilności kodu, poprawienie literówki, usunięcie obsługi komunikatów",
-                "uk": "Впровадження 'iobroker/eslint-config' (#67), додання тайм-ауту Axios, оптимізація стабільності коду, виправлення помилки друку, видалення обробника повідомлень",
-                "zh-cn": "引入 'iobroker/eslint-config' (#67)，添加 Axios 超时，优化代码稳定性，修复错别字，移除消息处理程序"
-            },
-            "0.4.0": {
-                "en": "Implement managed charging time (#29)\nImplement battery range\nFixed errors in 'time to finish charge'\nChanged min update interval to 10 sec\nFixed typos",
-                "de": "Implementiere verwaltete Ladezeit (#29)\nImplementiere Batteriereichweite\nKorrigierte Fehler in 'Zeit bis zum Abschluss des Ladens'\nMinimales Aktualisierungsintervall auf 10 Sekunden geändert\nRechtschreibfehler behoben",
-                "ru": "Реализовать управляемое время зарядки (#29)\nРеализовать диапазон батареи\nИсправлены ошибки в 'время до завершения зарядки'\nИзменен минимальный интервал обновления на 10 секунд\nИсправлены опечатки",
-                "pt": "Implementar tempo de carregamento gerenciado (#29)\nImplementar alcance da bateria\nCorrigidos erros em 'tempo para terminar carga'\nAlterado intervalo mínimo de atualização para 10 seg\nCorrigidos erros de digitação",
-                "nl": "Beheer laadduur geïmplementeerd (#29)\nBatterijbereik geïmplementeerd\nFouten in 'tijd tot volledige lading' hersteld\nMinimale update-interval gewijzigd naar 10 sec\nTypfouten gecorrigeerd",
-                "fr": "Implémenter le temps de charge géré (#29)\nImplémenter l'autonomie de la batterie\nCorrigé les erreurs dans 'temps pour terminer la charge'\nIntervalle minimum de mise à jour changé à 10 secondes\nCorrigé des fautes de frappe",
-                "it": "Implementa tempo di ricarica gestito (#29)\nImplementa autonomia della batteria\nCorrezione degli errori in 'tempo per terminare la carica'\nModificato intervallo minimo di aggiornamento a 10 sec\nCorrezione di errori di battitura",
-                "es": "Implementar tiempo de carga gestionado (#29)\nImplementar rango de batería\nCorregidos errores en 'tiempo para finalizar la carga'\nCambiado el intervalo mínimo de actualización a 10 segundos\nCorregidos errores tipográficos",
-                "pl": "Wdrożenie zarządzanego czasu ładowania (#29)\nWdrożenie zasięgu baterii\nNaprawiono błędy w 'czas do zakończenia ładowania'\nZmieniono minimalny interwał aktualizacji na 10 sekund\nNaprawiono literówki",
-                "uk": "Реалізовано керований час зарядки (#29)\nРеалізовано діапазон батареї\nВиправлено помилки у 'час до завершення зарядки'\nЗмінено мінімальний інтервал оновлення на 10 секунд\nВиправлено друкарські помилки",
-                "zh-cn": "实现托管充电时间 (#29)\n实现电池续航范围\n修复了“完成充电时间”的错误\n将最小更新间隔更改为 10 秒\n修复了拼写错误"
-            },
-            "0.3.0": {
-                "en": "Implement string for time to finish charge (#42)\nReorganize data in folders (#43)\nShow 3rd row seat heater only if 3rd row is available (#40)\nImplement 'charging_state' (#37)",
-                "de": "Implementiere Zeichenkette für die Zeit bis zum Abschluss des Ladens (#42)\nOrganisiere Daten in Ordnern neu (#43)\nZeige Sitzheizung der dritten Reihe nur an, wenn eine dritte Reihe vorhanden ist (#40)\nImplementiere 'charging_state' (#37)",
-                "ru": "Реализовать строку для времени до завершения зарядки (#42)\nРеорганизовать данные по папкам (#43)\nПоказывать обогрев сидений третьего ряда только если третий ряд доступен (#40)\nРеализовать 'charging_state' (#37)",
-                "pt": "Implementar string para tempo de conclusão da carga (#42)\nReorganizar dados em pastas (#43)\nMostrar aquecedor do assento da 3ª fila apenas se a 3ª fila estiver disponível (#40)\nImplementar 'charging_state' (#37)",
-                "nl": "Implementeer string voor tijd om op te laden (#42)\nHergeorganiseer gegevens in mappen (#43)\nToon stoelverwarming van de derde rij alleen als de derde rij beschikbaar is (#40)\nImplementeer 'charging_state' (#37)",
-                "fr": "Implémenter une chaîne pour le temps restant à charger (#42)\nRéorganiser les données dans des dossiers (#43)\nAfficher le chauffage des sièges de la 3e rangée uniquement si la 3e rangée est disponible (#40)\nImplémenter 'charging_state' (#37)",
-                "it": "Implementa stringa per il tempo di completamento della carica (#42)\nRiorganizza i dati nelle cartelle (#43)\nMostra il riscaldatore del sedile della terza fila solo se la terza fila è disponibile (#40)\nImplementa 'charging_state' (#37)",
-                "es": "Implementar cadena para el tiempo de finalización de la carga (#42)\nReorganizar datos en carpetas (#43)\nMostrar calefacción de asientos de la tercera fila solo si la tercera fila está disponible (#40)\nImplementar 'charging_state' (#37)",
-                "pl": "Wprowadź ciąg znaków dla czasu do zakończenia ładowania (#42)\nZorganizuj dane w folderach (#43)\nPokaż podgrzewanie siedzeń trzeciego rzędu tylko wtedy, gdy trzeci rząd jest dostępny (#40)\nWprowadź 'charging_state' (#37)",
-                "uk": "Реалізувати рядок для часу до завершення зарядки (#42)\nРеорганізувати дані в папках (#43)\nПоказувати обігрів сидінь третього ряду лише якщо третій ряд доступний (#40)\nРеалізувати 'charging_state' (#37)",
-                "zh-cn": "实现充电完成时间的字符串 (#42)\n将数据重新组织到文件夹中 (#43)\n仅在第三排可用时显示第三排座椅加热 (#40)\n实现 'charging_state' (#37)"
-            },
-            "0.2.1": {
-                "en": "Change 'time_to_full_charge' type to number (#38)\nTotal rework of vehicle data parser\nSet speed to 0 if null in API data (#39)",
-                "de": "Ändere den Typ von 'time_to_full_charge' auf Zahl (#38)\nKomplette Überarbeitung des Fahrzeugdatenparsers\nSetze Geschwindigkeit auf 0, wenn in den API-Daten null (#39)",
-                "ru": "Изменить тип 'time_to_full_charge' на число (#38)\nПолная переработка парсера данных транспортного средства\nУстановить скорость 0, если в API данных null (#39)",
-                "pt": "Alterar tipo de 'time_to_full_charge' para número (#38)\nReformulação total do analisador de dados do veículo\nDefinir velocidade como 0 se nulo nos dados da API (#39)",
-                "nl": "Wijzig 'time_to_full_charge'-type naar nummer (#38)\nVolledige herwerking van voertuiggegevensparser\nStel snelheid in op 0 als null in API-gegevens (#39)",
-                "fr": "Changer le type de 'time_to_full_charge' en nombre (#38)\nRefonte totale de l'analyseur de données du véhicule\nRégler la vitesse sur 0 si null dans les données API (#39)",
-                "it": "Cambia il tipo di 'time_to_full_charge' in numero (#38)\nRifacimento totale del parser dei dati del veicolo\nImposta la velocità a 0 se nulla nei dati API (#39)",
-                "es": "Cambiar el tipo de 'time_to_full_charge' a número (#38)\nRevisión total del analizador de datos del vehículo\nEstablecer la velocidad en 0 si es null en los datos de la API (#39)",
-                "pl": "Zmień typ 'time_to_full_charge' na liczbę (#38)\nCałkowita przebudowa parsera danych pojazdu\nUstaw prędkość na 0, jeśli w danych API jest null (#39)",
-                "uk": "Змінити тип 'time_to_full_charge' на число (#38)\nПовна переробка парсера даних транспортного засобу\nВстановити швидкість 0, якщо null в даних API (#39)",
-                "zh-cn": "将 'time_to_full_charge' 类型更改为数字 (#38)\n车辆数据解析器的全面重做\n如果 API 数据中为空，则将速度设置为 0 (#39)"
-            },
-            "0.2.0": {
-                "en": "Implement raw data state (#26)\nImplement charger phases (#28)\nImplement driver temperature setting (#31)\nImplement seat and steering wheel heater states (#30)",
-                "de": "Rohdatensatz implementieren (#26)\nLadephasen implementieren (#28)\nFahrertemperatureinstellung implementieren (#31)\nSitz- und Lenkradheizung implementieren (#30)",
-                "ru": "Реализовать состояние необработанных данных (#26)\nРеализовать фазы зарядки (#28)\nРеализовать настройку температуры водителя (#31)\nРеализовать состояния обогрева сидений и руля (#30)",
-                "pt": "Implementar estado de dados brutos (#26)\nImplementar fases de carregamento (#28)\nImplementar configuração de temperatura do motorista (#31)\nImplementar estados do aquecedor de assento e volante (#30)",
-                "nl": "Implementeren ruwe datastatus (#26)\nImplementeer laadfasen (#28)\nImplementeer de temperatuurinstelling van de bestuurder (#31)\nImplementeer stoel- en stuurverwarmingsstatus (#30)",
-                "fr": "Implémenter l'état des données brutes (#26)\nImplémenter les phases de chargeur (#28)\nImplémenter le réglage de température du conducteur (#31)\nImplémenter les états de chauffage des sièges et du volant (#30)",
-                "it": "Implementare stato dei dati grezzi (#26)\nImplementare le fasi di ricarica (#28)\nImplementare la regolazione della temperatura del conducente (#31)\nImplementare stati del riscaldamento del sedile e del volante (#30)",
-                "es": "Implementar estado de datos en bruto (#26)\nImplementar fases de carga (#28)\nImplementar ajuste de temperatura del conductor (#31)\nImplementar estados del calentador del asiento y volante (#30)",
-                "pl": "Zaimplementuj stan surowych danych (#26)\nZaimplementuj fazy ładowarki (#28)\nZaimplementuj ustawienie temperatury kierowcy (#31)\nZaimplementuj stany podgrzewania siedzeń i kierownicy (#30)",
-                "uk": "Реалізувати стан сирих даних (#26)\nРеалізувати фази зарядного пристрою (#28)\nРеалізувати налаштування температури водія (#31)\nРеалізувати стани підігріву сидіння та керма (#30)",
-                "zh-cn": "实现原始数据状态 (#26)\n实现充电器阶段 (#28)\n实现驾驶员温度设置 (#31)\n实现座椅和方向盘加热状态 (#30)"
-            },
-            "0.1.5": {
-                "en": "Harmonize project tools\nRemoved duplicated texts in state names",
-                "de": "Projektwerkzeuge harmonisieren\nDoppelte Texte in Zustandsnamen entfernt",
-                "ru": "Унифицировать инструменты проекта\nУдалены дублирующиеся тексты в названиях состояний",
-                "pt": "Harmonizar ferramentas do projeto\nRemovidos textos duplicados nos nomes dos estados",
-                "nl": "Projecttools harmoniseren\nDubbele teksten in statusnamen verwijderd",
-                "fr": "Harmoniser les outils du projet\nSuppression des textes en double dans les noms d'état",
-                "it": "Armonizzare gli strumenti del progetto\nRimossi i testi duplicati nei nomi degli stati",
-                "es": "Armonizar herramientas del proyecto\nEliminados textos duplicados en nombres de estados",
-                "pl": "Ujednolicenie narzędzi projektu\nUsunięto zduplikowane teksty w nazwach stanów",
-                "uk": "Уніфікація інструментів проекту\nВилучено дубльовані тексти в назвах станів",
-                "zh-cn": "协调项目工具\n删除状态名称中的重复文本"
-            }
-        },
-        "titleLang": {
-            "en": "TeslaFi",
-            "de": "TeslaFi",
-            "ru": "TeslaFi",
-            "pt": "TeslaFi",
-            "nl": "TeslaFi",
-            "fr": "TeslaFi",
-            "it": "TeslaFi",
-            "es": "TeslaFi",
-            "pl": "TeslaFi",
-            "uk": "TeslaFi",
-            "zh-cn": "TeslaFi"
-        },
-        "desc": {
-            "en": "Adapter to poll TeslaFi data of your car",
-            "de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
-            "ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
-            "pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
-            "nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
-            "fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
-            "it": "Adattatore per recuperare i dati TeslaFi della tua auto",
-            "es": "Adaptador para consultar los datos de TeslaFi de su coche",
-            "pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
-            "uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
-            "zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
-        },
-        "authors": [
-            "Hombach <TeslaFi@homba.ch>"
-        ],
-        "keywords": [
-            "TeslaFi",
-            "Tesla",
-            "EV",
-            "Car"
-        ],
-        "licenseInformation": {
-            "license": "MIT",
-            "type": "free"
-        },
-        "platform": "Javascript/Node.js",
-        "icon": "teslafi.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png",
-        "readme": "https://github.com/Hombach/ioBroker.teslafi/blob/master/README.md",
-        "loglevel": "info",
-        "tier": 2,
-        "mode": "daemon",
-        "messagebox": true,
-        "allowInit": true,
-        "type": "vehicle",
-        "compact": true,
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "json"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=5.0.19"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=7.0.0"
-            }
-        ],
-        "plugins": {
-            "sentry": {
-                "dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
-            }
-        },
-        "supportCustoms": false
-    },
-    "encryptedNative": [
-        "TeslaFiAPIToken",
-        "teslafiapitokenpass"
-    ],
-    "protectedNative": [
-        "TeslaFiAPIToken",
-        "teslafiapitokenpass"
-    ],
-    "native": {
-        "TeslaFiAPIToken": "",
-        "UpdateInterval": "60"
-    },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.LastSentryLogDay",
-            "type": "state",
-            "common": {
-                "role": "value",
-                "name": "Last day of month for Sentry log",
-                "type": "number",
-                "unit": "",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
-        }
-    ]
+	"common": {
+		"name": "teslafi",
+		"version": "0.4.3",
+		"news": {
+			"0.4.3": {
+				"en": "use of ioBroker.setInterval",
+				"de": "Verwendung von ioBroker.setInterval",
+				"ru": "использование ioBroker.setInterval",
+				"pt": "uso de ioBroker.setInterval",
+				"nl": "gebruik van ioBroker.setInterval",
+				"fr": "utilisation de ioBroker.setInterval",
+				"it": "utilizzo di ioBroker.setInterval",
+				"es": "uso de ioBroker.setInterval",
+				"pl": "użycie ioBroker.setInterval",
+				"uk": "використання ioBroker.setInterval",
+				"zh-cn": "使用 ioBroker.setInterval"
+			},
+			"0.4.2": {
+				"en": "Intruduce i18n for translations (#41)",
+				"de": "i18n für Übersetzungen einführen (#41)",
+				"ru": "Воспользуйтесь i18n для перевода (#41)",
+				"pt": "Apresente i18n para traduções (#41)",
+				"nl": "Introduceer i18n voor vertalingen (#41)",
+				"fr": "Introduire i18n pour les traductions (#41)",
+				"it": "Introduci i18n per le traduzioni (#41)",
+				"es": "Introduce i18n para traducciones (#41)",
+				"pl": "Wprowadź i18n do tłumaczeń (#41)",
+				"uk": "Ввести i18n для перекладів (#41)",
+				"zh-cn": "引入 i18n 进行翻译 (#41)"
+			},
+			"0.4.1": {
+				"en": "Introduce 'iobroker/eslint-config' (#67), add axios timeout, optimize code stability, fix typo, remove message handler",
+				"de": "'iobroker/eslint-config' einführen (#67), Axios-Timeout hinzufügen, Code-Stabilität optimieren, Tippfehler beheben, Nachrichten-Handler entfernen",
+				"ru": "Внедрение 'iobroker/eslint-config' (#67), добавление таймаута Axios, оптимизация стабильности кода, исправление опечатки, удаление обработчика сообщений",
+				"pt": "Introduzir 'iobroker/eslint-config' (#67), adicionar timeout do Axios, otimizar a estabilidade do código, corrigir erro de digitação, remover manipulador de mensagens",
+				"nl": "'iobroker/eslint-config' introduceren (#67), Axios-timeout toevoegen, code stabiliteit optimaliseren, typefout corrigeren, berichtverwerker verwijderen",
+				"fr": "Introduction de 'iobroker/eslint-config' (#67), ajout d'un délai d'attente Axios, optimisation de la stabilité du code, correction d'une faute de frappe, suppression du gestionnaire de messages",
+				"it": "Introdurre 'iobroker/eslint-config' (#67), aggiungere timeout Axios, ottimizzare la stabilità del codice, correggere un errore di battitura, rimuovere il gestore dei messaggi",
+				"es": "Introducir 'iobroker/eslint-config' (#67), añadir timeout de Axios, optimizar la estabilidad del código, corregir un error tipográfico, eliminar el manejador de mensajes",
+				"pl": "Wprowadzenie 'iobroker/eslint-config' (#67), dodanie limitu czasu Axios, optymalizacja stabilności kodu, poprawienie literówki, usunięcie obsługi komunikatów",
+				"uk": "Впровадження 'iobroker/eslint-config' (#67), додання тайм-ауту Axios, оптимізація стабільності коду, виправлення помилки друку, видалення обробника повідомлень",
+				"zh-cn": "引入 'iobroker/eslint-config' (#67)，添加 Axios 超时，优化代码稳定性，修复错别字，移除消息处理程序"
+			},
+			"0.4.0": {
+				"en": "Implement managed charging time (#29)\nImplement battery range\nFixed errors in 'time to finish charge'\nChanged min update interval to 10 sec\nFixed typos",
+				"de": "Implementiere verwaltete Ladezeit (#29)\nImplementiere Batteriereichweite\nKorrigierte Fehler in 'Zeit bis zum Abschluss des Ladens'\nMinimales Aktualisierungsintervall auf 10 Sekunden geändert\nRechtschreibfehler behoben",
+				"ru": "Реализовать управляемое время зарядки (#29)\nРеализовать диапазон батареи\nИсправлены ошибки в 'время до завершения зарядки'\nИзменен минимальный интервал обновления на 10 секунд\nИсправлены опечатки",
+				"pt": "Implementar tempo de carregamento gerenciado (#29)\nImplementar alcance da bateria\nCorrigidos erros em 'tempo para terminar carga'\nAlterado intervalo mínimo de atualização para 10 seg\nCorrigidos erros de digitação",
+				"nl": "Beheer laadduur geïmplementeerd (#29)\nBatterijbereik geïmplementeerd\nFouten in 'tijd tot volledige lading' hersteld\nMinimale update-interval gewijzigd naar 10 sec\nTypfouten gecorrigeerd",
+				"fr": "Implémenter le temps de charge géré (#29)\nImplémenter l'autonomie de la batterie\nCorrigé les erreurs dans 'temps pour terminer la charge'\nIntervalle minimum de mise à jour changé à 10 secondes\nCorrigé des fautes de frappe",
+				"it": "Implementa tempo di ricarica gestito (#29)\nImplementa autonomia della batteria\nCorrezione degli errori in 'tempo per terminare la carica'\nModificato intervallo minimo di aggiornamento a 10 sec\nCorrezione di errori di battitura",
+				"es": "Implementar tiempo de carga gestionado (#29)\nImplementar rango de batería\nCorregidos errores en 'tiempo para finalizar la carga'\nCambiado el intervalo mínimo de actualización a 10 segundos\nCorregidos errores tipográficos",
+				"pl": "Wdrożenie zarządzanego czasu ładowania (#29)\nWdrożenie zasięgu baterii\nNaprawiono błędy w 'czas do zakończenia ładowania'\nZmieniono minimalny interwał aktualizacji na 10 sekund\nNaprawiono literówki",
+				"uk": "Реалізовано керований час зарядки (#29)\nРеалізовано діапазон батареї\nВиправлено помилки у 'час до завершення зарядки'\nЗмінено мінімальний інтервал оновлення на 10 секунд\nВиправлено друкарські помилки",
+				"zh-cn": "实现托管充电时间 (#29)\n实现电池续航范围\n修复了“完成充电时间”的错误\n将最小更新间隔更改为 10 秒\n修复了拼写错误"
+			},
+			"0.3.0": {
+				"en": "Implement string for time to finish charge (#42)\nReorganize data in folders (#43)\nShow 3rd row seat heater only if 3rd row is available (#40)\nImplement 'charging_state' (#37)",
+				"de": "Implementiere Zeichenkette für die Zeit bis zum Abschluss des Ladens (#42)\nOrganisiere Daten in Ordnern neu (#43)\nZeige Sitzheizung der dritten Reihe nur an, wenn eine dritte Reihe vorhanden ist (#40)\nImplementiere 'charging_state' (#37)",
+				"ru": "Реализовать строку для времени до завершения зарядки (#42)\nРеорганизовать данные по папкам (#43)\nПоказывать обогрев сидений третьего ряда только если третий ряд доступен (#40)\nРеализовать 'charging_state' (#37)",
+				"pt": "Implementar string para tempo de conclusão da carga (#42)\nReorganizar dados em pastas (#43)\nMostrar aquecedor do assento da 3ª fila apenas se a 3ª fila estiver disponível (#40)\nImplementar 'charging_state' (#37)",
+				"nl": "Implementeer string voor tijd om op te laden (#42)\nHergeorganiseer gegevens in mappen (#43)\nToon stoelverwarming van de derde rij alleen als de derde rij beschikbaar is (#40)\nImplementeer 'charging_state' (#37)",
+				"fr": "Implémenter une chaîne pour le temps restant à charger (#42)\nRéorganiser les données dans des dossiers (#43)\nAfficher le chauffage des sièges de la 3e rangée uniquement si la 3e rangée est disponible (#40)\nImplémenter 'charging_state' (#37)",
+				"it": "Implementa stringa per il tempo di completamento della carica (#42)\nRiorganizza i dati nelle cartelle (#43)\nMostra il riscaldatore del sedile della terza fila solo se la terza fila è disponibile (#40)\nImplementa 'charging_state' (#37)",
+				"es": "Implementar cadena para el tiempo de finalización de la carga (#42)\nReorganizar datos en carpetas (#43)\nMostrar calefacción de asientos de la tercera fila solo si la tercera fila está disponible (#40)\nImplementar 'charging_state' (#37)",
+				"pl": "Wprowadź ciąg znaków dla czasu do zakończenia ładowania (#42)\nZorganizuj dane w folderach (#43)\nPokaż podgrzewanie siedzeń trzeciego rzędu tylko wtedy, gdy trzeci rząd jest dostępny (#40)\nWprowadź 'charging_state' (#37)",
+				"uk": "Реалізувати рядок для часу до завершення зарядки (#42)\nРеорганізувати дані в папках (#43)\nПоказувати обігрів сидінь третього ряду лише якщо третій ряд доступний (#40)\nРеалізувати 'charging_state' (#37)",
+				"zh-cn": "实现充电完成时间的字符串 (#42)\n将数据重新组织到文件夹中 (#43)\n仅在第三排可用时显示第三排座椅加热 (#40)\n实现 'charging_state' (#37)"
+			},
+			"0.2.1": {
+				"en": "Change 'time_to_full_charge' type to number (#38)\nTotal rework of vehicle data parser\nSet speed to 0 if null in API data (#39)",
+				"de": "Ändere den Typ von 'time_to_full_charge' auf Zahl (#38)\nKomplette Überarbeitung des Fahrzeugdatenparsers\nSetze Geschwindigkeit auf 0, wenn in den API-Daten null (#39)",
+				"ru": "Изменить тип 'time_to_full_charge' на число (#38)\nПолная переработка парсера данных транспортного средства\nУстановить скорость 0, если в API данных null (#39)",
+				"pt": "Alterar tipo de 'time_to_full_charge' para número (#38)\nReformulação total do analisador de dados do veículo\nDefinir velocidade como 0 se nulo nos dados da API (#39)",
+				"nl": "Wijzig 'time_to_full_charge'-type naar nummer (#38)\nVolledige herwerking van voertuiggegevensparser\nStel snelheid in op 0 als null in API-gegevens (#39)",
+				"fr": "Changer le type de 'time_to_full_charge' en nombre (#38)\nRefonte totale de l'analyseur de données du véhicule\nRégler la vitesse sur 0 si null dans les données API (#39)",
+				"it": "Cambia il tipo di 'time_to_full_charge' in numero (#38)\nRifacimento totale del parser dei dati del veicolo\nImposta la velocità a 0 se nulla nei dati API (#39)",
+				"es": "Cambiar el tipo de 'time_to_full_charge' a número (#38)\nRevisión total del analizador de datos del vehículo\nEstablecer la velocidad en 0 si es null en los datos de la API (#39)",
+				"pl": "Zmień typ 'time_to_full_charge' na liczbę (#38)\nCałkowita przebudowa parsera danych pojazdu\nUstaw prędkość na 0, jeśli w danych API jest null (#39)",
+				"uk": "Змінити тип 'time_to_full_charge' на число (#38)\nПовна переробка парсера даних транспортного засобу\nВстановити швидкість 0, якщо null в даних API (#39)",
+				"zh-cn": "将 'time_to_full_charge' 类型更改为数字 (#38)\n车辆数据解析器的全面重做\n如果 API 数据中为空，则将速度设置为 0 (#39)"
+			},
+			"0.2.0": {
+				"en": "Implement raw data state (#26)\nImplement charger phases (#28)\nImplement driver temperature setting (#31)\nImplement seat and steering wheel heater states (#30)",
+				"de": "Rohdatensatz implementieren (#26)\nLadephasen implementieren (#28)\nFahrertemperatureinstellung implementieren (#31)\nSitz- und Lenkradheizung implementieren (#30)",
+				"ru": "Реализовать состояние необработанных данных (#26)\nРеализовать фазы зарядки (#28)\nРеализовать настройку температуры водителя (#31)\nРеализовать состояния обогрева сидений и руля (#30)",
+				"pt": "Implementar estado de dados brutos (#26)\nImplementar fases de carregamento (#28)\nImplementar configuração de temperatura do motorista (#31)\nImplementar estados do aquecedor de assento e volante (#30)",
+				"nl": "Implementeren ruwe datastatus (#26)\nImplementeer laadfasen (#28)\nImplementeer de temperatuurinstelling van de bestuurder (#31)\nImplementeer stoel- en stuurverwarmingsstatus (#30)",
+				"fr": "Implémenter l'état des données brutes (#26)\nImplémenter les phases de chargeur (#28)\nImplémenter le réglage de température du conducteur (#31)\nImplémenter les états de chauffage des sièges et du volant (#30)",
+				"it": "Implementare stato dei dati grezzi (#26)\nImplementare le fasi di ricarica (#28)\nImplementare la regolazione della temperatura del conducente (#31)\nImplementare stati del riscaldamento del sedile e del volante (#30)",
+				"es": "Implementar estado de datos en bruto (#26)\nImplementar fases de carga (#28)\nImplementar ajuste de temperatura del conductor (#31)\nImplementar estados del calentador del asiento y volante (#30)",
+				"pl": "Zaimplementuj stan surowych danych (#26)\nZaimplementuj fazy ładowarki (#28)\nZaimplementuj ustawienie temperatury kierowcy (#31)\nZaimplementuj stany podgrzewania siedzeń i kierownicy (#30)",
+				"uk": "Реалізувати стан сирих даних (#26)\nРеалізувати фази зарядного пристрою (#28)\nРеалізувати налаштування температури водія (#31)\nРеалізувати стани підігріву сидіння та керма (#30)",
+				"zh-cn": "实现原始数据状态 (#26)\n实现充电器阶段 (#28)\n实现驾驶员温度设置 (#31)\n实现座椅和方向盘加热状态 (#30)"
+			}
+		},
+		"titleLang": {
+			"en": "TeslaFi",
+			"de": "TeslaFi",
+			"ru": "TeslaFi",
+			"pt": "TeslaFi",
+			"nl": "TeslaFi",
+			"fr": "TeslaFi",
+			"it": "TeslaFi",
+			"es": "TeslaFi",
+			"pl": "TeslaFi",
+			"uk": "TeslaFi",
+			"zh-cn": "TeslaFi"
+		},
+		"desc": {
+			"en": "Adapter to poll TeslaFi data of your car",
+			"de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
+			"ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
+			"pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
+			"nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
+			"fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
+			"it": "Adattatore per recuperare i dati TeslaFi della tua auto",
+			"es": "Adaptador para consultar los datos de TeslaFi de su coche",
+			"pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
+			"uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
+			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
+		},
+		"authors": ["Hombach <TeslaFi@homba.ch>"],
+		"keywords": ["TeslaFi", "Tesla", "EV", "Car"],
+		"licenseInformation": {
+			"license": "MIT",
+			"type": "free"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "teslafi.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png",
+		"readme": "https://github.com/Hombach/ioBroker.teslafi/blob/master/README.md",
+		"loglevel": "info",
+		"tier": 2,
+		"mode": "daemon",
+		"messagebox": true,
+		"allowInit": true,
+		"type": "vehicle",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=5.0.19"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.0.0"
+			}
+		],
+		"plugins": {
+			"sentry": {
+				"dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
+			}
+		},
+		"supportCustoms": false
+	},
+	"encryptedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
+	"protectedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
+	"native": {
+		"TeslaFiAPIToken": "",
+		"UpdateInterval": "60"
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.LastSentryLogDay",
+			"type": "state",
+			"common": {
+				"role": "value",
+				"name": "Last day of month for Sentry log",
+				"type": "number",
+				"unit": "",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		}
+	]
 }

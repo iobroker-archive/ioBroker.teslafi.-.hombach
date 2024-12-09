@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.teslafi",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"description": "Adapter to poll TeslaFi data of your car",
 	"author": {
 		"name": "Hombach",
@@ -67,7 +67,7 @@
 		"test:ts": "mocha --config test/mocharc.custom.json src/**/*.test.ts",
 		"test:package": "mocha test/package --exit",
 		"test:integration": "mocha test/integration --exit",
-		"test": "npm run test:ts && npm run test:package",
+		"test": "npm run test:ts && npm run test:package && npm run test:integration",
 		"check": "tsc --noEmit",
 		"lint": "eslint -c eslint.config.mjs .",
 		"lintdebug": "eslint --debug -c eslint.config.mjs . | more",
