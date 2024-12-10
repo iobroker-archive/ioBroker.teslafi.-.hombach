@@ -144,18 +144,19 @@ class ProjectUtils {
      * @param stateName - A string representing the name of the state.
      * @param value - The string value to set for the state.
      * @param description - Optional description for the state (default is "-").
+     * @param role - Optional role type for the state (default is "text").
      * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
      * @param dontUpdate - Optional boolean indicating if the state should not be updated if it already exists (default is false).
      * @param forceMode - Optional boolean indicating if the state should be reinitiated if it already exists (default is false).
      * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
      */
-    async checkAndSetValue(stateName, value, description = "-", writeable = false, dontUpdate = false, forceMode = false) {
+    async checkAndSetValue(stateName, value, description = "-", role = "text", writeable = false, dontUpdate = false, forceMode = false) {
         if (value != undefined) {
             if (value.trim().length > 0) {
                 const commonObj = {
                     name: stateName.split(".").pop(),
                     type: "string",
-                    role: "text",
+                    role: role,
                     desc: description,
                     read: true,
                     write: writeable,

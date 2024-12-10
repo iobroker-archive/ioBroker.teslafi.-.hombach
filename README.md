@@ -45,6 +45,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.4.4 (2024-12-xx)
+
+- (hombach) add roles to projectUtils
+
 ### 0.4.3 (2024-12-09)
 
 - (hombach) use of ioBroker.setInterval

@@ -146,6 +146,7 @@ export class ProjectUtils {
 	 * @param stateName - A string representing the name of the state.
 	 * @param value - The string value to set for the state.
 	 * @param description - Optional description for the state (default is "-").
+	 * @param role - Optional role type for the state (default is "text").
 	 * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
 	 * @param dontUpdate - Optional boolean indicating if the state should not be updated if it already exists (default is false).
 	 * @param forceMode - Optional boolean indicating if the state should be reinitiated if it already exists (default is false).
@@ -155,6 +156,7 @@ export class ProjectUtils {
 		stateName: string,
 		value: string,
 		description = "-",
+		role = "text",
 		writeable = false,
 		dontUpdate = false,
 		forceMode = false,
@@ -164,7 +166,7 @@ export class ProjectUtils {
 				const commonObj: ioBroker.StateCommon = {
 					name: stateName.split(".").pop(),
 					type: "string",
-					role: "text",
+					role: role,
 					desc: description,
 					read: true,
 					write: writeable,
