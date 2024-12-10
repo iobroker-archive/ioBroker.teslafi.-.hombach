@@ -243,7 +243,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			}
 
 			// save raw JSON
-			void this.checkAndSetValue(`vehicle-data.rawJSON`, response.data, `JSON raw data from TeslaFi`);
+			void this.checkAndSetValue(`vehicle-data.rawJSON`, response.data, `JSON raw data from TeslaFi`, `json`);
 
 			// fill values into predefined structur
 			for (const [key, value] of Object.entries(result)) {
@@ -257,7 +257,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			//#region *** "vehicle-data" properties ***
 			if (stVD.Date.value !== null) {
 				//"2024-10-25 20:43:33"
-				void this.checkAndSetValue(`vehicle-data.${stVD.Date.key}`, stVD.Date.value, stVD.Date.desc);
+				void this.checkAndSetValue(`vehicle-data.${stVD.Date.key}`, stVD.Date.value, stVD.Date.desc, `date`);
 			}
 			if (stVD.vin.value !== null) {
 				//"LRWYGCEKXNC44xxxx"
