@@ -45,7 +45,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.4.4 (2024-12-xx)
+### 0.4.4 (2024-12-10)
 
 - (hombach) add roles to projectUtils
 
