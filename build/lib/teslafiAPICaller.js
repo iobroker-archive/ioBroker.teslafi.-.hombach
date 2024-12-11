@@ -287,11 +287,11 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             }
             if (stVD.longitude.value !== null) {
                 //"9.899749"
-                void this.checkAndSetValue(`vehicle-state.${stVD.longitude.key}`, stVD.longitude.value, stVD.longitude.desc);
+                void this.checkAndSetValue(`vehicle-state.${stVD.longitude.key}`, stVD.longitude.value, stVD.longitude.desc, `value.gps.longitude`);
             }
             if (stVD.latitude.value !== null) {
                 //"49.873095"
-                void this.checkAndSetValue(`vehicle-state.${stVD.latitude.key}`, stVD.latitude.value, stVD.latitude.desc);
+                void this.checkAndSetValue(`vehicle-state.${stVD.latitude.key}`, stVD.latitude.value, stVD.latitude.desc, `value.gps.latitude`);
             }
             if (stVD.odometer.value !== null) {
                 //"16434.079511"
@@ -309,11 +309,11 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             //#region *** "battery-state" properties ***
             if (stVD.battery_level.value !== null) {
                 //"76"
-                void this.checkAndSetValueNumber(`battery-state.${stVD.battery_level.key}`, parseFloat(stVD.battery_level.value), stVD.battery_level.desc, "%");
+                void this.checkAndSetValueNumber(`battery-state.${stVD.battery_level.key}`, parseFloat(stVD.battery_level.value), stVD.battery_level.desc, "%", `value.battery`);
             }
             if (stVD.usable_battery_level.value !== null) {
                 //"75"
-                void this.checkAndSetValueNumber(`battery-state.${stVD.usable_battery_level.key}`, parseFloat(stVD.usable_battery_level.value), stVD.usable_battery_level.desc, "%");
+                void this.checkAndSetValueNumber(`battery-state.${stVD.usable_battery_level.key}`, parseFloat(stVD.usable_battery_level.value), stVD.usable_battery_level.desc, "%", `value.battery`);
             }
             if (stVD.battery_range.value !== null) {
                 //"237.17"
@@ -327,14 +327,14 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             }
             if (stVD.charge_current_request.value !== null) {
                 //"16"
-                void this.checkAndSetValueNumber(`battery-state.${stVD.charge_current_request.key}`, parseFloat(stVD.charge_current_request.value), stVD.charge_current_request.desc, "A");
+                void this.checkAndSetValueNumber(`battery-state.${stVD.charge_current_request.key}`, parseFloat(stVD.charge_current_request.value), stVD.charge_current_request.desc, "A", `value.current`);
             }
             else {
-                void this.checkAndSetValueNumber(`battery-state.${stVD.charge_current_request.key}`, 0, stVD.charge_current_request.desc, "A");
+                void this.checkAndSetValueNumber(`battery-state.${stVD.charge_current_request.key}`, 0, stVD.charge_current_request.desc, "A", `value.current`);
             }
             if (stVD.charge_limit_soc.value !== null) {
                 //"80"
-                void this.checkAndSetValueNumber(`battery-state.${stVD.charge_limit_soc.key}`, parseFloat(stVD.charge_limit_soc.value), stVD.charge_limit_soc.desc, "%");
+                void this.checkAndSetValueNumber(`battery-state.${stVD.charge_limit_soc.key}`, parseFloat(stVD.charge_limit_soc.value), stVD.charge_limit_soc.desc, "%", `value.battery`);
             }
             if (stVD.charger_phases.value !== null) {
                 //"3"
@@ -345,10 +345,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             }
             if (stVD.charger_power.value !== null) {
                 //"0"
-                void this.checkAndSetValueNumber(`battery-state.${stVD.charger_power.key}`, parseFloat(stVD.charger_power.value), stVD.charger_power.desc, "kW");
+                void this.checkAndSetValueNumber(`battery-state.${stVD.charger_power.key}`, parseFloat(stVD.charger_power.value), stVD.charger_power.desc, "kW", `value.power`);
             }
             else {
-                void this.checkAndSetValueNumber(`battery-state.${stVD.charger_power.key}`, 0, stVD.charger_power.desc, "kW");
+                void this.checkAndSetValueNumber(`battery-state.${stVD.charger_power.key}`, 0, stVD.charger_power.desc, "kW", `value.power`);
             }
             if (stVD.time_to_full_charge.value !== null) {
                 //"0.0"
@@ -377,15 +377,15 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             //#region *** "thermal-state" properties ***
             if (stVD.inside_temp.value !== null) {
                 //"15.8"
-                void this.checkAndSetValueNumber(`thermal-state.${stVD.inside_temp.key}`, parseFloat(stVD.inside_temp.value), stVD.inside_temp.desc, "°C");
+                void this.checkAndSetValueNumber(`thermal-state.${stVD.inside_temp.key}`, parseFloat(stVD.inside_temp.value), stVD.inside_temp.desc, "°C", `value.temperature`);
             }
             if (stVD.outside_temp.value !== null) {
                 //"14.0"
-                void this.checkAndSetValueNumber(`thermal-state.${stVD.outside_temp.key}`, parseFloat(stVD.outside_temp.value), stVD.outside_temp.desc, "°C");
+                void this.checkAndSetValueNumber(`thermal-state.${stVD.outside_temp.key}`, parseFloat(stVD.outside_temp.value), stVD.outside_temp.desc, "°C", `value.temperature`);
             }
             if (stVD.driver_temp_setting.value !== null) {
                 //"20.5"
-                void this.checkAndSetValueNumber(`thermal-state.${stVD.driver_temp_setting.key}`, parseFloat(stVD.driver_temp_setting.value), stVD.driver_temp_setting.desc, "°C");
+                void this.checkAndSetValueNumber(`thermal-state.${stVD.driver_temp_setting.key}`, parseFloat(stVD.driver_temp_setting.value), stVD.driver_temp_setting.desc, "°C", `value.temperature`);
             }
             if (stVD.seat_heater_left.value !== null) {
                 //"2"

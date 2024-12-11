@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.teslafi",
-	"version": "0.4.4",
+	"version": "0.4.5",
 	"description": "Adapter to poll TeslaFi data of your car",
 	"author": {
 		"name": "Hombach",
@@ -25,7 +25,6 @@
 	"dependencies": {
 		"@iobroker/adapter-core": "^3.2.3",
 		"axios": "^1.7.9",
-		"cron": "^3.2.1",
 		"date-fns": "^4.1.0"
 	},
 	"devDependencies": {
