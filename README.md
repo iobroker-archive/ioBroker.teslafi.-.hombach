@@ -75,7 +75,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 0.4.6 (2024-12-xx)
+### 0.4.6 (2024-12-21)
 
 - (hombach) fix chai-as-promised
 - (hombach) enrich documentation
