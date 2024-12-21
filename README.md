@@ -45,6 +45,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.4.6 (2024-12-xx)
+
+- (hombach) fix chai-as-promised
+
 ### 0.4.5 (2024-12-11)
 
 - (hombach) change some state roles
