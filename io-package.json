@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "teslafi",
-        "version": "0.4.5",
+        "version": "0.4.6",
         "news": {
+            "0.4.6": {
+                "en": "fix chai\noptimize documentation",
+                "de": "Chai reparieren\nDokumentation optimieren",
+                "ru": "починить чай\nоптимизировать документацию",
+                "pt": "consertar chai\notimizar documentação",
+                "nl": "Chai repareren\ndocumentatie optimaliseren",
+                "fr": "réparer le chai\noptimiser la documentation",
+                "it": "aggiusta chai\nottimizzare la documentazione",
+                "es": "arreglar chai\noptimizar la documentación",
+                "pl": "napraw chai\noptymalizować dokumentację",
+                "uk": "виправити чай\nоптимізувати документацію",
+                "zh-cn": "修复柴\n优化文档"
+            },
             "0.4.5": {
                 "en": "change some state roles",
                 "de": "einige staatliche Rollen ändern",
@@ -15,19 +28,6 @@
                 "pl": "zmienić niektóre role państwowe",
                 "uk": "змінити деякі державні ролі",
                 "zh-cn": "改变一些国家角色"
-            },
-            "0.4.4": {
-                "en": "add roles to projectUtils",
-                "de": "Rollen zu projectUtils hinzufügen",
-                "ru": "добавить роли в projectUtils",
-                "pt": "adicionar funções ao projectUtils",
-                "nl": "rollen toevoegen aan projectUtils",
-                "fr": "ajouter des rôles à projectUtils",
-                "it": "aggiungi ruoli a projectUtils",
-                "es": "agregar roles a projectUtils",
-                "pl": "dodaj role do ProjectUtils",
-                "uk": "додати ролі до projectUtils",
-                "zh-cn": "将角色添加到projectUtils"
             },
             "0.4.2": {
                 "en": "Intruduce i18n for translations (#41)",
