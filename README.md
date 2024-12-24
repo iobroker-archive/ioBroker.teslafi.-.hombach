@@ -75,6 +75,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 0.4.7 (2024-12-xx)
+
+- (hombach) add newVersionStatus (#80)
+
 ### 0.4.6 (2024-12-21)
 
 - (hombach) fix chai-as-promised

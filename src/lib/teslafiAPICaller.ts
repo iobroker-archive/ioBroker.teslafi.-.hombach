@@ -191,7 +191,8 @@ const stVD: Record<string, VehicleData> = {
 		desc: `Next software version if available`,
 		value: null,
 	},
-	// newVersionStatus: "", allow_cabin_overheat_protection: "1", cabin_overheat_protection: "FanOnly", cabin_overheat_protection_actively_cooling: "", cop_activation_temperature: null, pressure: null,
+	newVersionStatus: { key: `newVersionStatus`, desc: ``, value: `` }, //"installing"
+	// allow_cabin_overheat_protection: "1", cabin_overheat_protection: "FanOnly", cabin_overheat_protection_actively_cooling: "", cop_activation_temperature: null, pressure: null,
 	// tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0"
 };
 
@@ -294,6 +295,13 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
 			} else {
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, ``, stVD.newVersion.desc);
+			}
+
+			if (stVD.newVersionStatus !== null) {
+				//"installing"
+				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, stVD.newVersionStatus.value, stVD.newVersionStatus.desc);
+			} else {
+				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, ``, stVD.newVersionStatus.desc);
 			}
 
 			if (stVD.location.value !== null) {
