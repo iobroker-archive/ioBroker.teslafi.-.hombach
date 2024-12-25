@@ -3,5 +3,6 @@
     "LBL_TeslaFiAPIToken": "TeslaFi API 的令牌",
     "LBL_UpdateInterval": "更新间隔（秒）",
     "LBL_helpLink": "显示适配器文档",
-    "TXT_donateTx": "如果你喜欢这个项目——或者只是觉得慷慨，可以考虑给我买瓶啤酒。干杯! 🍻"
+    "TXT_donateTx": "如果你喜欢这个项目——或者只是觉得慷慨，可以考虑给我买瓶啤酒。干杯! 🍻",
+    "LBL_UpdateTimeout": "更新超时（以毫秒为单位）"
 }

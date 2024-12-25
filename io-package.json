@@ -1,10 +1,20 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "0.4.7",
+		"version": "1.0.0",
 		"news": {
-			"0.4.7": {
-				"en": "add newVersionStatus (#80)"
+			"1.0.0": {
+				"en": "version bumped to 1.0 for stable release\nadd newVersionStatus (#80)\nadd configurable poll timeout",
+				"de": "Version wurde für eine stabile Veröffentlichung auf 1.0 erhöht\nnewVersionStatus hinzufügen (#80)\nFügen Sie ein konfigurierbares Poll-Timeout hinzu",
+				"ru": "версия увеличена до 1.0 для стабильной версии\nдобавить новыйVersionStatus (#80)\nдобавить настраиваемый тайм-аут опроса",
+				"pt": "versão passou para 1.0 para versão estável\nadicione newVersionStatus (#80)\nadicionar tempo limite de pesquisa configurável",
+				"nl": "versie verhoogd naar 1.0 voor stabiele release\nnieuweVersionStatus toevoegen (#80)\nconfigureerbare poll-time-out toevoegen",
+				"fr": "version passée à 1.0 pour une version stable\najouter newVersionStatus (#80)\najouter un délai d'attente d'interrogation configurable",
+				"it": "versione aumentata alla 1.0 per il rilascio stabile\naggiungi nuovo stato versione (#80)\naggiungere timeout del sondaggio configurabile",
+				"es": "La versión aumentó a 1.0 para una versión estable.\nagregar nuevo estado de versión (#80)\nagregar tiempo de espera de encuesta configurable",
+				"pl": "wersja została zmieniona na 1.0 w celu uzyskania stabilnego wydania\ndodaj nowyStatus wersji (#80)\ndodaj konfigurowalny limit czasu ankiety",
+				"uk": "версія підвищена до 1.0 для стабільного випуску\nдодати newVersionStatus (#80)\nдодати настроюваний тайм-аут опитування",
+				"zh-cn": "版本已升至 1.0 以进行稳定发布\n添加新版本状态 (#80)\n添加可配置的轮询超时"
 			},
 			"0.4.6": {
 				"en": "fix chai\noptimize documentation",
@@ -155,7 +165,8 @@
 	"protectedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
 	"native": {
 		"TeslaFiAPIToken": "",
-		"UpdateInterval": "60"
+		"UpdateInterval": "60",
+		"UpdateTimeout": 5000
 	},
 	"objects": [],
 	"instanceObjects": [

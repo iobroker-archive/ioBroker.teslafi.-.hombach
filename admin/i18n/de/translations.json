@@ -3,5 +3,6 @@
     "LBL_TeslaFiAPIToken": "Token für die TeslaFi-API",
     "LBL_UpdateInterval": "Aktualisierungsintervall in Sekunden",
     "LBL_helpLink": "Adapterdokumentation anzeigen",
-    "TXT_donateTx": "Wenn Ihnen dieses Projekt gefallen hat – oder Sie sich einfach großzügig fühlen, denken Sie darüber nach, mir ein Bier zu spendieren. Prost! 🍻"
+    "TXT_donateTx": "Wenn Ihnen dieses Projekt gefallen hat – oder Sie sich einfach großzügig fühlen, denken Sie darüber nach, mir ein Bier zu spendieren. Prost! 🍻",
+    "LBL_UpdateTimeout": "Update-Timeout in Millisekunden"
 }

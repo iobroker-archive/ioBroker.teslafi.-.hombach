@@ -6,6 +6,7 @@ declare global {
 		interface AdapterConfig {
 			TeslaFiAPIToken: string;
 			UpdateInterval: number;
+			UpdateTimeout: number;
 		}
 	}
 }

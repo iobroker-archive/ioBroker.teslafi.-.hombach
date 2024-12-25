@@ -35,6 +35,20 @@
 					"xl": 6,
 					"newLine": true
 				},
+				"UpdateTimeout": {
+					"type": "number",
+					"label": "LBL_UpdateTimeout",
+					"hidden": "!data.TeslaFiAPIToken",
+					"min": 1000,
+					"max": 30000,
+					"step": 100,
+					"default": 5000,
+					"xs": 12,
+					"sm": 12,
+					"md": 10,
+					"lg": 8,
+					"xl": 6
+				},
 
 				"_headerDocumentation": {
 					"type": "header",

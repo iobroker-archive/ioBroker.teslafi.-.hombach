@@ -4,7 +4,7 @@ import { add, format, fromUnixTime } from "date-fns";
 import { ProjectUtils } from "./projectUtils";
 
 const axiosInstance = axios.create({
-	timeout: 5000, // Standard-Timeout von 5 Sekunden
+	//timeout: 5000, //by default
 });
 
 interface VehicleData {
@@ -212,6 +212,7 @@ function calculateEndTimeFromNow(hours: number, dateFormat = "dd.MM.yyyy HH:mm:s
  */
 export class TeslaFiAPICaller extends ProjectUtils {
 	queryUrl = "";
+
 	/**
 	 * constructor
 	 *
@@ -229,6 +230,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 		try {
 			const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
 				transformResponse: r => r,
+				timeout: this.adapter.config.UpdateTimeout, // 5000 by default
 			});
 
 			if (!response.data) {

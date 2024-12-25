@@ -8,7 +8,7 @@ const axios_1 = __importDefault(require("axios"));
 const date_fns_1 = require("date-fns");
 const projectUtils_1 = require("./projectUtils");
 const axiosInstance = axios_1.default.create({
-    timeout: 5000, // Standard-Timeout von 5 Sekunden
+//timeout: 5000, //by default
 });
 // structure of vehicle data
 const stVD = {
@@ -222,6 +222,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         try {
             const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
                 transformResponse: r => r,
+                timeout: this.adapter.config.UpdateTimeout, // 5000 by default
             });
             if (!response.data) {
                 throw new Error(`Empty answer from TeslaFi.`);
