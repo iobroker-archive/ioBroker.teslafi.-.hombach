@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "1.0.0",
+		"version": "1.0.1",
 		"news": {
+			"1.0.1": {
+				"en": "year 2025 changes",
+				"de": "Jahr 2025 Änderungen",
+				"ru": "изменения 2025 года",
+				"pt": "mudanças no ano de 2025",
+				"nl": "jaar 2025 verandert",
+				"fr": "changements en 2025",
+				"it": "anno 2025 cambia",
+				"es": "cambios del año 2025",
+				"pl": "zmiany roku 2025",
+				"uk": "2025 рік зміни",
+				"zh-cn": "2025年的变化"
+			},
 			"1.0.0": {
 				"en": "version bumped to 1.0 for stable release\nadd newVersionStatus (#80)\nadd configurable poll timeout",
 				"de": "Version wurde für eine stabile Veröffentlichung auf 1.0 erhöht\nnewVersionStatus hinzufügen (#80)\nFügen Sie ein konfigurierbares Poll-Timeout hinzu",
