@@ -21,12 +21,12 @@ export class ProjectUtils {
 	 * @param stateName - A string representing the name of the state to retrieve.
 	 * @returns A Promise that resolves with the value of the state if it exists, otherwise resolves with null.
 	 */
-	protected async getStateValue(stateName: string): Promise<any> {
+	async getStateValue(stateName: string): Promise<any> {
 		try {
 			const stateObject = await this.getState(stateName);
 			return stateObject?.val ?? null; // errors have already been handled in getState()
 		} catch (error) {
-			this.adapter.log.error(`[getStateValue](${stateName}): ${error}`);
+			this.adapter.log.error(`[getStateValue](${stateName}): ${error as Error}`);
 			return null;
 		}
 	}
@@ -48,7 +48,7 @@ export class ProjectUtils {
 				throw new Error(`Unable to retrieve info from state '${stateName}'.`);
 			}
 		} catch (error) {
-			this.adapter.log.error(`[asyncGetState](${stateName}): ${error}`);
+			this.adapter.log.error(`[asyncGetState](${stateName}): ${error as Error}`);
 			return null;
 		}
 	}
@@ -83,7 +83,7 @@ export class ProjectUtils {
 			} // errors thrown already in asyncGetForeignState()
 			return stateObject.val;
 		} catch (error) {
-			this.adapter.log.error(`[asyncGetForeignStateValue](${stateName}): ${error}`);
+			this.adapter.log.error(`[asyncGetForeignStateValue](${stateName}): ${error as Error}`);
 			return null;
 		}
 	}
@@ -108,7 +108,7 @@ export class ProjectUtils {
 				throw new Error(`Unable to retrieve info from state '${stateName}'.`);
 			}
 		} catch (error) {
-			this.adapter.log.error(`[asyncGetForeignState](${stateName}): ${error}`);
+			this.adapter.log.error(`[asyncGetForeignState](${stateName}): ${error as Error}`);
 			return null;
 		}
 	}
