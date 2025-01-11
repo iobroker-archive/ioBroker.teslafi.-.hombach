@@ -216,7 +216,7 @@ class ProjectUtils {
                 });
             }
             else {
-                await this.adapter.setObjectAsync(stateName, {
+                await this.adapter.setObject(stateName, {
                     type: "state",
                     common: commonObj,
                     native: {},

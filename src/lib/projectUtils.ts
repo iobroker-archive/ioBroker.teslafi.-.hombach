@@ -178,7 +178,7 @@ export class ProjectUtils {
 						native: {},
 					});
 				} else {
-					await this.adapter.setObjectAsync(stateName, {
+					await this.adapter.setObject(stateName, {
 						type: "state",
 						common: commonObj,
 						native: {},
@@ -234,7 +234,7 @@ export class ProjectUtils {
 					native: {},
 				});
 			} else {
-				await this.adapter.setObjectAsync(stateName, {
+				await this.adapter.setObject(stateName, {
 					type: "state",
 					common: commonObj,
 					native: {},
@@ -285,7 +285,7 @@ export class ProjectUtils {
 					native: {},
 				});
 			} else {
-				await this.adapter.setObjectAsync(stateName, {
+				await this.adapter.setObject(stateName, {
 					type: "state",
 					common: commonObj,
 					native: {},

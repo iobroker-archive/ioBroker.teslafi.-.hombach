@@ -75,6 +75,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 1.0.2 (2025-01-xx) WORK in PROGRESS
+
+- (hombach) deprecated object calls removed
+
 ### 1.0.1 (2025-01-11)
 
 - (hombach) year 2025 changes
