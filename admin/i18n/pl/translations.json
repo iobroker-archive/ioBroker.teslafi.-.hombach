@@ -4,5 +4,6 @@
     "LBL_UpdateInterval": "Interwał aktualizacji w sekundach",
     "LBL_helpLink": "Pokaż dokumentację adaptera",
     "TXT_donateTx": "Jeśli spodobał Ci się ten projekt — lub po prostu czujesz się hojny, rozważ kupienie mi piwa. Dzięki! 🍻",
-    "LBL_UpdateTimeout": "Limit czasu aktualizacji w milisekundach"
+    "LBL_UpdateTimeout": "Limit czasu aktualizacji w milisekundach",
+    "LBL_CommandTab": "Ustawienia poleceń samochodu"
 }

@@ -4,5 +4,7 @@
 	"LBL_UpdateInterval": "Update interval in seconds",
 	"LBL_UpdateTimeout": "Update timeout in milliseconds",
 	"LBL_helpLink": "Show adapter documentation",
-	"TXT_donateTx": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻"
+	"TXT_donateTx": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",
+
+	"LBL_CommandTab": "Car Command Settings"
 }

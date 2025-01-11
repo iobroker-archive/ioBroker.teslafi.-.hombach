@@ -4,5 +4,6 @@
     "LBL_UpdateInterval": "Intervalo de atualização em segundos",
     "LBL_helpLink": "Mostrar documentação do adaptador",
     "TXT_donateTx": "Se você gostou deste projeto - ou apenas se sente generoso, considere comprar uma cerveja para mim. Saúde! 🍻",
-    "LBL_UpdateTimeout": "Tempo limite de atualização em milissegundos"
+    "LBL_UpdateTimeout": "Tempo limite de atualização em milissegundos",
+    "LBL_CommandTab": "Configurações de comando do carro"
 }

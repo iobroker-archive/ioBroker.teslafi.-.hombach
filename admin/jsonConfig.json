@@ -105,6 +105,22 @@
 					"xl": 12
 				}
 			}
+		},
+		"_CommandTab": {
+			"type": "panel",
+			"label": "LBL_CommandTab",
+			"items": {
+				"_WIP": {
+					"type": "staticText",
+					"text": "WORK in PROGRESS",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
+				}
+			}
 		}
 	}
 }
