@@ -119,6 +119,30 @@
 					"md": 12,
 					"lg": 12,
 					"xl": 12
+				},
+				"UseCarComands": {
+					"type": "checkbox",
+					"label": "LBL_UseCarComands",
+					"default": false,
+					"newLine": true,
+					"disabled": "true",
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
+				},
+				"SendWakeCommand": {
+					"type": "checkbox",
+					"label": "LBL_SendWakeCommand",
+					"default": false,
+					"newLine": true,
+					"disabled": "true",
+					"xs": 12,
+					"sm": 12,
+					"md": 6,
+					"lg": 6,
+					"xl": 6
 				}
 			}
 		}

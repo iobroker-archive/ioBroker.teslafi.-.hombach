@@ -5,5 +5,7 @@
     "LBL_helpLink": "Mostrar documentação do adaptador",
     "TXT_donateTx": "Se você gostou deste projeto - ou apenas se sente generoso, considere comprar uma cerveja para mim. Saúde! 🍻",
     "LBL_UpdateTimeout": "Tempo limite de atualização em milissegundos",
-    "LBL_CommandTab": "Configurações de comando do carro"
+    "LBL_CommandTab": "Configurações de comando do carro",
+    "LBL_UseCarComands": "Habilite o envio de comandos para o carro",
+    "LBL_SendWakeCommand": "Use o comando 'Wake Car' se o carro dormir"
 }

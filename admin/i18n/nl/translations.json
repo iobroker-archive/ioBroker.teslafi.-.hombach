@@ -5,5 +5,7 @@
     "LBL_helpLink": "Adapterdocumentatie tonen",
     "TXT_donateTx": "Als je van dit project hebt genoten – of je gewoon vrijgevig bent, overweeg dan om een ​​biertje voor me te kopen. Proost! 🍻",
     "LBL_UpdateTimeout": "Updatetime-out in milliseconden",
-    "LBL_CommandTab": "Instellingen voor autocommando's"
+    "LBL_CommandTab": "Instellingen voor autocommando's",
+    "LBL_UseCarComands": "Schakel het verzenden van opdrachten naar de auto in",
+    "LBL_SendWakeCommand": "Gebruik het commando 'Wake Car' als de auto slaapt"
 }

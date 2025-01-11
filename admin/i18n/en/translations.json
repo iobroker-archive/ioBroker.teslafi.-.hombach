@@ -6,5 +6,7 @@
 	"LBL_helpLink": "Show adapter documentation",
 	"TXT_donateTx": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",
 
-	"LBL_CommandTab": "Car Command Settings"
+	"LBL_CommandTab": "Car Command Settings",
+	"LBL_UseCarComands": "Enable sending commands to the car",
+	"LBL_SendWakeCommand": "Use 'Wake Car' command if car sleeps"
 }
