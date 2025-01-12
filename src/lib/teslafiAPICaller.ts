@@ -247,15 +247,24 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				`button.start`,
 				true,
 			);
+			this.adapter.subscribeStates(`commands.*`);
 		}
 	}
 
-	// Usage Details
-	// If the vehicle is awake: The command will be sent, and one usage will be deducted from your command count.
-	// If the vehicle is asleep: TeslaFi will send a wake command and pause for 15 seconds before sending the command.
-	// 		One usage will be deducted from both the command count and the wake count.
-	// 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
-	// 		of seconds to pause (up to 60 seconds).
+	/**
+	 * HandleCarCommand
+	 *
+	 * @param command - command to be send to TeslaFi
+	 */
+	HandleCarCommand(command: string): void {
+		// Usage Details
+		// If the vehicle is awake: The command will be sent, and one usage will be deducted from your command count.
+		// If the vehicle is asleep: TeslaFi will send a wake command and pause for 15 seconds before sending the command.
+		// 		One usage will be deducted from both the command count and the wake count.
+		// 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
+		// 		of seconds to pause (up to 60 seconds).
+		this.adapter.log.info(`TeslaFI gots command ${command} and sends this to the vehicle (!! WIP !!)`);
+	}
 
 	/**
 	 * ReadTeslaFi

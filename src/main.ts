@@ -4,6 +4,7 @@ import { TeslaFiAPICaller } from "./lib/teslafiAPICaller";
 
 class TeslaFi extends utils.Adapter {
 	intervalList: ioBroker.Interval[];
+	teslaFiAPICaller = new TeslaFiAPICaller(this);
 
 	public constructor(options: Partial<utils.AdapterOptions> = {}) {
 		super({
@@ -29,11 +30,11 @@ class TeslaFi extends utils.Adapter {
 			void this.setState(`info.connection`, false, true);
 		} else {
 			// Now read TeslaFi data from API for the first time
-			const teslaFiAPICaller = new TeslaFiAPICaller(this);
+			// WIP const teslaFiAPICaller = new TeslaFiAPICaller(this);
 			try {
-				teslaFiAPICaller.SetupCommandStates();
+				this.teslaFiAPICaller.SetupCommandStates();
 				// set info.connection if data received
-				if (await teslaFiAPICaller.ReadTeslaFi()) {
+				if (await this.teslaFiAPICaller.ReadTeslaFi()) {
 					void this.setState("info.connection", true, true);
 					this.log.debug(`received data in first poll - good connection`);
 				} else {
@@ -42,7 +43,7 @@ class TeslaFi extends utils.Adapter {
 					this.restart();
 				}
 			} catch (error) {
-				this.log.error(teslaFiAPICaller.generateErrorMessage(error, `pull of data from TeslaFi-Server`));
+				this.log.error(this.teslaFiAPICaller.generateErrorMessage(error, `pull of data from TeslaFi-Server`));
 			}
 
 			// sentry.io ping
@@ -58,6 +59,7 @@ class TeslaFi extends utils.Adapter {
 								scope.setLevel("info");
 								scope.setTag("SentryDay", today.getDate());
 								scope.setTag("usedInterval", this.config.UpdateInterval);
+								scope.setTag("usesCommands", this.config.UseCarCommands ? 1 : 0);
 								Sentry.captureMessage("Adapter TeslaFi started", "info"); // Level "info"
 							});
 					}
@@ -71,7 +73,7 @@ class TeslaFi extends utils.Adapter {
 			// Init Interval job
 			const jobVehicleData = this.setInterval(
 				async () => {
-					this.log.debug(`Interval job VehicleData - Result: ${await teslaFiAPICaller.ReadTeslaFi()}`);
+					this.log.debug(`Interval job VehicleData - Result: ${await this.teslaFiAPICaller.ReadTeslaFi()}`);
 				},
 				Math.min(Math.max(this.config.UpdateInterval, 10), 86400) * 1000,
 			);
@@ -108,41 +110,24 @@ class TeslaFi extends utils.Adapter {
 		try {
 			if (state) {
 				// The state was changed
-				// this.adapter.subscribeStates(`Homes.${homeId}.Calculations.${channel}.*`);
+				// this.adapter.subscribeStates(`commands.*`);
 				if (!state.ack) {
-					if (id.includes(`.Calculations.`)) {
+					if (id.includes(`.commands.`)) {
 						const statePath = id.split(".");
-						//const homeIDToMatch = statePath[3];
-						const calcChannel = parseInt(statePath[5]);
-						const settingType = statePath[6];
-						if (!isNaN(calcChannel) && settingType !== undefined) {
-							/*
-							switch (settingType) {
-								case "Active":
+						const commandState = statePath[3];
+						if (commandState !== "" && commandState !== undefined) {
+							switch (commandState) {
+								case "Start-HVAC":
 									// Update .chActive based on state.val if it's a boolean
 									if (typeof state.val === "boolean") {
+										this.teslaFiAPICaller.HandleCarCommand(commandState);
 									} else {
-										this.log.warn(`Wrong type for channel: ${calcChannel} - chActive: ${state.val}`);
-									}
-									break;
-								case "AmountHours":
-									// Update .chAmountHours based on state.val if it's a number
-									if (typeof state.val === "number") {
-									} else {
-										this.log.warn(`Wrong type for channel: ${calcChannel} - chAmountHours: ${state.val}`);
-									}
-									break;
-								case "StartTime":
-									// Update .chStartTime based on state.val if it's a datetime
-									if (typeof state.val === "string") {
-									} else {
-										this.log.warn(`Wrong type for channel: ${calcChannel} - chStartTime: ${state.val}`);
+										this.log.warn(`Wrong type for command: ${commandState} - chActive: ${state.val}`);
 									}
 									break;
 								default:
-									this.log.debug(`unknown value for setting type: ${settingType}`);
+									this.log.debug(`unknown value for command: ${commandState}`);
 							}
-							*/
 						}
 					}
 				}
@@ -150,8 +135,8 @@ class TeslaFi extends utils.Adapter {
 				// The state was deleted
 				this.log.warn(`state ${id} deleted`);
 			}
-		} catch (e) {
-			this.log.error(`Unhandled exception processing onstateChange: ${e}`);
+		} catch (error) {
+			this.log.error(`Unhandled exception processing onstateChange: ${error}`);
 		}
 	}
 }
