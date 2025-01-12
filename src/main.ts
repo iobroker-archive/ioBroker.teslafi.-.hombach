@@ -31,6 +31,7 @@ class TeslaFi extends utils.Adapter {
 			// Now read TeslaFi data from API for the first time
 			const teslaFiAPICaller = new TeslaFiAPICaller(this);
 			try {
+				teslaFiAPICaller.SetupCommandStates();
 				// set info.connection if data received
 				if (await teslaFiAPICaller.ReadTeslaFi()) {
 					void this.setState("info.connection", true, true);

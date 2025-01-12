@@ -1,11 +1,11 @@
 {
-	"LBL_StandardTab": "Configuración estándar",
-	"LBL_TeslaFiAPIToken": "Token para la API de TeslaFi",
-	"LBL_UpdateInterval": "Intervalo de actualización en segundos",
-	"LBL_helpLink": "Mostrar documentación del adaptador",
-	"TXT_donateTx": "Si disfrutó este proyecto, o simplemente se siente generoso, considere invitarme a una cerveza. ¡Salud! 🍻",
-	"LBL_UpdateTimeout": "Tiempo de espera de actualización en milisegundos",
-	"LBL_CommandTab": "Configuración de comando del automóvil",
-	"LBL_SendWakeCommand": "Use el comando 'Wake Car' si el auto duerme",
-	"LBL_UseCarCommands": "Habilitar el envío de comandos al coche."
+    "LBL_StandardTab": "Configuración estándar",
+    "LBL_TeslaFiAPIToken": "Token para la API de TeslaFi",
+    "LBL_UpdateInterval": "Intervalo de actualización en segundos",
+    "LBL_helpLink": "Mostrar documentación del adaptador",
+    "TXT_donateTx": "Si disfrutó este proyecto, o simplemente se siente generoso, considere invitarme a una cerveza. ¡Salud! 🍻",
+    "LBL_UpdateTimeout": "Tiempo de espera de actualización en milisegundos",
+    "LBL_CommandTab": "Configuración de comando del automóvil",
+    "LBL_SendWakeCommand": "Use el comando 'Wake Car' si el auto duerme",
+    "LBL_UseCarCommands": "Habilitar el envío de comandos al coche."
 }

@@ -192,6 +192,10 @@ const stVD = {
     // allow_cabin_overheat_protection: "1", cabin_overheat_protection: "FanOnly", cabin_overheat_protection_actively_cooling: "", cop_activation_temperature: null, pressure: null,
     // tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0"
 };
+// structure of vehicle commands
+const stVCom = {
+    auto_conditioning_start: { key: `Start-HVAC`, desc: `Start HVAC of your Tesla`, command: `auto_conditioning_start` },
+};
 function convertUnixToLocalTime(unixTimestamp, dateFormat = "dd.MM.yyyy HH:mm:ss") {
     const date = (0, date_fns_1.fromUnixTime)(unixTimestamp);
     return (0, date_fns_1.format)(date, dateFormat);
@@ -216,11 +220,28 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         this.queryUrl = "https://www.teslafi.com/feed.php?token=";
     }
     /**
-     * ReadTeslaFi
+     * SetupCommandStates
      */
-    async ReadTeslaFi() {
+    SetupCommandStates() {
+        // WiP
+        if (this.adapter.config.UseCarCommands) {
+            void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_start.key}`, false, stVCom.auto_conditioning_start.desc, `button.start`, true);
+        }
+    }
+    // Usage Details
+    // If the vehicle is awake: The command will be sent, and one usage will be deducted from your command count.
+    // If the vehicle is asleep: TeslaFi will send a wake command and pause for 15 seconds before sending the command.
+    // 		One usage will be deducted from both the command count and the wake count.
+    // 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
+    // 		of seconds to pause (up to 60 seconds).
+    /**
+     * ReadTeslaFi
+     *
+     * @param command - optional command to be send to TeslaFi - default ""
+     */
+    async ReadTeslaFi(command = "") {
         try {
-            const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
+            const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=${command}`, {
                 transformResponse: r => r,
                 timeout: this.adapter.config.UpdateTimeout, // 5000 by default
             });

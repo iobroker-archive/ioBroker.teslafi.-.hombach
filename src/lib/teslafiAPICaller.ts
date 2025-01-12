@@ -240,7 +240,6 @@ export class TeslaFiAPICaller extends ProjectUtils {
 	SetupCommandStates(): void {
 		// WiP
 		if (this.adapter.config.UseCarCommands) {
-			// Start HVAC		command=auto_conditioning_start
 			void this.checkAndSetValueBoolean(
 				`commands.${stVCom.auto_conditioning_start.key}`,
 				false,
@@ -251,12 +250,21 @@ export class TeslaFiAPICaller extends ProjectUtils {
 		}
 	}
 
+	// Usage Details
+	// If the vehicle is awake: The command will be sent, and one usage will be deducted from your command count.
+	// If the vehicle is asleep: TeslaFi will send a wake command and pause for 15 seconds before sending the command.
+	// 		One usage will be deducted from both the command count and the wake count.
+	// 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
+	// 		of seconds to pause (up to 60 seconds).
+
 	/**
 	 * ReadTeslaFi
+	 *
+	 * @param command - optional command to be send to TeslaFi - default ""
 	 */
-	async ReadTeslaFi(): Promise<boolean> {
+	async ReadTeslaFi(command = ""): Promise<boolean> {
 		try {
-			const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
+			const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=${command}`, {
 				transformResponse: r => r,
 				timeout: this.adapter.config.UpdateTimeout, // 5000 by default
 			});
@@ -606,36 +614,6 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			return true;
 		} catch (error) {
 			this.adapter.log.error(`Error reading TeslaFi data: ${error.message}`);
-			return false;
-		}
-	}
-
-	/**
-	 * WriteTeslaFi
-	 */
-	async WriteTeslaFi(): Promise<boolean> {
-		// Usage Details
-		// If the vehicle is awake: The command will be sent, and one usage will be deducted from your command count.
-		// If the vehicle is asleep: TeslaFi will send a wake command and pause for 15 seconds before sending the command.
-		// 		One usage will be deducted from both the command count and the wake count.
-		// 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
-		// 		of seconds to pause (up to 60 seconds).
-
-		// Start HVAC		command=auto_conditioning_start
-
-		try {
-			//WIP
-			const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
-				transformResponse: r => r,
-				timeout: this.adapter.config.UpdateTimeout, // 5000 by default
-			});
-
-			if (!response.data) {
-				throw new Error(`Empty answer from TeslaFi.`);
-			}
-			return true;
-		} catch (error) {
-			this.adapter.log.error(`Error send command to TeslaFi: ${error.message}`);
 			return false;
 		}
 	}
