@@ -120,9 +120,9 @@
 					"lg": 12,
 					"xl": 12
 				},
-				"UseCarComands": {
+				"UseCarCommands": {
 					"type": "checkbox",
-					"label": "LBL_UseCarComands",
+					"label": "LBL_UseCarCommands",
 					"default": false,
 					"newLine": true,
 					"disabled": "true",

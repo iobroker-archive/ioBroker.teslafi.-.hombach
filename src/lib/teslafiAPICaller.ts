@@ -13,6 +13,12 @@ interface VehicleData {
 	value: string; // value as string as saved in the JSON
 }
 
+interface VehicleCommands {
+	key: string; // the key user in API-JSON
+	desc: string; // description for ioBroker state
+	command: string; // command as string to be send to TeslaFi
+}
+
 // structure of vehicle data
 const stVD: Record<string, VehicleData> = {
 	Date: { key: `Date`, desc: `Last connection to your Tesla`, value: null },
@@ -196,6 +202,11 @@ const stVD: Record<string, VehicleData> = {
 	// tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0"
 };
 
+// structure of vehicle commands
+const stVCom: Record<string, VehicleCommands> = {
+	auto_conditioning_start: { key: `Start-HVAC`, desc: `Start HVAC of your Tesla`, command: `auto_conditioning_start` },
+};
+
 function convertUnixToLocalTime(unixTimestamp: number, dateFormat = "dd.MM.yyyy HH:mm:ss"): string {
 	const date = fromUnixTime(unixTimestamp);
 	return format(date, dateFormat);
@@ -221,6 +232,23 @@ export class TeslaFiAPICaller extends ProjectUtils {
 	constructor(adapter: utils.AdapterInstance) {
 		super(adapter);
 		this.queryUrl = "https://www.teslafi.com/feed.php?token=";
+	}
+
+	/**
+	 * SetupCommandStates
+	 */
+	SetupCommandStates(): void {
+		// WiP
+		if (this.adapter.config.UseCarCommands) {
+			// Start HVAC		command=auto_conditioning_start
+			void this.checkAndSetValueBoolean(
+				`commands.${stVCom.auto_conditioning_start.key}`,
+				false,
+				stVCom.auto_conditioning_start.desc,
+				`button.start`,
+				true,
+			);
+		}
 	}
 
 	/**
@@ -578,6 +606,36 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			return true;
 		} catch (error) {
 			this.adapter.log.error(`Error reading TeslaFi data: ${error.message}`);
+			return false;
+		}
+	}
+
+	/**
+	 * WriteTeslaFi
+	 */
+	async WriteTeslaFi(): Promise<boolean> {
+		// Usage Details
+		// If the vehicle is awake: The command will be sent, and one usage will be deducted from your command count.
+		// If the vehicle is asleep: TeslaFi will send a wake command and pause for 15 seconds before sending the command.
+		// 		One usage will be deducted from both the command count and the wake count.
+		// 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
+		// 		of seconds to pause (up to 60 seconds).
+
+		// Start HVAC		command=auto_conditioning_start
+
+		try {
+			//WIP
+			const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=`, {
+				transformResponse: r => r,
+				timeout: this.adapter.config.UpdateTimeout, // 5000 by default
+			});
+
+			if (!response.data) {
+				throw new Error(`Empty answer from TeslaFi.`);
+			}
+			return true;
+		} catch (error) {
+			this.adapter.log.error(`Error send command to TeslaFi: ${error.message}`);
 			return false;
 		}
 	}

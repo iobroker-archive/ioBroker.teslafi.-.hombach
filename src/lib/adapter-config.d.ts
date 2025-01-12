@@ -7,7 +7,7 @@ declare global {
 			TeslaFiAPIToken: string;
 			UpdateInterval: number;
 			UpdateTimeout: number;
-			UseCarComands: boolean;
+			UseCarCommands: boolean;
 			SendWakeCommand: boolean;
 		}
 	}
