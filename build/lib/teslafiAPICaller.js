@@ -241,11 +241,12 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         // 		One usage will be deducted from both the command count and the wake count.
         // 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
         // 		of seconds to pause (up to 60 seconds).
+        // {"response":{"result":true,"reason":""}}
         this.adapter.log.info(`TeslaFI adapter gots command ${command} and sends this to the vehicle`);
         switch (command) {
             case stVCom.auto_conditioning_start.key:
                 await this.ReadTeslaFi(stVCom.auto_conditioning_start.command);
-                void this.adapter.setState(`commands.${stVCom.auto_conditioning_start.key}`, true, true);
+                void this.adapter.setState(`commands.${stVCom.auto_conditioning_start.key}`, false, true);
                 break;
             default:
         }
