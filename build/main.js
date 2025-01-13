@@ -135,7 +135,7 @@ class TeslaFi extends utils.Adapter {
      * @param id - state ID
      * @param state - ioBroker state object
      */
-    onStateChange(id, state) {
+    async onStateChange(id, state) {
         try {
             if (state) {
                 // The state was changed
@@ -147,9 +147,12 @@ class TeslaFi extends utils.Adapter {
                         if (commandState !== "" && commandState !== undefined) {
                             switch (commandState) {
                                 case "Start-HVAC":
-                                    // Update .chActive based on state.val if it's a boolean
+                                    // WIP
                                     if (typeof state.val === "boolean") {
-                                        this.teslaFiAPICaller.HandleCarCommand(commandState);
+                                        void this.setState(id, state.val, true);
+                                        if (state.val) {
+                                            await this.teslaFiAPICaller.HandleCarCommand(commandState);
+                                        }
                                     }
                                     else {
                                         this.log.warn(`Wrong type for command: ${commandState} - chActive: ${state.val}`);
