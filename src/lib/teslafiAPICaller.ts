@@ -266,7 +266,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 
 		// {"response":{"result":true,"reason":""}}
 
-		this.adapter.log.info(`TeslaFI adapter gots command ${command} and sends this to the vehicle`);
+		this.adapter.log.info(`TeslaFI adapter got command ${command} and sends this to the vehicle`);
 		switch (command) {
 			case stVCom.auto_conditioning_start.key:
 				await this.ReadTeslaFi(stVCom.auto_conditioning_start.command);
