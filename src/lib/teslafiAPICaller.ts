@@ -352,7 +352,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				//" "
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
 			} else {
-				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "", stVD.newVersion.desc);
+				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "none", stVD.newVersion.desc);
 			}
 
 			this.adapter.log.warn(`stVD.newVersion.value = [${stVD.newVersion.value}]`);
@@ -362,7 +362,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				//"installing"
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, stVD.newVersionStatus.value, stVD.newVersionStatus.desc);
 			} else {
-				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, "", stVD.newVersionStatus.desc);
+				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, "none", stVD.newVersionStatus.desc);
 			}
 
 			if (stVD.location.value !== null) {

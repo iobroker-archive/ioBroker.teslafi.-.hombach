@@ -320,7 +320,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
             }
             else {
-                void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "", stVD.newVersion.desc);
+                void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "none", stVD.newVersion.desc);
             }
             this.adapter.log.warn(`stVD.newVersion.value = [${stVD.newVersion.value}]`);
             this.adapter.log.warn(`stVD.newVersionStatus.value = [${stVD.newVersionStatus.value}]`);
@@ -329,7 +329,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, stVD.newVersionStatus.value, stVD.newVersionStatus.desc);
             }
             else {
-                void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, "", stVD.newVersionStatus.desc);
+                void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, "none", stVD.newVersionStatus.desc);
             }
             if (stVD.location.value !== null) {
                 //"Home"
