@@ -355,6 +355,9 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "", stVD.newVersion.desc);
 			}
 
+			this.adapter.log.warn(`stVD.newVersion.value = ${stVD.newVersion.value}`);
+			this.adapter.log.warn(`stVD.newVersionStatus.value = ${stVD.newVersionStatus.value}`);
+
 			if (stVD.newVersionStatus !== null) {
 				//"installing"
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, stVD.newVersionStatus.value, stVD.newVersionStatus.desc);
