@@ -320,14 +320,14 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
             }
             else {
-                void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, ``, stVD.newVersion.desc);
+                void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "", stVD.newVersion.desc);
             }
             if (stVD.newVersionStatus !== null) {
                 //"installing"
                 void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, stVD.newVersionStatus.value, stVD.newVersionStatus.desc);
             }
             else {
-                void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, ``, stVD.newVersionStatus.desc);
+                void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, "", stVD.newVersionStatus.desc);
             }
             if (stVD.location.value !== null) {
                 //"Home"
