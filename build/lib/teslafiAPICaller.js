@@ -186,9 +186,9 @@ const stVD = {
     newVersion: {
         key: `newVersion`,
         desc: `Next software version if available`,
-        value: null,
+        value: null, //" "
     },
-    newVersionStatus: { key: `newVersionStatus`, desc: ``, value: `` }, //"installing"
+    newVersionStatus: { key: `newVersionStatus`, desc: ``, value: `` }, //"installing", ""
     // allow_cabin_overheat_protection: "1", cabin_overheat_protection: "FanOnly", cabin_overheat_protection_actively_cooling: "", cop_activation_temperature: null, pressure: null,
     // tpms_front_left: "41.7", tpms_front_right: "41.0", tpms_rear_left: "41.7", tpms_rear_right: "41.0"
 };
