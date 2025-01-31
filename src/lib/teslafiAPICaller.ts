@@ -348,21 +348,19 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				void this.checkAndSetValue(`vehicle-state.${stVD.car_version.key}`, stVD.car_version.value, stVD.car_version.desc);
 			}
 			if (stVD.newVersion.value && stVD.newVersion.value.trim() !== "") {
-				//if (stVD.newVersion.value !== null) {
+				// if (stVD.newVersion.value !== null) {
 				//" "
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
 			} else {
-				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "none", stVD.newVersion.desc);
+				void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "---", stVD.newVersion.desc);
 			}
 
-			this.adapter.log.warn(`stVD.newVersion.value = [${stVD.newVersion.value}]`);
-			this.adapter.log.warn(`stVD.newVersionStatus.value = [${stVD.newVersionStatus.value}]`);
-
-			if (stVD.newVersionStatus !== null) {
+			if (stVD.newVersionStatus.value && stVD.newVersionStatus.value.trim() !== "") {
+				// if (stVD.newVersionStatus !== null) {
 				//"installing"
 				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, stVD.newVersionStatus.value, stVD.newVersionStatus.desc);
 			} else {
-				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, "none", stVD.newVersionStatus.desc);
+				void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, "---", stVD.newVersionStatus.desc);
 			}
 
 			if (stVD.location.value !== null) {

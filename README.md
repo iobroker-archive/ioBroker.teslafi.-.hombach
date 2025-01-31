@@ -75,6 +75,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 1.1.1 (2025-02-xx)
+
+- (hombach) fix deletion of newversion (#93)
+
 ### 1.1.0 (2025-01-23)
 
 - (hombach) deprecated object calls removed
