@@ -308,14 +308,13 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 void this.checkAndSetValue(`vehicle-state.${stVD.charging_state.key}`, stVD.charging_state.value, stVD.charging_state.desc);
             }
             else {
-                void this.checkAndSetValue(`vehicle-state.${stVD.charging_state.key}`, "Unknown", stVD.charging_state.desc);
+                void this.checkAndSetValue(`vehicle-state.${stVD.charging_state.key}`, "---", stVD.charging_state.desc);
             }
             if (stVD.car_version.value !== null) {
                 //"2024.32.7 3f0d0fff88"
                 void this.checkAndSetValue(`vehicle-state.${stVD.car_version.key}`, stVD.car_version.value, stVD.car_version.desc);
             }
             if (stVD.newVersion.value && stVD.newVersion.value.trim() !== "") {
-                // if (stVD.newVersion.value !== null) {
                 //" "
                 void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, stVD.newVersion.value, stVD.newVersion.desc);
             }
@@ -323,7 +322,6 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 void this.checkAndSetValue(`vehicle-state.${stVD.newVersion.key}`, "---", stVD.newVersion.desc);
             }
             if (stVD.newVersionStatus.value && stVD.newVersionStatus.value.trim() !== "") {
-                // if (stVD.newVersionStatus !== null) {
                 //"installing"
                 void this.checkAndSetValue(`vehicle-state.${stVD.newVersionStatus.key}`, stVD.newVersionStatus.value, stVD.newVersionStatus.desc);
             }
