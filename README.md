@@ -75,6 +75,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
 ### 1.1.1 (2025-02-01)
 
 - (hombach) fix deletion of newversion (#93)
