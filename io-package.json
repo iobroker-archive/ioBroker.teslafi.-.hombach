@@ -4,17 +4,17 @@
         "version": "1.1.2",
         "news": {
             "1.1.2": {
-                "en": "added @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev to 1.4.0 (#104)\nbump dependencies\nfix error in config",
-                "de": "@alcalzone/release-script (#97) hinzugefügt\nBUPP @IOBROKER/ADAPTER-DEV bis 1.4.0 (#104)\nBeuleabhängigkeiten\nFehler in der Konfiguration beheben",
-                "ru": "Добавлен @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev до 1.4.0 (#104)\nУдар зависимости\nисправить ошибку в конфигурации",
-                "pt": "Adicionado @alcalzone/release-script (#97)\nBump @iobroker/adaptador-dev para 1.4.0 (#104)\nBump dependências\nCorrija o erro na configuração",
-                "nl": "Toegevoegd @alcalzone/release-script (#97)\nbump @iOBRoker/Adapter-Dev tot 1.4.0 (#104)\nBump -afhankelijkheden\nFout repareren in configuratie",
-                "fr": "ajouté @ alcalzone / scénite de version (# 97)\nbosse @ iobroker / adaptateur-DEV à 1.4.0 (# 104)\ndépendances\nCorrection d'une erreur dans la configuration",
-                "it": "Aggiunto @alcalzone/rilascio-script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndipendenze bump\ncorreggere l'errore in config",
-                "es": "Se agregó @Alcalzone/Release-Script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndependencias de la protuberancia\nArreglar el error en la configuración",
-                "pl": "Dodano @alcalzone/release-script (#97)\nBump @iobrocer/adapter-dev do 1.4.0 (#104)\nzależności od wypukłości\nNapraw błąd w konfiguracji",
-                "uk": "Додано @alcalzone/випуск-Script (#97)\nbump @iobroker/адаптер-dev до 1.4.0 (#104)\nзалежності від удару\nВиправити помилку в конфігурації",
-                "zh-cn": "添加 @Alcalzone/Release-Script（＃97）\nbump @iobroker/adapter-dev至1.4.0（＃104）\n凸起依赖性\n修复配置中的错误"
+                "en": "added @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev to 1.4.0 (#104)\nbump dependencies\nfix error in config (#106)",
+                "de": "@alcalzone/release-script (#97) hinzugefügt\nBUPP @IOBROKER/ADAPTER-DEV bis 1.4.0 (#104)\nBeuleabhängigkeiten\nFehler in der Konfiguration beheben (#106)",
+                "ru": "Добавлен @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev до 1.4.0 (#104)\nУдар зависимости\nИсправление ошибки в конфигурации (#106)",
+                "pt": "Adicionado @alcalzone/release-script (#97)\nBump @iobroker/adaptador-dev para 1.4.0 (#104)\nBump dependências\nCorrija o erro na configuração (#106)",
+                "nl": "Toegevoegd @alcalzone/release-script (#97)\nbump @iOBRoker/Adapter-Dev tot 1.4.0 (#104)\nBump -afhankelijkheden\nFout repareren in config (#106)",
+                "fr": "ajouté @ alcalzone / scénite de version (# 97)\nbosse @ iobroker / adaptateur-DEV à 1.4.0 (# 104)\ndépendances\nCorrection d'une erreur dans la configuration (# 106)",
+                "it": "Aggiunto @alcalzone/rilascio-script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndipendenze bump\nCorreggi l'errore in config (#106)",
+                "es": "Se agregó @Alcalzone/Release-Script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndependencias de la protuberancia\ncorrige el error en la configuración (#106)",
+                "pl": "Dodano @alcalzone/release-script (#97)\nBump @iobrocer/adapter-dev do 1.4.0 (#104)\nzależności od wypukłości\nNapraw błąd w konfiguracji (#106)",
+                "uk": "Додано @alcalzone/випуск-Script (#97)\nbump @iobroker/адаптер-dev до 1.4.0 (#104)\nзалежності від удару\nВиправити помилку в конфігурації (#106)",
+                "zh-cn": "添加 @Alcalzone/Release-Script（＃97）\nbump @iobroker/adapter-dev至1.4.0（＃104）\n凸起依赖性\n修复配置中的错误（＃106）"
             },
             "1.1.1": {
                 "en": "fix deletion of newversion (#93)",
