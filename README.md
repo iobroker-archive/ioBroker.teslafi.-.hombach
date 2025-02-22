@@ -78,7 +78,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 1.1.2 (2025-02-22)
 
 - (hombach) added @alcalzone/release-script (#97)
-- (hombach) Bump @iobroker/adapter-dev to 1.4.0 (#104)
+- (hombach) bump @iobroker/adapter-dev to 1.4.0 (#104)
+- (hombach) bump dependencies
+- (hombach) fix error in config
 
 ### 1.1.1 (2025-02-01)
 
