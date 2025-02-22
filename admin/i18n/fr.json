@@ -1,0 +1,11 @@
+{
+    "LBL_CommandTab": "Paramètres de commande de voiture",
+    "LBL_SendWakeCommand": "Utilisez la commande « Wake Car » si la voiture dort",
+    "LBL_StandardTab": "Paramètres standards",
+    "LBL_TeslaFiAPIToken": "Jeton pour l'API TeslaFi",
+    "LBL_UpdateInterval": "Intervalle de mise à jour en secondes",
+    "LBL_UpdateTimeout": "Délai d'expiration de la mise à jour en millisecondes",
+    "LBL_UseCarCommands": "Activer l'envoi de commandes à la voiture",
+    "LBL_helpLink": "Afficher la documentation de l'adaptateur",
+    "TXT_donateTx": "Si vous avez apprécié ce projet – ou si vous vous sentez simplement généreux, pensez à m'acheter une bière. Acclamations! 🍻"
+}

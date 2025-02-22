@@ -75,10 +75,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 1.1.2 (2025-02-22)
 
 - (hombach) added @alcalzone/release-script (#97)
-- (hombach) Bumped @iobroker/adapter-dev to 1.4.0 (#104)
+- (hombach) Bump @iobroker/adapter-dev to 1.4.0 (#104)
 
 ### 1.1.1 (2025-02-01)
 
