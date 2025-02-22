@@ -77,7 +77,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (hombach) add @alcalzone/release-script (#97)
+- (hombach) added @alcalzone/release-script (#97)
+- (hombach) Bumped @iobroker/adapter-dev to 1.4.0 (#104)
 
 ### 1.1.1 (2025-02-01)
 
