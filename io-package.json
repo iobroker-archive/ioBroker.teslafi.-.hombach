@@ -1,223 +1,210 @@
 {
-  "common": {
-    "name": "teslafi",
-    "version": "1.2.0",
-    "news": {
-      "1.2.0": {
-        "en": "change to admin 7.4.10 as recommended by ioBroker (#102)",
-        "de": "änderung von admin 7.4.10 wie von ioBroker empfohlen (#102)",
-        "ru": "изменить на админ 7.4.10 в соответствии с рекомендациями ioBroker (#102)",
-        "pt": "mudar para admin 7.4.10 como recomendado por ioBroker (#102)",
-        "nl": "overstappen op admin 7.4.10 zoals aanbevolen door ioBroker (#102)",
-        "fr": "changement à admin 7.4.10 comme recommandé par ioBroker (#102)",
-        "it": "cambiamento a admin 7.4.10 come raccomandato da ioBroker (#102)",
-        "es": "cambio a admin 7.4.10 según lo recomendado por ioBroker (#102)",
-        "pl": "zmiana na admin 7.4.10 zgodnie z zaleceniami joBrokera (# 102)",
-        "uk": "зміни в admin 7.4.10 як рекомендується ioBroker (#102)",
-        "zh-cn": "根据ioBroker的建议改为admin 7.4.10 (# 102)"
-      },
-      "1.1.2": {
-        "en": "added @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev to 1.4.0 (#104)\nbump dependencies\nfix error in config (#106)",
-        "de": "@alcalzone/release-script (#97) hinzugefügt\nBUPP @IOBROKER/ADAPTER-DEV bis 1.4.0 (#104)\nBeuleabhängigkeiten\nFehler in der Konfiguration beheben (#106)",
-        "ru": "Добавлен @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev до 1.4.0 (#104)\nУдар зависимости\nИсправление ошибки в конфигурации (#106)",
-        "pt": "Adicionado @alcalzone/release-script (#97)\nBump @iobroker/adaptador-dev para 1.4.0 (#104)\nBump dependências\nCorrija o erro na configuração (#106)",
-        "nl": "Toegevoegd @alcalzone/release-script (#97)\nbump @iOBRoker/Adapter-Dev tot 1.4.0 (#104)\nBump -afhankelijkheden\nFout repareren in config (#106)",
-        "fr": "ajouté @ alcalzone / scénite de version (# 97)\nbosse @ iobroker / adaptateur-DEV à 1.4.0 (# 104)\ndépendances\nCorrection d'une erreur dans la configuration (# 106)",
-        "it": "Aggiunto @alcalzone/rilascio-script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndipendenze bump\nCorreggi l'errore in config (#106)",
-        "es": "Se agregó @Alcalzone/Release-Script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndependencias de la protuberancia\ncorrige el error en la configuración (#106)",
-        "pl": "Dodano @alcalzone/release-script (#97)\nBump @iobrocer/adapter-dev do 1.4.0 (#104)\nzależności od wypukłości\nNapraw błąd w konfiguracji (#106)",
-        "uk": "Додано @alcalzone/випуск-Script (#97)\nbump @iobroker/адаптер-dev до 1.4.0 (#104)\nзалежності від удару\nВиправити помилку в конфігурації (#106)",
-        "zh-cn": "添加 @Alcalzone/Release-Script（＃97）\nbump @iobroker/adapter-dev至1.4.0（＃104）\n凸起依赖性\n修复配置中的错误（＃106）"
-      },
-      "1.1.1": {
-        "en": "fix deletion of newversion (#93)",
-        "de": "Löschung der Neuversion beheben (#93)",
-        "ru": "Исправить удаление новой трансляции (#93)",
-        "pt": "Corrigir a exclusão do NewVersion (#93)",
-        "nl": "Fix Deletion of Newversion (#93)",
-        "fr": "Correction de la suppression de Newversion (# 93)",
-        "it": "Correggi la cancellazione delle nuove versioni (#93)",
-        "es": "Arreglar la eliminación de la nueva Versión (#93)",
-        "pl": "Napraw usunięcie neweversion (#93)",
-        "uk": "Видалення Newversion (#93)",
-        "zh-cn": "修复新闻的删除（＃93）"
-      },
-      "1.1.0": {
-        "en": "deprecated object calls removed\nadd 'start HVAC' command and commands tab (#36)",
-        "de": "Veraltete Objektaufrufe entfernt\nBefehl und Befehlsregisterkarte „Start HVAC“ hinzufügen (#36)",
-        "ru": "удалены устаревшие вызовы объектов\nдобавить команду «Запустить HVAC» и вкладку команд (#36)",
-        "pt": "chamadas de objetos obsoletas removidas\nadicione o comando 'start HVAC' e a guia de comandos (#36)",
-        "nl": "verouderde objectaanroepen verwijderd\nvoeg de opdracht 'start HVAC' en het tabblad opdrachten toe (#36)",
-        "fr": "appels d'objet obsolètes supprimés\najouter la commande 'start HVAC' et l'onglet commandes (#36)",
-        "it": "chiamate a oggetti deprecati rimosse\naggiunto il comando 'avvia HVAC' e la scheda comandi (#36)",
-        "es": "llamadas a objetos obsoletos eliminados\nagregue el comando 'iniciar HVAC' y la pestaña de comandos (#36)",
-        "pl": "usunięto przestarzałe wywołania obiektów\ndodaj polecenie „uruchom HVAC” i kartę poleceń (#36)",
-        "uk": "застарілі виклики об’єктів видалено\nдодати команду «запустити HVAC» і вкладку команд (#36)",
-        "zh-cn": "已删除不推荐使用的对象调用\n添加“启动 HVAC”命令和命令选项卡 (#36)"
-      },
-      "1.0.1": {
-        "en": "year 2025 changes\ncode optimizations\nbump typescript",
-        "de": "Das Jahr 2025 ändert sich\nCodeoptimierungen\nBump-Typoskript",
-        "ru": "изменения 2025 года\nоптимизация кода\nмашинописный текст",
-        "pt": "mudanças no ano de 2025\notimizações de código\ncolisão datilografada",
-        "nl": "jaar 2025 verandert\ncode-optimalisaties\ntyposcript tegen de vlakte",
-        "fr": "changements en 2025\noptimisations de code\ntaper sur la machine",
-        "it": "anno 2025 cambia\nottimizzazioni del codice\ndattiloscritto bump",
-        "es": "cambios del año 2025\noptimizaciones de código\nmecanografiado",
-        "pl": "zmiany roku 2025\noptymalizacje kodu\npodbić maszynopis",
-        "uk": "2025 рік зміни\nоптимізація коду\nшишка машинопис",
-        "zh-cn": "2025年的变化\n代码优化\n凹凸打字稿"
-      },
-      "1.0.0": {
-        "en": "version bumped to 1.0 for stable release\nadd newVersionStatus (#80)\nadd configurable poll timeout",
-        "de": "Version wurde für eine stabile Veröffentlichung auf 1.0 erhöht\nnewVersionStatus hinzufügen (#80)\nFügen Sie ein konfigurierbares Poll-Timeout hinzu",
-        "ru": "версия увеличена до 1.0 для стабильной версии\nдобавить новыйVersionStatus (#80)\nдобавить настраиваемый тайм-аут опроса",
-        "pt": "versão passou para 1.0 para versão estável\nadicione newVersionStatus (#80)\nadicionar tempo limite de pesquisa configurável",
-        "nl": "versie verhoogd naar 1.0 voor stabiele release\nnieuweVersionStatus toevoegen (#80)\nconfigureerbare poll-time-out toevoegen",
-        "fr": "version passée à 1.0 pour une version stable\najouter newVersionStatus (#80)\najouter un délai d'attente d'interrogation configurable",
-        "it": "versione aumentata alla 1.0 per il rilascio stabile\naggiungi nuovo stato versione (#80)\naggiungere timeout del sondaggio configurabile",
-        "es": "La versión aumentó a 1.0 para una versión estable.\nagregar nuevo estado de versión (#80)\nagregar tiempo de espera de encuesta configurable",
-        "pl": "wersja została zmieniona na 1.0 w celu uzyskania stabilnego wydania\ndodaj nowyStatus wersji (#80)\ndodaj konfigurowalny limit czasu ankiety",
-        "uk": "версія підвищена до 1.0 для стабільного випуску\nдодати newVersionStatus (#80)\nдодати настроюваний тайм-аут опитування",
-        "zh-cn": "版本已升至 1.0 以进行稳定发布\n添加新版本状态 (#80)\n添加可配置的轮询超时"
-      },
-      "0.4.6": {
-        "en": "fix chai\noptimize documentation",
-        "de": "Chai reparieren\nDokumentation optimieren",
-        "ru": "починить чай\nоптимизировать документацию",
-        "pt": "consertar chai\notimizar documentação",
-        "nl": "Chai repareren\ndocumentatie optimaliseren",
-        "fr": "réparer le chai\noptimiser la documentation",
-        "it": "aggiusta chai\nottimizzare la documentazione",
-        "es": "arreglar chai\noptimizar la documentación",
-        "pl": "napraw chai\noptymalizować dokumentację",
-        "uk": "виправити чай\nоптимізувати документацію",
-        "zh-cn": "修复柴\n优化文档"
-      }
-    },
-    "titleLang": {
-      "en": "TeslaFi",
-      "de": "TeslaFi",
-      "ru": "TeslaFi",
-      "pt": "TeslaFi",
-      "nl": "TeslaFi",
-      "fr": "TeslaFi",
-      "it": "TeslaFi",
-      "es": "TeslaFi",
-      "pl": "TeslaFi",
-      "uk": "TeslaFi",
-      "zh-cn": "TeslaFi"
-    },
-    "desc": {
-      "en": "Adapter to poll TeslaFi data of your car",
-      "de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
-      "ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
-      "pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
-      "nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
-      "fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
-      "it": "Adattatore per recuperare i dati TeslaFi della tua auto",
-      "es": "Adaptador para consultar los datos de TeslaFi de su coche",
-      "pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
-      "uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
-      "zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
-    },
-    "authors": [
-      "Hombach <TeslaFi@homba.ch>"
-    ],
-    "keywords": [
-      "TeslaFi",
-      "Tesla",
-      "EV",
-      "Car"
-    ],
-    "licenseInformation": {
-      "license": "MIT",
-      "type": "free"
-    },
-    "platform": "Javascript/Node.js",
-    "icon": "teslafi.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png",
-    "readme": "https://github.com/Hombach/ioBroker.teslafi/blob/master/README.md",
-    "loglevel": "info",
-    "tier": 2,
-    "mode": "daemon",
-    "messagebox": true,
-    "allowInit": true,
-    "type": "vehicle",
-    "compact": true,
-    "connectionType": "cloud",
-    "dataSource": "poll",
-    "adminUI": {
-      "config": "json"
-    },
-    "dependencies": [
-      {
-        "js-controller": ">=5.0.19"
-      }
-    ],
-    "globalDependencies": [
-      {
-        "admin": ">=7.4.10"
-      }
-    ],
-    "plugins": {
-      "sentry": {
-        "dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
-      }
-    },
-    "supportCustoms": false
-  },
-  "encryptedNative": [
-    "TeslaFiAPIToken",
-    "teslafiapitokenpass"
-  ],
-  "protectedNative": [
-    "TeslaFiAPIToken",
-    "teslafiapitokenpass"
-  ],
-  "native": {
-    "teslafiapitokenpass": "",
-    "TeslaFiAPIToken": "",
-    "UpdateInterval": "60",
-    "UpdateTimeout": 5000
-  },
-  "objects": [],
-  "instanceObjects": [
-    {
-      "_id": "info",
-      "type": "channel",
-      "common": {
-        "name": "Information"
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.connection",
-      "type": "state",
-      "common": {
-        "role": "indicator.connected",
-        "name": "Device or service connected",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.LastSentryLogDay",
-      "type": "state",
-      "common": {
-        "role": "value",
-        "name": "Last day of month for Sentry log",
-        "type": "number",
-        "unit": "",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    }
-  ]
+	"common": {
+		"name": "teslafi",
+		"version": "1.2.1",
+		"news": {
+			"1.2.1": {
+				"en": "bump dependencies",
+				"de": "bump Abhängigkeiten",
+				"ru": "бамп зависимости",
+				"pt": "dependências de choque",
+				"nl": "bump afhankelijkheden",
+				"fr": "dépendances des bosses",
+				"it": "indipendenza urto",
+				"es": "dependencia de los gastos",
+				"pl": "uzależnienia od guza",
+				"uk": "bump залежності",
+				"zh-cn": "意外依赖"
+			},
+			"1.2.0": {
+				"en": "change to admin 7.4.10 as recommended by ioBroker (#102)",
+				"de": "änderung von admin 7.4.10 wie von ioBroker empfohlen (#102)",
+				"ru": "изменить на админ 7.4.10 в соответствии с рекомендациями ioBroker (#102)",
+				"pt": "mudar para admin 7.4.10 como recomendado por ioBroker (#102)",
+				"nl": "overstappen op admin 7.4.10 zoals aanbevolen door ioBroker (#102)",
+				"fr": "changement à admin 7.4.10 comme recommandé par ioBroker (#102)",
+				"it": "cambiamento a admin 7.4.10 come raccomandato da ioBroker (#102)",
+				"es": "cambio a admin 7.4.10 según lo recomendado por ioBroker (#102)",
+				"pl": "zmiana na admin 7.4.10 zgodnie z zaleceniami joBrokera (# 102)",
+				"uk": "зміни в admin 7.4.10 як рекомендується ioBroker (#102)",
+				"zh-cn": "根据ioBroker的建议改为admin 7.4.10 (# 102)"
+			},
+			"1.1.2": {
+				"en": "added @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev to 1.4.0 (#104)\nbump dependencies\nfix error in config (#106)",
+				"de": "@alcalzone/release-script (#97) hinzugefügt\nBUPP @IOBROKER/ADAPTER-DEV bis 1.4.0 (#104)\nBeuleabhängigkeiten\nFehler in der Konfiguration beheben (#106)",
+				"ru": "Добавлен @alcalzone/release-script (#97)\nbump @iobroker/adapter-dev до 1.4.0 (#104)\nУдар зависимости\nИсправление ошибки в конфигурации (#106)",
+				"pt": "Adicionado @alcalzone/release-script (#97)\nBump @iobroker/adaptador-dev para 1.4.0 (#104)\nBump dependências\nCorrija o erro na configuração (#106)",
+				"nl": "Toegevoegd @alcalzone/release-script (#97)\nbump @iOBRoker/Adapter-Dev tot 1.4.0 (#104)\nBump -afhankelijkheden\nFout repareren in config (#106)",
+				"fr": "ajouté @ alcalzone / scénite de version (# 97)\nbosse @ iobroker / adaptateur-DEV à 1.4.0 (# 104)\ndépendances\nCorrection d'une erreur dans la configuration (# 106)",
+				"it": "Aggiunto @alcalzone/rilascio-script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndipendenze bump\nCorreggi l'errore in config (#106)",
+				"es": "Se agregó @Alcalzone/Release-Script (#97)\nBump @Iobroker/Adapter-Dev a 1.4.0 (#104)\ndependencias de la protuberancia\ncorrige el error en la configuración (#106)",
+				"pl": "Dodano @alcalzone/release-script (#97)\nBump @iobrocer/adapter-dev do 1.4.0 (#104)\nzależności od wypukłości\nNapraw błąd w konfiguracji (#106)",
+				"uk": "Додано @alcalzone/випуск-Script (#97)\nbump @iobroker/адаптер-dev до 1.4.0 (#104)\nзалежності від удару\nВиправити помилку в конфігурації (#106)",
+				"zh-cn": "添加 @Alcalzone/Release-Script（＃97）\nbump @iobroker/adapter-dev至1.4.0（＃104）\n凸起依赖性\n修复配置中的错误（＃106）"
+			},
+			"1.1.1": {
+				"en": "fix deletion of newversion (#93)",
+				"de": "Löschung der Neuversion beheben (#93)",
+				"ru": "Исправить удаление новой трансляции (#93)",
+				"pt": "Corrigir a exclusão do NewVersion (#93)",
+				"nl": "Fix Deletion of Newversion (#93)",
+				"fr": "Correction de la suppression de Newversion (# 93)",
+				"it": "Correggi la cancellazione delle nuove versioni (#93)",
+				"es": "Arreglar la eliminación de la nueva Versión (#93)",
+				"pl": "Napraw usunięcie neweversion (#93)",
+				"uk": "Видалення Newversion (#93)",
+				"zh-cn": "修复新闻的删除（＃93）"
+			},
+			"1.1.0": {
+				"en": "deprecated object calls removed\nadd 'start HVAC' command and commands tab (#36)",
+				"de": "Veraltete Objektaufrufe entfernt\nBefehl und Befehlsregisterkarte „Start HVAC“ hinzufügen (#36)",
+				"ru": "удалены устаревшие вызовы объектов\nдобавить команду «Запустить HVAC» и вкладку команд (#36)",
+				"pt": "chamadas de objetos obsoletas removidas\nadicione o comando 'start HVAC' e a guia de comandos (#36)",
+				"nl": "verouderde objectaanroepen verwijderd\nvoeg de opdracht 'start HVAC' en het tabblad opdrachten toe (#36)",
+				"fr": "appels d'objet obsolètes supprimés\najouter la commande 'start HVAC' et l'onglet commandes (#36)",
+				"it": "chiamate a oggetti deprecati rimosse\naggiunto il comando 'avvia HVAC' e la scheda comandi (#36)",
+				"es": "llamadas a objetos obsoletos eliminados\nagregue el comando 'iniciar HVAC' y la pestaña de comandos (#36)",
+				"pl": "usunięto przestarzałe wywołania obiektów\ndodaj polecenie „uruchom HVAC” i kartę poleceń (#36)",
+				"uk": "застарілі виклики об’єктів видалено\nдодати команду «запустити HVAC» і вкладку команд (#36)",
+				"zh-cn": "已删除不推荐使用的对象调用\n添加“启动 HVAC”命令和命令选项卡 (#36)"
+			},
+			"1.0.1": {
+				"en": "year 2025 changes\ncode optimizations\nbump typescript",
+				"de": "Das Jahr 2025 ändert sich\nCodeoptimierungen\nBump-Typoskript",
+				"ru": "изменения 2025 года\nоптимизация кода\nмашинописный текст",
+				"pt": "mudanças no ano de 2025\notimizações de código\ncolisão datilografada",
+				"nl": "jaar 2025 verandert\ncode-optimalisaties\ntyposcript tegen de vlakte",
+				"fr": "changements en 2025\noptimisations de code\ntaper sur la machine",
+				"it": "anno 2025 cambia\nottimizzazioni del codice\ndattiloscritto bump",
+				"es": "cambios del año 2025\noptimizaciones de código\nmecanografiado",
+				"pl": "zmiany roku 2025\noptymalizacje kodu\npodbić maszynopis",
+				"uk": "2025 рік зміни\nоптимізація коду\nшишка машинопис",
+				"zh-cn": "2025年的变化\n代码优化\n凹凸打字稿"
+			},
+			"1.0.0": {
+				"en": "version bumped to 1.0 for stable release\nadd newVersionStatus (#80)\nadd configurable poll timeout",
+				"de": "Version wurde für eine stabile Veröffentlichung auf 1.0 erhöht\nnewVersionStatus hinzufügen (#80)\nFügen Sie ein konfigurierbares Poll-Timeout hinzu",
+				"ru": "версия увеличена до 1.0 для стабильной версии\nдобавить новыйVersionStatus (#80)\nдобавить настраиваемый тайм-аут опроса",
+				"pt": "versão passou para 1.0 para versão estável\nadicione newVersionStatus (#80)\nadicionar tempo limite de pesquisa configurável",
+				"nl": "versie verhoogd naar 1.0 voor stabiele release\nnieuweVersionStatus toevoegen (#80)\nconfigureerbare poll-time-out toevoegen",
+				"fr": "version passée à 1.0 pour une version stable\najouter newVersionStatus (#80)\najouter un délai d'attente d'interrogation configurable",
+				"it": "versione aumentata alla 1.0 per il rilascio stabile\naggiungi nuovo stato versione (#80)\naggiungere timeout del sondaggio configurabile",
+				"es": "La versión aumentó a 1.0 para una versión estable.\nagregar nuevo estado de versión (#80)\nagregar tiempo de espera de encuesta configurable",
+				"pl": "wersja została zmieniona na 1.0 w celu uzyskania stabilnego wydania\ndodaj nowyStatus wersji (#80)\ndodaj konfigurowalny limit czasu ankiety",
+				"uk": "версія підвищена до 1.0 для стабільного випуску\nдодати newVersionStatus (#80)\nдодати настроюваний тайм-аут опитування",
+				"zh-cn": "版本已升至 1.0 以进行稳定发布\n添加新版本状态 (#80)\n添加可配置的轮询超时"
+			}
+		},
+		"titleLang": {
+			"en": "TeslaFi",
+			"de": "TeslaFi",
+			"ru": "TeslaFi",
+			"pt": "TeslaFi",
+			"nl": "TeslaFi",
+			"fr": "TeslaFi",
+			"it": "TeslaFi",
+			"es": "TeslaFi",
+			"pl": "TeslaFi",
+			"uk": "TeslaFi",
+			"zh-cn": "TeslaFi"
+		},
+		"desc": {
+			"en": "Adapter to poll TeslaFi data of your car",
+			"de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
+			"ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
+			"pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
+			"nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
+			"fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
+			"it": "Adattatore per recuperare i dati TeslaFi della tua auto",
+			"es": "Adaptador para consultar los datos de TeslaFi de su coche",
+			"pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
+			"uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
+			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
+		},
+		"authors": ["Hombach <TeslaFi@homba.ch>"],
+		"keywords": ["TeslaFi", "Tesla", "EV", "Car"],
+		"licenseInformation": {
+			"license": "MIT",
+			"type": "free"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "teslafi.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png",
+		"readme": "https://github.com/Hombach/ioBroker.teslafi/blob/master/README.md",
+		"loglevel": "info",
+		"tier": 2,
+		"mode": "daemon",
+		"messagebox": true,
+		"allowInit": true,
+		"type": "vehicle",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=5.0.19"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.4.10"
+			}
+		],
+		"plugins": {
+			"sentry": {
+				"dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
+			}
+		},
+		"supportCustoms": false
+	},
+	"encryptedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
+	"protectedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
+	"native": {
+		"teslafiapitokenpass": "",
+		"TeslaFiAPIToken": "",
+		"UpdateInterval": "60",
+		"UpdateTimeout": 5000
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.LastSentryLogDay",
+			"type": "state",
+			"common": {
+				"role": "value",
+				"name": "Last day of month for Sentry log",
+				"type": "number",
+				"unit": "",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		}
+	]
 }
