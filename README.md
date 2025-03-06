@@ -74,6 +74,11 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (hombach) bump dependencies
+
 ### 1.2.0 (2025-02-23)
 
 - (hombach) change to admin 7.4.10 as recommended by ioBroker (#102)
