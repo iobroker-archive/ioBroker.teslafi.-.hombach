@@ -77,7 +77,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (HombachC) fix vulnerability in axios <1.8.2
+- (hombach) fix vulnerability in axios <1.8.2
 
 ### 1.2.1 (2025-03-06)
 
