@@ -411,7 +411,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 void this.checkAndSetValueNumber(`battery-state.${stVD.time_to_full_charge.key}`, 0, stVD.time_to_full_charge.desc);
                 void this.checkAndSetValue(`battery-state.time_to_finish_charge`, `---`, stVD.time_to_full_charge.desc);
             }
-            if (stVD.scheduled_charging_start_time.value !== null) {
+            if (stVD.scheduled_charging_start_time.value !== null && stVD.scheduled_charging_start_time.value !== "") {
                 // ""; "1731031200"; "1731193200",
                 void this.checkAndSetValue(`battery-state.${stVD.scheduled_charging_start_time.key}`, convertUnixToLocalTime(parseFloat(stVD.scheduled_charging_start_time.value)), stVD.scheduled_charging_start_time.desc);
             }
