@@ -75,7 +75,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 1.3.0 (2025-03-30)
 
 - (hombach) add stop HVAC command (#121)
 - (hombach) add start/stop charging command (#121)
