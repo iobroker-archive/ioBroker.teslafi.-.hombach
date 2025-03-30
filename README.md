@@ -78,6 +78,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### **WORK IN PROGRESS**
 
 - (hombach) add stop HVAC command (#121)
+- (hombach) add start/stop charging command (#121)
+- (hombach) bump dependencies
 
 ### 1.2.2 (2025-03-11)
 

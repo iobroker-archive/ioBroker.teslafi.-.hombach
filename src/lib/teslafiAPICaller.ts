@@ -261,6 +261,8 @@ export class TeslaFiAPICaller extends ProjectUtils {
 				true,
 			);
 			void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_stop.key}`, false, stVCom.auto_conditioning_stop.desc, `button.start`, true);
+			void this.checkAndSetValueBoolean(`commands.${stVCom.start_charging.key}`, false, stVCom.start_charging.desc, `button.start`, true);
+			void this.checkAndSetValueBoolean(`commands.${stVCom.stop_charging.key}`, false, stVCom.stop_charging.desc, `button.start`, true);
 
 			this.adapter.subscribeStates(`commands.*`);
 		}
@@ -290,6 +292,15 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			case stVCom.auto_conditioning_stop.key:
 				await this.ReadTeslaFi(stVCom.auto_conditioning_stop.command);
 				void this.adapter.setState(`commands.${stVCom.auto_conditioning_stop.key}`, false, true);
+				break;
+
+			case stVCom.start_charging.key:
+				await this.ReadTeslaFi(stVCom.start_charging.command);
+				void this.adapter.setState(`commands.${stVCom.start_charging.key}`, false, true);
+				break;
+			case stVCom.stop_charging.key:
+				await this.ReadTeslaFi(stVCom.stop_charging.command);
+				void this.adapter.setState(`commands.${stVCom.stop_charging.key}`, false, true);
 				break;
 			default:
 		}

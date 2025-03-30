@@ -119,6 +119,8 @@ class TeslaFi extends utils.Adapter {
 							switch (commandState) {
 								case "Start-HVAC":
 								case "Stop-HVAC":
+								case "Start-Charging":
+								case "Stop-Charging":
 									if (typeof state.val === "boolean") {
 										void this.setState(id, state.val, true);
 										if (state.val) {
