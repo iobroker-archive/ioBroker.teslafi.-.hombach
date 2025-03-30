@@ -77,7 +77,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (hombach)
+- (hombach) add stop HVAC command (#121)
 
 ### 1.2.2 (2025-03-11)
 

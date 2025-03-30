@@ -195,6 +195,17 @@ const stVD = {
 // structure of vehicle commands
 const stVCom = {
     auto_conditioning_start: { key: `Start-HVAC`, desc: `Start HVAC of your Tesla`, command: `auto_conditioning_start` },
+    // WiP  NEW:
+    auto_conditioning_stop: { key: `Stop-HVAC`, desc: `Stop HVAC of your Tesla`, command: `auto_conditioning_stop` },
+    set_HVAC_temp: { key: `Set-Temp`, desc: `Set Temp for HVAC`, command: `set_temps&temp=XX` },
+    //		(temp is entered in your default TeslaFi measurement Celcius and can include one decimal point)
+    seat_heaters_driver: { key: `Seat-Heaters`, desc: `Set seat heater level`, command: `seat_heater&heater=X&level=X` },
+    //		Heater: 0-Driver, 1-Passenger, 2-Rear Left, 4-Rear Center, 5-Rear Right	Level: 0-3 (0 is off)
+    //		Conditioning must be on before sending.
+    start_charging: { key: `Start-Charging`, desc: `Start charging your Tesla`, command: `charge_start` },
+    stop_charging: { key: `Stop-Charging`, desc: `Stop charging your Tesla`, command: `charge_stop` },
+    set_charge_limit: { key: `Set-Charge-Limit`, desc: ``, command: `set_charge_limit&charge_limit_soc=XX` },
+    set_charge_amps: { key: `Set-Charge-Amps`, desc: ``, command: `set_charging_amps&charging_amps=XX` },
 };
 function convertUnixToLocalTime(unixTimestamp, dateFormat = "dd.MM.yyyy HH:mm:ss") {
     const date = (0, date_fns_1.fromUnixTime)(unixTimestamp);
@@ -226,6 +237,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         // WiP
         if (this.adapter.config.UseCarCommands) {
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_start.key}`, false, stVCom.auto_conditioning_start.desc, `button.start`, true);
+            void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_stop.key}`, false, stVCom.auto_conditioning_stop.desc, `button.start`, true);
             this.adapter.subscribeStates(`commands.*`);
         }
     }
@@ -247,6 +259,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             case stVCom.auto_conditioning_start.key:
                 await this.ReadTeslaFi(stVCom.auto_conditioning_start.command);
                 void this.adapter.setState(`commands.${stVCom.auto_conditioning_start.key}`, false, true);
+                break;
+            case stVCom.auto_conditioning_stop.key:
+                await this.ReadTeslaFi(stVCom.auto_conditioning_stop.command);
+                void this.adapter.setState(`commands.${stVCom.auto_conditioning_stop.key}`, false, true);
                 break;
             default:
         }
