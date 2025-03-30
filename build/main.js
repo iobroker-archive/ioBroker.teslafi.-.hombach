@@ -157,8 +157,27 @@ class TeslaFi extends utils.Adapter {
                                         }
                                     }
                                     else {
-                                        this.log.warn(`Wrong type for command: ${commandState} - chActive: ${state.val}`);
+                                        this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
                                     }
+                                    break;
+                                case "Set-Charge-Limit":
+                                case "Set-Charge-Amps":
+                                    // WiP  NEW:
+                                    if (typeof state.val === "number") {
+                                        void this.setState(id, state.val, true);
+                                        if (state.val) {
+                                            await this.teslaFiAPICaller.HandleCarCommand(commandState);
+                                        }
+                                    }
+                                    else {
+                                        this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
+                                    }
+                                    break;
+                                case "Set-Temp":
+                                    // WiP  NEW:
+                                    break;
+                                case "Seat-Heaters":
+                                    // WiP  NEW:
                                     break;
                                 default:
                                     this.log.debug(`unknown value for command: ${commandState}`);

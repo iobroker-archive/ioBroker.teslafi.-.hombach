@@ -195,17 +195,21 @@ const stVD = {
 // structure of vehicle commands
 const stVCom = {
     auto_conditioning_start: { key: `Start-HVAC`, desc: `Start HVAC of your Tesla`, command: `auto_conditioning_start` },
-    // WiP  NEW:
     auto_conditioning_stop: { key: `Stop-HVAC`, desc: `Stop HVAC of your Tesla`, command: `auto_conditioning_stop` },
+    // WiP  NEW:
     set_HVAC_temp: { key: `Set-Temp`, desc: `Set Temp for HVAC`, command: `set_temps&temp=XX` },
     //		(temp is entered in your default TeslaFi measurement Celcius and can include one decimal point)
+    // WiP  NEW:
     seat_heaters_driver: { key: `Seat-Heaters`, desc: `Set seat heater level`, command: `seat_heater&heater=X&level=X` },
     //		Heater: 0-Driver, 1-Passenger, 2-Rear Left, 4-Rear Center, 5-Rear Right	Level: 0-3 (0 is off)
     //		Conditioning must be on before sending.
     start_charging: { key: `Start-Charging`, desc: `Start charging your Tesla`, command: `charge_start` },
     stop_charging: { key: `Stop-Charging`, desc: `Stop charging your Tesla`, command: `charge_stop` },
-    set_charge_limit: { key: `Set-Charge-Limit`, desc: ``, command: `set_charge_limit&charge_limit_soc=XX` },
-    set_charge_amps: { key: `Set-Charge-Amps`, desc: ``, command: `set_charging_amps&charging_amps=XX` },
+    // WiP  NEW:
+    set_charge_limit: { key: `Set-Charge-Limit`, desc: `set charging SoC limit`, command: `set_charge_limit&charge_limit_soc` },
+    //		`set_charge_limit&charge_limit_soc=XX`
+    set_charge_amps: { key: `Set-Charge-Amps`, desc: `set charging ampere limit`, command: `set_charging_amps&charging_amps` },
+    //		`set_charging_amps&charging_amps=XX`
 };
 function convertUnixToLocalTime(unixTimestamp, dateFormat = "dd.MM.yyyy HH:mm:ss") {
     const date = (0, date_fns_1.fromUnixTime)(unixTimestamp);
@@ -240,6 +244,9 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_stop.key}`, false, stVCom.auto_conditioning_stop.desc, `button.start`, true);
             void this.checkAndSetValueBoolean(`commands.${stVCom.start_charging.key}`, false, stVCom.start_charging.desc, `button.start`, true);
             void this.checkAndSetValueBoolean(`commands.${stVCom.stop_charging.key}`, false, stVCom.stop_charging.desc, `button.start`, true);
+            // WiP  NEW:
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_charge_limit.key}`, 80, stVCom.set_charge_limit.desc, "%", `level.battery.max`, true, true, false, 50, 100, 1);
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_charge_amps.key}`, 80, stVCom.set_charge_amps.desc, "A", `level.current.max`, true, true, false, 5, 32, 1);
             this.adapter.subscribeStates(`commands.*`);
         }
     }
@@ -247,8 +254,9 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
      * HandleCarCommand
      *
      * @param command - command to be send to TeslaFi
+     * @param value - optional number value for command
      */
-    async HandleCarCommand(command) {
+    async HandleCarCommand(command, value) {
         // Usage Details
         // If the vehicle is awake: The command will be sent, and one usage will be deducted from your command count.
         // If the vehicle is asleep: TeslaFi will send a wake command and pause for 15 seconds before sending the command.
@@ -257,6 +265,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         // 		of seconds to pause (up to 60 seconds).
         // {"response":{"result":true,"reason":""}}
         this.adapter.log.info(`TeslaFI adapter got command ${command} and sends this to the vehicle`);
+        let clampedValue;
         switch (command) {
             case stVCom.auto_conditioning_start.key:
                 await this.ReadTeslaFi(stVCom.auto_conditioning_start.command);
@@ -268,11 +277,17 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 break;
             case stVCom.start_charging.key:
                 await this.ReadTeslaFi(stVCom.start_charging.command);
-                void this.adapter.setState(`commands.${stVCom.start_charging.key}`, false, true);
                 break;
             case stVCom.stop_charging.key:
                 await this.ReadTeslaFi(stVCom.stop_charging.command);
-                void this.adapter.setState(`commands.${stVCom.stop_charging.key}`, false, true);
+                break;
+            case stVCom.set_charge_limit.key:
+                clampedValue = Math.min(100, Math.max(50, Math.round(value)));
+                await this.ReadTeslaFi(`${stVCom.set_charge_limit.command}=${clampedValue ?? 80}`);
+                break;
+            case stVCom.set_charge_amps.key:
+                clampedValue = Math.min(32, Math.max(5, Math.round(value)));
+                await this.ReadTeslaFi(`${stVCom.set_charge_amps.command}=${clampedValue ?? 10}`);
                 break;
             default:
         }

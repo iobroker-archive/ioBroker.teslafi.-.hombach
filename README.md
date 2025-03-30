@@ -75,6 +75,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (hombach) add charge limits commands (#121)
+- (hombach) add statevalue range to projectUtils
+
 ### 1.3.0 (2025-03-30)
 
 - (hombach) add stop HVAC command (#121)
