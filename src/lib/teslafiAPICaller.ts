@@ -286,7 +286,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			);
 			void this.checkAndSetValueNumber(
 				`commands.${stVCom.set_charge_amps.key}`,
-				80,
+				10,
 				stVCom.set_charge_amps.desc,
 				"A",
 				`level.current.max`,

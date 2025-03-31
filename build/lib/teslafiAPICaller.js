@@ -246,7 +246,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             void this.checkAndSetValueBoolean(`commands.${stVCom.stop_charging.key}`, false, stVCom.stop_charging.desc, `button.start`, true);
             // WiP  NEW:
             void this.checkAndSetValueNumber(`commands.${stVCom.set_charge_limit.key}`, 80, stVCom.set_charge_limit.desc, "%", `level.battery.max`, true, true, false, 50, 100, 1);
-            void this.checkAndSetValueNumber(`commands.${stVCom.set_charge_amps.key}`, 80, stVCom.set_charge_amps.desc, "A", `level.current.max`, true, true, false, 5, 32, 1);
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_charge_amps.key}`, 10, stVCom.set_charge_amps.desc, "A", `level.current.max`, true, true, false, 5, 32, 1);
             this.adapter.subscribeStates(`commands.*`);
         }
     }

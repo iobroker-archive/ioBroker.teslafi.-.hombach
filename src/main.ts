@@ -136,7 +136,7 @@ class TeslaFi extends utils.Adapter {
 									if (typeof state.val === "number") {
 										void this.setState(id, state.val, true);
 										if (state.val) {
-											await this.teslaFiAPICaller.HandleCarCommand(commandState);
+											await this.teslaFiAPICaller.HandleCarCommand(commandState, state.val);
 										}
 									} else {
 										this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
