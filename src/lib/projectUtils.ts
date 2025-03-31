@@ -217,13 +217,6 @@ export class ProjectUtils {
 				desc: description,
 				read: true,
 				write: writeable,
-				/*
-			};
-			// Add unit only if it's provided and not null or undefined
-			if (unit !== null && unit !== undefined) {
-				commonObj.unit = unit;
-			}
-			*/
 				// Add unit only if it's provided and not null or undefined
 				...((unit ?? undefined) ? { unit } : {}),
 				// Add minimum, maximum and step for value only if it's provided and not null or undefined

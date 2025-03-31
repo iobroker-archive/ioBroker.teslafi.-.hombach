@@ -218,8 +218,6 @@ const stVCom: Record<string, VehicleCommands> = {
 
 	start_charging: { key: `Start-Charging`, desc: `Start charging your Tesla`, command: `charge_start` },
 	stop_charging: { key: `Stop-Charging`, desc: `Stop charging your Tesla`, command: `charge_stop` },
-
-	// WiP  NEW:
 	set_charge_limit: { key: `Set-Charge-Limit`, desc: `set charging SoC limit`, command: `set_charge_limit&charge_limit_soc` },
 	//		`set_charge_limit&charge_limit_soc=XX`
 	set_charge_amps: { key: `Set-Charge-Amps`, desc: `set charging ampere limit`, command: `set_charging_amps&charging_amps` },
@@ -270,7 +268,6 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			void this.checkAndSetValueBoolean(`commands.${stVCom.start_charging.key}`, false, stVCom.start_charging.desc, `button.start`, true);
 			void this.checkAndSetValueBoolean(`commands.${stVCom.stop_charging.key}`, false, stVCom.stop_charging.desc, `button.start`, true);
 
-			// WiP  NEW:
 			void this.checkAndSetValueNumber(
 				`commands.${stVCom.set_charge_limit.key}`,
 				80,
@@ -355,7 +352,10 @@ export class TeslaFiAPICaller extends ProjectUtils {
 	 */
 	async ReadTeslaFi(command = ""): Promise<boolean> {
 		try {
-			const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=${command}`, {
+			const getString = `${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=${command}`;
+			//WiP  const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=${command}`, {
+			this.adapter.log.debug(`sending command/request to TeslaFi: ${getString}`);
+			const response = await axiosInstance.get(getString, {
 				transformResponse: r => r,
 				timeout: this.adapter.config.UpdateTimeout, // 5000 by default
 			});

@@ -132,7 +132,6 @@ class TeslaFi extends utils.Adapter {
 									break;
 								case "Set-Charge-Limit":
 								case "Set-Charge-Amps":
-									// WiP  NEW:
 									if (typeof state.val === "number") {
 										void this.setState(id, state.val, true);
 										if (state.val) {
