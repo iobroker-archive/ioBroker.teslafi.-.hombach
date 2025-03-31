@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "teslafi",
-		"version": "1.3.0",
+		"version": "1.4.0",
 		"news": {
+			"1.4.0": {
+				"en": "add charge limit commands (#121)\nadd statevalue range to projectUtils",
+				"de": "Befehle zur Ladebegrenzung hinzufügen (#121)\nZustandswertbereich zu projectUtils hinzugefügt",
+				"ru": "добавить команды ограничения заряда (#121)\nдобавить диапазон значений состояния в проект утиль",
+				"pt": "adicionar comandos de limite de carga (#121)\nadicionar intervalo de valor de estado ao projeto Utilidades",
+				"nl": "laden limiet commando's toevoegen (#121)\nstatuswaardebereik toevoegen aan project Utils",
+				"fr": "ajouter des commandes limites de charge (#121)\najouter une plage de valeur d'état au projet Utilisation",
+				"it": "aggiungere comandi limite di carica (#121)\naggiungere la gamma di valore di stato al progetto Utili",
+				"es": "añadir comandos límite de carga (#121)\nañadir rango de valor estatal al proyecto Utils",
+				"pl": "dodaj polecenia limitu ładunku (# 121)\ndodaj zakres stanu do projektu Przyrządy",
+				"uk": "додавати команди ліміту заряду (#121)\nдодати діапазон державного значення для проекту Утили",
+				"zh-cn": "添加电荷限制命令 (# 121)\n为工程添加状态值范围 UTIs 数字"
+			},
 			"1.3.0": {
 				"en": "add stop HVAC command (#121)\nadd start/stop charging command (#121)\nbump dependencies",
 				"de": "Stop-HVAC Befehl hinzugefügt (#121)\nstart/stop Laden Befehl hinzugefügt (#121)\bump dependencies",
@@ -80,19 +93,6 @@
 				"pl": "Napraw usunięcie neweversion (#93)",
 				"uk": "Видалення Newversion (#93)",
 				"zh-cn": "修复新闻的删除（＃93）"
-			},
-			"1.1.0": {
-				"en": "deprecated object calls removed\nadd 'start HVAC' command and commands tab (#36)",
-				"de": "Veraltete Objektaufrufe entfernt\nBefehl und Befehlsregisterkarte „Start HVAC“ hinzufügen (#36)",
-				"ru": "удалены устаревшие вызовы объектов\nдобавить команду «Запустить HVAC» и вкладку команд (#36)",
-				"pt": "chamadas de objetos obsoletas removidas\nadicione o comando 'start HVAC' e a guia de comandos (#36)",
-				"nl": "verouderde objectaanroepen verwijderd\nvoeg de opdracht 'start HVAC' en het tabblad opdrachten toe (#36)",
-				"fr": "appels d'objet obsolètes supprimés\najouter la commande 'start HVAC' et l'onglet commandes (#36)",
-				"it": "chiamate a oggetti deprecati rimosse\naggiunto il comando 'avvia HVAC' e la scheda comandi (#36)",
-				"es": "llamadas a objetos obsoletos eliminados\nagregue el comando 'iniciar HVAC' y la pestaña de comandos (#36)",
-				"pl": "usunięto przestarzałe wywołania obiektów\ndodaj polecenie „uruchom HVAC” i kartę poleceń (#36)",
-				"uk": "застарілі виклики об’єктів видалено\nдодати команду «запустити HVAC» і вкладку команд (#36)",
-				"zh-cn": "已删除不推荐使用的对象调用\n添加“启动 HVAC”命令和命令选项卡 (#36)"
 			}
 		},
 		"titleLang": {
