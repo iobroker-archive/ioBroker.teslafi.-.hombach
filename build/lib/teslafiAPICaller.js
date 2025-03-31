@@ -261,7 +261,18 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         // 		One usage will be deducted from both the command count and the wake count.
         // 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
         // 		of seconds to pause (up to 60 seconds).
-        // {"response":{"result":true,"reason":""}}
+        /*
+        {
+            "response": {
+              "result": true,
+              "reason": ""
+            },
+            "tesla_request_counter": {
+              "commands": 8,
+              "wakes": 3
+            }
+        }
+        */
         this.adapter.log.info(`TeslaFI adapter got command ${command} and sends this to the vehicle`);
         let clampedValue;
         switch (command) {
@@ -298,7 +309,6 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
     async ReadTeslaFi(command = "") {
         try {
             const getString = `${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=${command}`;
-            //WiP  const response = await axiosInstance.get(`${this.queryUrl}${this.adapter.config.TeslaFiAPIToken}&command=${command}`, {
             this.adapter.log.debug(`sending command/request to TeslaFi: ${getString}`);
             const response = await axiosInstance.get(getString, {
                 transformResponse: r => r,

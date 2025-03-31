@@ -77,7 +77,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (hombach) add charge limits commands (#121)
+- (hombach) add charge limit commands (#121)
 - (hombach) add statevalue range to projectUtils
 
 ### 1.3.0 (2025-03-30)
