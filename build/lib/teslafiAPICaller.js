@@ -196,9 +196,8 @@ const stVD = {
 const stVCom = {
     auto_conditioning_start: { key: `Start-HVAC`, desc: `Start HVAC of your Tesla`, command: `auto_conditioning_start` },
     auto_conditioning_stop: { key: `Stop-HVAC`, desc: `Stop HVAC of your Tesla`, command: `auto_conditioning_stop` },
-    // WiP  NEW:
-    set_HVAC_temp: { key: `Set-Temp`, desc: `Set Temp for HVAC`, command: `set_temps&temp=XX` },
-    //		(temp is entered in your default TeslaFi measurement Celcius and can include one decimal point)
+    set_HVAC_temp: { key: `Set-Temp`, desc: `Set Temp for HVAC`, command: `set_temps&temp` },
+    //		`set_temps&temp=XX` - temp is entered in your default TeslaFi measurement Celcius and can include one decimal point
     // WiP  NEW:
     seat_heaters_driver: { key: `Seat-Heaters`, desc: `Set seat heater level`, command: `seat_heater&heater=X&level=X` },
     //		Heater: 0-Driver, 1-Passenger, 2-Rear Left, 4-Rear Center, 5-Rear Right	Level: 0-3 (0 is off)
@@ -237,10 +236,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
      * SetupCommandStates
      */
     SetupCommandStates() {
-        // WiP
         if (this.adapter.config.UseCarCommands) {
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_start.key}`, false, stVCom.auto_conditioning_start.desc, `button.start`, true);
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_stop.key}`, false, stVCom.auto_conditioning_stop.desc, `button.start`, true);
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_HVAC_temp.key}`, 20, stVCom.set_HVAC_temp.desc, "°C", `level.temperature`, true, true, false, 15, 28, 0.5);
             void this.checkAndSetValueBoolean(`commands.${stVCom.start_charging.key}`, false, stVCom.start_charging.desc, `button.start`, true);
             void this.checkAndSetValueBoolean(`commands.${stVCom.stop_charging.key}`, false, stVCom.stop_charging.desc, `button.start`, true);
             void this.checkAndSetValueNumber(`commands.${stVCom.set_charge_limit.key}`, 80, stVCom.set_charge_limit.desc, "%", `level.battery.max`, true, true, false, 50, 100, 1);
@@ -283,6 +282,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             case stVCom.auto_conditioning_stop.key:
                 await this.ReadTeslaFi(stVCom.auto_conditioning_stop.command);
                 void this.adapter.setState(`commands.${stVCom.auto_conditioning_stop.key}`, false, true);
+                break;
+            case stVCom.set_HVAC_temp.key:
+                clampedValue = Math.min(28, Math.max(15, value));
+                await this.ReadTeslaFi(`${stVCom.set_HVAC_temp.command}=${clampedValue ?? 20}`);
                 break;
             case stVCom.start_charging.key:
                 await this.ReadTeslaFi(stVCom.start_charging.command);

@@ -130,6 +130,8 @@ class TeslaFi extends utils.Adapter {
 										this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
 									}
 									break;
+
+								case "Set-Temp":
 								case "Set-Charge-Limit":
 								case "Set-Charge-Amps":
 									if (typeof state.val === "number") {
@@ -141,12 +143,11 @@ class TeslaFi extends utils.Adapter {
 										this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
 									}
 									break;
-								case "Set-Temp":
-									// WiP  NEW:
-									break;
+
 								case "Seat-Heaters":
 									// WiP  NEW:
 									break;
+
 								default:
 									this.log.debug(`unknown value for command: ${commandState}`);
 							}
