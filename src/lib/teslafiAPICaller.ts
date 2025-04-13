@@ -414,7 +414,6 @@ export class TeslaFiAPICaller extends ProjectUtils {
 						"",
 						`value`,
 						false,
-						true,
 					);
 				}
 				if (result.tesla_request_counter.wakes != null) {
@@ -425,7 +424,6 @@ export class TeslaFiAPICaller extends ProjectUtils {
 						"",
 						`value`,
 						false,
-						true,
 					);
 				}
 			} else {

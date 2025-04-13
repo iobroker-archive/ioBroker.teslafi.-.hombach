@@ -338,10 +338,10 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             if (result.tesla_request_counter && typeof result.tesla_request_counter === "object") {
                 if (result.tesla_request_counter.commands != null) {
                     // await this.adapter.setState(`commands.command_counter`, { val: result.tesla_request_counter.commands, ack: true });
-                    void this.checkAndSetValueNumber(`commands.command_counter`, result.tesla_request_counter.commands, `Used commands counter`, "", `value`, false, true);
+                    void this.checkAndSetValueNumber(`commands.command_counter`, result.tesla_request_counter.commands, `Used commands counter`, "", `value`, false);
                 }
                 if (result.tesla_request_counter.wakes != null) {
-                    void this.checkAndSetValueNumber(`commands.wakes_counter`, result.tesla_request_counter.wakes, `Used car wakeups counter`, "", `value`, false, true);
+                    void this.checkAndSetValueNumber(`commands.wakes_counter`, result.tesla_request_counter.wakes, `Used car wakeups counter`, "", `value`, false);
                 }
             }
             else {
