@@ -151,10 +151,10 @@ class TeslaFi extends utils.Adapter {
                                 case "Start-Charging":
                                 case "Stop-Charging":
                                     if (typeof state.val === "boolean") {
-                                        void this.setState(id, state.val, true);
                                         if (state.val) {
                                             await this.teslaFiAPICaller.HandleCarCommand(commandState);
                                         }
+                                        void this.setState(id, state.val, true);
                                     }
                                     else {
                                         this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
@@ -164,10 +164,10 @@ class TeslaFi extends utils.Adapter {
                                 case "Set-Charge-Limit":
                                 case "Set-Charge-Amps":
                                     if (typeof state.val === "number") {
-                                        void this.setState(id, state.val, true);
                                         if (state.val) {
                                             await this.teslaFiAPICaller.HandleCarCommand(commandState, state.val);
                                         }
+                                        void this.setState(id, state.val, true);
                                     }
                                     else {
                                         this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
