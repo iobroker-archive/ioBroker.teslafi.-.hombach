@@ -329,7 +329,7 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 return false;
             }
             //#region *** "commands" properties ***
-            /*
+            /*	Response in case of sent command
                 {
                     "response": {
                         "result": true,
@@ -344,11 +344,13 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             if (result.response?.result === true) {
                 this.adapter.log.debug(`TeslaFI command received with response TRUE`);
             }
-            if (result.tesla_request_counter?.commands !== null) {
-                void this.checkAndSetValueNumber(`commands.command_counter`, 0, `Used commands counter`, result.tesla_request_counter.commands, `value`, false, true);
-            }
-            if (result.tesla_request_counter?.wakes !== null) {
-                void this.checkAndSetValueNumber(`commands.wakes_counter`, 0, `Used car wakeups counter`, result.tesla_request_counter.wakes, `value`, false, true);
+            if (result.tesla_request_counter) {
+                if (result.tesla_request_counter.commands != null) {
+                    void this.checkAndSetValueNumber(`commands.command_counter`, 0, `Used commands counter`, result.tesla_request_counter.commands, `value`, false, true);
+                }
+                if (result.tesla_request_counter.wakes != null) {
+                    void this.checkAndSetValueNumber(`commands.wakes_counter`, 0, `Used car wakeups counter`, result.tesla_request_counter.wakes, `value`, false, true);
+                }
             }
             //#endregion
             // save raw JSON
