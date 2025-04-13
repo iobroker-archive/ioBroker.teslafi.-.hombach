@@ -199,9 +199,34 @@ const stVCom = {
     set_HVAC_temp: { key: `Set-Temp`, desc: `Set Temp for HVAC`, command: `set_temps&temp` },
     //		`set_temps&temp=XX` - temp is entered in your default TeslaFi measurement Celcius and can include one decimal point
     // WiP  NEW:
-    seat_heaters_driver: { key: `Seat-Heaters`, desc: `Set seat heater level`, command: `seat_heater&heater=X&level=X` },
-    //		Heater: 0-Driver, 1-Passenger, 2-Rear Left, 4-Rear Center, 5-Rear Right	Level: 0-3 (0 is off)
+    set_seat_heat_left: {
+        key: `Set_Seat_Heater_Left`,
+        desc: `Set left seat heater level`,
+        command: `seat_heater&heater=0&level`,
+    },
+    //		`seat_heater&heater=X&level=X`
+    //		Heater: 0-Driver, 1-Passenger, 2-Rear Left, 4-Rear Center, 5-Rear Right   -   Level: 0-3 (0 is off)
     //		Conditioning must be on before sending.
+    set_seat_heat_right: {
+        key: `Set_Seat_Heater_Right`,
+        desc: `Set right seat heater level`,
+        command: `seat_heater&heater=1&level`,
+    },
+    set_seat_heat_rear_left: {
+        key: `Set_Seat_Heater_Rear_Left`,
+        desc: `Set left second row seat heater level`,
+        command: `seat_heater&heater=2&level`,
+    },
+    set_seat_heat_rear_center: {
+        key: `Set_Seat_Heater_Rear_Center`,
+        desc: `Set center second row seat heater level`,
+        command: `seat_heater&heater=3&level`,
+    },
+    set_seat_heat_rear_right: {
+        key: `Set_Seat_Heater_Rear_Right`,
+        desc: `Set right second row seat heater level`,
+        command: `seat_heater&heater=4&level`,
+    },
     start_charging: { key: `Start-Charging`, desc: `Start charging your Tesla`, command: `charge_start` },
     stop_charging: { key: `Stop-Charging`, desc: `Stop charging your Tesla`, command: `charge_stop` },
     set_charge_limit: { key: `Set-Charge-Limit`, desc: `set charging SoC limit`, command: `set_charge_limit&charge_limit_soc` },
@@ -239,6 +264,25 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
         if (this.adapter.config.UseCarCommands) {
             void this.checkAndSetValueNumber(`commands.command_counter`, 0, `Used commands counter`, "", `value`, false, true);
             void this.checkAndSetValueNumber(`commands.wakes_counter`, 0, `Used car wakeups counter`, "", `value`, false, true);
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_seat_heat_left.key}`, 0, stVCom.set_seat_heat_left.desc, "", `level.temperature`, true, true, false, 0, 3, 1);
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_seat_heat_right.key}`, 0, stVCom.set_seat_heat_right.desc, "", `level.temperature`, true, true, false, 0, 3, 1);
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_seat_heat_rear_left.key}`, 0, stVCom.set_seat_heat_rear_left.desc, "", `level.temperature`, true, true, false, 0, 3, 1);
+            /*
+            void this.checkAndSetValueNumber(
+                `commands.${stVCom.set_seat_heat_rear_center.key}`,
+                0,
+                stVCom.set_seat_heat_rear_center.desc,
+                "",
+                `level.temperature`,
+                true,
+                true,
+                false,
+                0,
+                3,
+                1,
+            );
+            */
+            void this.checkAndSetValueNumber(`commands.${stVCom.set_seat_heat_rear_right.key}`, 0, stVCom.set_seat_heat_rear_right.desc, "", `level.temperature`, true, true, false, 0, 3, 1);
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_start.key}`, false, stVCom.auto_conditioning_start.desc, `button.start`, true);
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_stop.key}`, false, stVCom.auto_conditioning_stop.desc, `button.start`, true);
             void this.checkAndSetValueNumber(`commands.${stVCom.set_HVAC_temp.key}`, 20, stVCom.set_HVAC_temp.desc, "°C", `level.temperature`, true, true, false, 15, 28, 0.5);
@@ -277,6 +321,26 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 clampedValue = Math.min(28, Math.max(15, value));
                 await this.ReadTeslaFi(`${stVCom.set_HVAC_temp.command}=${clampedValue ?? 20}`);
                 break;
+            case stVCom.set_seat_heat_left.key:
+                clampedValue = Math.min(3, Math.max(0, Math.round(value)));
+                await this.ReadTeslaFi(`${stVCom.set_seat_heat_left.command}=${clampedValue ?? 0}`);
+                break;
+            case stVCom.set_seat_heat_right.key:
+                clampedValue = Math.min(3, Math.max(0, Math.round(value)));
+                await this.ReadTeslaFi(`${stVCom.set_seat_heat_right.command}=${clampedValue ?? 0}`);
+                break;
+            case stVCom.set_seat_heat_rear_left.key:
+                clampedValue = Math.min(3, Math.max(0, Math.round(value)));
+                await this.ReadTeslaFi(`${stVCom.set_seat_heat_rear_left.command}=${clampedValue ?? 0}`);
+                break;
+            case stVCom.set_seat_heat_rear_center.key:
+                clampedValue = Math.min(3, Math.max(0, Math.round(value)));
+                await this.ReadTeslaFi(`${stVCom.set_seat_heat_rear_center.command}=${clampedValue ?? 0}`);
+                break;
+            case stVCom.set_seat_heat_rear_right.key:
+                clampedValue = Math.min(3, Math.max(0, Math.round(value)));
+                await this.ReadTeslaFi(`${stVCom.set_seat_heat_rear_right.command}=${clampedValue ?? 0}`);
+                break;
             case stVCom.start_charging.key:
                 await this.ReadTeslaFi(stVCom.start_charging.command);
                 break;
@@ -313,7 +377,6 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
             const result = JSON.parse(response.data);
             // debug
             // this.adapter.log.debug(`TeslaFi full response: ${JSON.stringify(result, null, 2)}`);
-            // debug
             // verify authorized access
             if (result.response?.result === "unauthorized") {
                 this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API Token`);

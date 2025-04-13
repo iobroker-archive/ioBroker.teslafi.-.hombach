@@ -132,6 +132,11 @@ class TeslaFi extends utils.Adapter {
 									break;
 
 								case "Set-Temp":
+								case "Set_Seat_Heater_Left":
+								case "Set_Seat_Heater_Right":
+								case "Set_Seat_Heater_Rear_Left":
+								case "Set_Seat_Heater_Rear_Center":
+								case "Set_Seat_Heater_Rear_Right":
 								case "Set-Charge-Limit":
 								case "Set-Charge-Amps":
 									if (typeof state.val === "number") {
@@ -142,10 +147,6 @@ class TeslaFi extends utils.Adapter {
 									} else {
 										this.log.warn(`Wrong type for command: ${commandState} - Value: ${state.val}`);
 									}
-									break;
-
-								case "Seat-Heaters":
-									// WiP  NEW:
 									break;
 
 								default:
