@@ -325,18 +325,6 @@ export class TeslaFiAPICaller extends ProjectUtils {
 		// 		One usage will be deducted from both the command count and the wake count.
 		// 		The pause duration can be customized by adding &wake=X to the command, where X specifies the number
 		// 		of seconds to pause (up to 60 seconds).
-		/*
-		{
-			"response": {
-			  "result": true,
-			  "reason": ""
-			},
-			"tesla_request_counter": {
-			  "commands": 8,
-			  "wakes": 3
-			}
-		}
-  		*/
 
 		this.adapter.log.info(`TeslaFI adapter got command ${command} and sends this to the vehicle`);
 		let clampedValue: number;
@@ -390,6 +378,9 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			}
 
 			const result = JSON.parse(response.data);
+			// WiP DEBUG
+			this.adapter.log.debug(`TeslaFi full response: ${JSON.stringify(result, null, 2)}`);
+			// WiP DEBUG
 
 			// verify authorized access
 			if (result.response?.result === "unauthorized") {
@@ -413,8 +404,15 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			if (result.response?.result === true) {
 				this.adapter.log.debug(`TeslaFI command received with response TRUE`);
 			}
-			if (result.tesla_request_counter) {
+			if (result.tesla_request_counter && typeof result.tesla_request_counter === "object") {
+				//if (result.tesla_request_counter) {
+				// WiP DEBUG
+				this.adapter.log.debug(`tesla_request_counter found: ${JSON.stringify(result.tesla_request_counter)}`);
+				// WiP DEBUG
 				if (result.tesla_request_counter.commands != null) {
+					// WiP DEBUG
+					this.adapter.log.debug(`commands value: ${result.tesla_request_counter.commands}`);
+					// WiP DEBUG
 					void this.checkAndSetValueNumber(
 						`commands.command_counter`,
 						0,
@@ -426,6 +424,9 @@ export class TeslaFiAPICaller extends ProjectUtils {
 					);
 				}
 				if (result.tesla_request_counter.wakes != null) {
+					// WiP DEBUG
+					this.adapter.log.debug(`wakes value: ${result.tesla_request_counter.wakes}`);
+					// WiP DEBUG
 					void this.checkAndSetValueNumber(
 						`commands.wakes_counter`,
 						0,
@@ -436,6 +437,10 @@ export class TeslaFiAPICaller extends ProjectUtils {
 						true,
 					);
 				}
+			} else {
+				// WiP DEBUG
+				this.adapter.log.debug(`tesla_request_counter is missing or not an object`);
+				// WiP DEBUG
 			}
 			//#endregion
 
@@ -448,8 +453,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 					stVD[key].value = value as string; // Wert direkt in die Struktur einfügen
 				}
 			}
-
-			// process property structure
+			// now process property structure
 
 			//#region *** "vehicle-data" properties ***
 			if (stVD.Date.value !== null) {
