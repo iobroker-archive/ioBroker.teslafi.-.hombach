@@ -79,6 +79,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (hombach) add set HVAC temperature (#121)
 - (hombach) acknowledge commands after sending to TeslaFi
+- (hombach) add commands count state (#127)
 
 ### 1.4.0 (2025-03-31)
 

@@ -237,6 +237,8 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
      */
     SetupCommandStates() {
         if (this.adapter.config.UseCarCommands) {
+            void this.checkAndSetValueNumber(`commands.command_counter`, 0, `Used commands counter`, "", `value`, false, true);
+            void this.checkAndSetValueNumber(`commands.wakes_counter`, 0, `Used car wakeups counter`, "", `value`, false, true);
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_start.key}`, false, stVCom.auto_conditioning_start.desc, `button.start`, true);
             void this.checkAndSetValueBoolean(`commands.${stVCom.auto_conditioning_stop.key}`, false, stVCom.auto_conditioning_stop.desc, `button.start`, true);
             void this.checkAndSetValueNumber(`commands.${stVCom.set_HVAC_temp.key}`, 20, stVCom.set_HVAC_temp.desc, "°C", `level.temperature`, true, true, false, 15, 28, 0.5);
@@ -326,6 +328,29 @@ class TeslaFiAPICaller extends projectUtils_1.ProjectUtils {
                 this.adapter.log.warn(`TeslaFI data read - unauthorized access detected - please verify your API Token`);
                 return false;
             }
+            //#region *** "commands" properties ***
+            /*
+                {
+                    "response": {
+                        "result": true,
+                        "reason": ""
+                    },
+                    "tesla_request_counter": {
+                        "commands": 8,
+                        "wakes": 3
+                    }
+                }
+            */
+            if (result.response?.result === true) {
+                this.adapter.log.debug(`TeslaFI command received with response TRUE`);
+            }
+            if (result.tesla_request_counter?.commands !== null) {
+                void this.checkAndSetValueNumber(`commands.command_counter`, 0, `Used commands counter`, result.tesla_request_counter.commands, `value`, false, true);
+            }
+            if (result.tesla_request_counter?.wakes !== null) {
+                void this.checkAndSetValueNumber(`commands.wakes_counter`, 0, `Used car wakeups counter`, result.tesla_request_counter.wakes, `value`, false, true);
+            }
+            //#endregion
             // save raw JSON
             void this.checkAndSetValue(`vehicle-data.rawJSON`, response.data, `JSON raw data from TeslaFi`, `json`);
             // fill values into predefined structur
