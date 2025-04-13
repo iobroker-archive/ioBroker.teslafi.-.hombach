@@ -406,9 +406,7 @@ export class TeslaFiAPICaller extends ProjectUtils {
 			}
 			if (result.tesla_request_counter && typeof result.tesla_request_counter === "object") {
 				if (result.tesla_request_counter.commands != null) {
-					// WiP DEBUG
-					this.adapter.log.debug(`commands value: ${result.tesla_request_counter.commands}`);
-					// WiP DEBUG
+					// await this.adapter.setState(`commands.command_counter`, { val: result.tesla_request_counter.commands, ack: true });
 					void this.checkAndSetValueNumber(
 						`commands.command_counter`,
 						result.tesla_request_counter.commands,
