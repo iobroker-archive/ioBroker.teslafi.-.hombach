@@ -169,9 +169,7 @@ class TeslaFi extends utils.Adapter {
                                 case "Set-Charge-Limit":
                                 case "Set-Charge-Amps":
                                     if (typeof state.val === "number") {
-                                        if (state.val) {
-                                            await this.teslaFiAPICaller.HandleCarCommand(commandState, state.val);
-                                        }
+                                        await this.teslaFiAPICaller.HandleCarCommand(commandState, state.val);
                                         void this.setState(id, state.val, true);
                                     }
                                     else {
