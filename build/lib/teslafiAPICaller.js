@@ -200,7 +200,7 @@ const stVCom = {
     //		`set_temps&temp=XX` - temp is entered in your default TeslaFi measurement Celcius and can include one decimal point
     // WiP  NEW:
     set_seat_heat_left: {
-        key: `Set_Seat_Heater_Left`,
+        key: `Set-Seat-Heater-Left`,
         desc: `Set left seat heater level`,
         command: `seat_heater&heater=0&level`,
     },
@@ -208,24 +208,24 @@ const stVCom = {
     //		Heater: 0-Driver, 1-Passenger, 2-Rear Left, 4-Rear Center, 5-Rear Right   -   Level: 0-3 (0 is off)
     //		Conditioning must be on before sending.
     set_seat_heat_right: {
-        key: `Set_Seat_Heater_Right`,
+        key: `Set-Seat-Heater-Right`,
         desc: `Set right seat heater level`,
         command: `seat_heater&heater=1&level`,
     },
     set_seat_heat_rear_left: {
-        key: `Set_Seat_Heater_Rear_Left`,
+        key: `Set-Seat-Heater-Rear-Left`,
         desc: `Set left second row seat heater level`,
         command: `seat_heater&heater=2&level`,
     },
     set_seat_heat_rear_center: {
-        key: `Set_Seat_Heater_Rear_Center`,
+        key: `Set-Seat-Heater-Rear-Center`,
         desc: `Set center second row seat heater level`,
-        command: `seat_heater&heater=3&level`,
+        command: `seat_heater&heater=4&level`,
     },
     set_seat_heat_rear_right: {
-        key: `Set_Seat_Heater_Rear_Right`,
+        key: `Set-Seat-Heater-Rear-Right`,
         desc: `Set right second row seat heater level`,
-        command: `seat_heater&heater=4&level`,
+        command: `seat_heater&heater=5&level`,
     },
     start_charging: { key: `Start-Charging`, desc: `Start charging your Tesla`, command: `charge_start` },
     stop_charging: { key: `Stop-Charging`, desc: `Stop charging your Tesla`, command: `charge_stop` },
