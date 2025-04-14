@@ -75,7 +75,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 1.5.0 (2025-04-14)
 
 - (hombach) add set HVAC temperature (#121)
 - (hombach) acknowledge commands after sending to TeslaFi
