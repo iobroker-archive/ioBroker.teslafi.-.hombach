@@ -75,6 +75,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (hombach) BREAKING: Dropped support for Node.js 18 (#135)
+- (hombach) BREAKING: Dropped support for js-controller 5 (#135)
+- (hombach) bump dependencies
+
 ### 1.5.0 (2025-04-14)
 
 - (hombach) add set HVAC temperature (#121)
