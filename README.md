@@ -75,6 +75,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (hombach) add node.js 24 tests (#144)
+- (hombach) bump dependencies
+
 ### 2.0.0 (2025-05-04)
 
 - (hombach) BREAKING: Dropped support for Node.js 18 (#135)
