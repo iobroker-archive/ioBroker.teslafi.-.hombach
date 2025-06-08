@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "teslafi",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "news": {
+      "2.0.1": {
+        "en": "add node.js 24 tests (#144)\nbump dependencies",
+        "de": "node.js 24 tests hinzufügen (#144)\nbump-abhängigkeit",
+        "ru": "добавить node.js 24 тестов (#144)\nбамп зависимости",
+        "pt": "add node.js 24 tests (#144)\ndependências de colisão",
+        "nl": "node.js 24 testen toevoegen (#144)\nbump afhankelijkheden",
+        "fr": "ajouter les tests node.js 24 (#144)\ndépendances des bosses",
+        "it": "aggiungere node.js 24 test (#144)\nindipendenza urto",
+        "es": "añadir node.js 24 pruebas (#144)\ndependencia de los gastos",
+        "pl": "dodaj node.js 24 testy (# 144)\nuzależnienia od guza",
+        "uk": "add node.js 24 тести (#144)\nbump залежності",
+        "zh-cn": "添加节点.js 24个测试(# 144)\n意外依赖"
+      },
       "2.0.0": {
         "en": "BREAKING: Dropped support for Node.js 18 (#135)\nBREAKING: Dropped support for js-controller 5 (#135)\nbump dependencies",
         "de": "BREAKING: Unterlassene Unterstützung für Node.js 18 (#135)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#135)\nbumpabhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "uzależnienia od guza",
         "uk": "bump залежності",
         "zh-cn": "意外依赖"
-      },
-      "1.2.0": {
-        "en": "change to admin 7.4.10 as recommended by ioBroker (#102)",
-        "de": "änderung von admin 7.4.10 wie von ioBroker empfohlen (#102)",
-        "ru": "изменить на админ 7.4.10 в соответствии с рекомендациями ioBroker (#102)",
-        "pt": "mudar para admin 7.4.10 como recomendado por ioBroker (#102)",
-        "nl": "overstappen op admin 7.4.10 zoals aanbevolen door ioBroker (#102)",
-        "fr": "changement à admin 7.4.10 comme recommandé par ioBroker (#102)",
-        "it": "cambiamento a admin 7.4.10 come raccomandato da ioBroker (#102)",
-        "es": "cambio a admin 7.4.10 según lo recomendado por ioBroker (#102)",
-        "pl": "zmiana na admin 7.4.10 zgodnie z zaleceniami joBrokera (# 102)",
-        "uk": "зміни в admin 7.4.10 як рекомендується ioBroker (#102)",
-        "zh-cn": "根据ioBroker的建议改为admin 7.4.10 (# 102)"
       }
     },
     "titleLang": {
