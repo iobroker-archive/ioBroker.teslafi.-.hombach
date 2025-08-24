@@ -83,7 +83,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### **WORK IN PROGRESS**
 
 - (hombach) admin 7.6.17 recommended by ioBroker (#166)
-- (hombach) fixing issues detected by repository checker (#166)
+- (hombach) bumb adapter-core to 3.3.2 (#166)
 - (hombach) fix vulnerability
 - (hombach) bump dependencies
 
