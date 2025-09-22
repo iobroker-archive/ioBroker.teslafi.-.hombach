@@ -79,6 +79,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) fix schema URL for jsonConfig (#181)
+
 ### 2.0.2 (2025-08-24)
 
 - (hombach) admin 7.6.17 recommended by ioBroker (#166)
