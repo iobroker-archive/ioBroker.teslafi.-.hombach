@@ -82,6 +82,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (hombach) remove allowInit (#181)
 - (hombach) fix schema URL for jsonConfig (#181)
 
 ### 2.0.2 (2025-08-24)

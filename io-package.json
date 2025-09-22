@@ -1,223 +1,209 @@
 {
-  "common": {
-    "name": "teslafi",
-    "version": "2.0.2",
-    "news": {
-      "2.0.2": {
-        "en": "admin 7.6.17 recommended by ioBroker (#166)\nbumb adapter-core to 3.3.2 (#166)\nfix vulnerability\nbump dependencies",
-        "de": "admin 7.6.17 empfohlen von ioBroker (#166)\nbumb adapter-kern auf 3.3.2 (#166)\nfehlerbehebung\nbumpabhängigkeiten",
-        "ru": "admin 7.6.17, рекомендованный ioBroker (#166)\nbumb adapter-core для 3.3.2 (#166)\nисправить уязвимость\nбамп зависимости",
-        "pt": "admin 7.6.17 recomendado por ioBroker (# 166)\nbumb adaptador-core para 3.3.2 (# 166)\ncorrigir vulnerabilidade\ndependências de colisão",
-        "nl": "aanbevolen door ioBroker (#166)\nbumb adapter-core to 3.3.2 (#166)\nkwetsbaarheid herstellen\nbump afhankelijkheden",
-        "fr": "admin 7.6.17 recommandé par ioBroker (#166)\nadaptateur-noyau à 3.3.2 (#166)\nfixer la vulnérabilité\ndépendances des bosses",
-        "it": "admin 7.6.17 consigliato da ioBroker (#166)\nbumb adapter-core a 3.3.2 (#166)\ncorrezione della vulnerabilità\nindipendenza urto",
-        "es": "admin 7.6.17 recomendado por ioBroker (#166)\nomb adaptador-core a 3.3.2 (#166)\ncorrección de vulnerabilidad\ndependencia de los gastos",
-        "pl": "administrator 7.6.17 polecany przez joBroker (# 166)\nadapter trzpienia - rdzeń do 3.3.2 (# 166)\nnaprawić podatność\nuzależnienia od guza",
-        "uk": "admin 7.6.17 Рекомендований ioBroker (#166)\nenglish, українська, français..\nвиправити вразливість\nbump залежності",
-        "zh-cn": "ioBroker建议的admin 7.6.17 (# 166)\nburb 适配器核心为 3.3.2 (# 166)\n消除脆弱性\n意外依赖"
-      },
-      "2.0.1": {
-        "en": "add node.js 24 tests (#144)\nbump dependencies",
-        "de": "node.js 24 tests hinzufügen (#144)\nbump-abhängigkeit",
-        "ru": "добавить node.js 24 тестов (#144)\nбамп зависимости",
-        "pt": "add node.js 24 tests (#144)\ndependências de colisão",
-        "nl": "node.js 24 testen toevoegen (#144)\nbump afhankelijkheden",
-        "fr": "ajouter les tests node.js 24 (#144)\ndépendances des bosses",
-        "it": "aggiungere node.js 24 test (#144)\nindipendenza urto",
-        "es": "añadir node.js 24 pruebas (#144)\ndependencia de los gastos",
-        "pl": "dodaj node.js 24 testy (# 144)\nuzależnienia od guza",
-        "uk": "add node.js 24 тести (#144)\nbump залежності",
-        "zh-cn": "添加节点.js 24个测试(# 144)\n意外依赖"
-      },
-      "2.0.0": {
-        "en": "BREAKING: Dropped support for Node.js 18 (#135)\nBREAKING: Dropped support for js-controller 5 (#135)\nbump dependencies",
-        "de": "BREAKING: Unterlassene Unterstützung für Node.js 18 (#135)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#135)\nbumpabhängigkeiten",
-        "ru": "Отказ от поддержки Node.js 18 (#135)\nОтказ от поддержки js-контроллера 5 (#135)\nбамп зависимости",
-        "pt": "BREAKING: Suporte para o Node.js 18 (#135)\nBREAKING: Suporte para js-controller 5 (#135)\ndependências de choque",
-        "nl": "BREAKING: Dropped support for Node.js 18 (#135)\nBreaking: Dropped support for js-controller 5 (#135)\nbump afhankelijkheden",
-        "fr": "Soutien abandonné pour Node.js 18 (#135)\nSupport abandonné pour le contrôleur de js 5 (#135)\ndépendances des bosses",
-        "it": "BREAKING: Supporto a goccia per Node.js 18 (#135)\nBREAKING: Supporto a goccia per js-controller 5 (#135)\nindipendenza urto",
-        "es": "BREAKING: Soporte abandonado para Node.js 18 (#135)\nBREAKING: Soporte desechado para js-controller 5 (#135)\ndependencia de los gastos",
-        "pl": "BREAKING: Upuszczone wsparcie dla Node.js 18 (# 135)\nBREAKING: Upuszczone wsparcie sterownika js- 5 (# 135)\nuzależnienia od guza",
-        "uk": "BREAKING: Dropped підтримка для Node.js 18 (#135)\nBREAKING: Dropped підтримка для js-controller 5 (#135)\nbump залежності",
-        "zh-cn": "BREEAKING:已放弃对Node.js 18(# 135)的支持\n中断 : js 控制器 5 (# 135) 已放弃支持\n意外依赖"
-      },
-      "1.5.0": {
-        "en": "add set HVAC temperature (#121)\nacknowledge commands after sending to TeslaFi\nadd commands count state (#127)\nadd set seat heater commands (#121)",
-        "de": "hVAC-Temperatur hinzufügen (#121)\nbefehle nach dem Senden an TeslaFi anerkennen\nbefehle hinzufügen zählzustand (#127)\nset sitzheizungsbefehle hinzufügen (#121)",
-        "ru": "установить температуру HVAC (#121)\nпринять команды после отправки в TeslaFi\nдобавить команду count state (#127)\nдобавить команды обогревателя сидений (#121)",
-        "pt": "adicionar temperatura HVAC definida (#121)\nreconhecer comandos depois de enviar para TeslaFi\nadicionar comandos count state (#127)\nadicionar comandos de aquecedor de assento fixo (#121)",
-        "nl": "set HVAC-temperatuur toevoegen (#121)\nerkende opdrachten na het verzenden naar TeslaFi\ncommando's tellen status toevoegen (#127)\nset seat heater commando's toevoegen (#121)",
-        "fr": "ajouter le réglage de la température CVC (#121)\nreconnaître les commandes après l'envoi à TeslaFi\najouter l'état du nombre de commandes (#127)\najouter des commandes de chauffage de siège (#121)",
-        "it": "aggiungere la temperatura HVAC impostata (#121)\nriconoscere i comandi dopo l'invio a TeslaFi\naggiungere i comandi conteggio stato (#127)\naggiungere comandi di riscaldamento del sedile (#121)",
-        "es": "añadir el conjunto HVAC temperatura (#121)\nreconocer comandos después de enviar a TeslaFi\nañadir comandos contar estado (#127)\nañadir comandos de calentador de asiento (#121)",
-        "pl": "dodać zestaw temperatury HVAC (# 121)\npotwierdź polecenia po wysłaniu do TeslaFi\ndodaj stan liczenia poleceń (# 127)\ndodaj polecenia zestawu podgrzewacza siedzenia (# 121)",
-        "uk": "доданий набір температури HVAC (#121)\nвизначте команди після відправки в TeslaFi\nadd commands count state (#127)\nдодано набір команд нагрівача сидіння (#121)",
-        "zh-cn": "添加成套HVAC温度(# 121)\n发送到 TeslaFi 后确认命令\n添加命令计数状态 (# 127)\n添加座位加热器命令( # 121)"
-      },
-      "1.4.0": {
-        "en": "add charge limit commands (#121)\nadd statevalue range to projectUtils",
-        "de": "Befehle zur Ladebegrenzung hinzufügen (#121)\nZustandswertbereich zu projectUtils hinzugefügt",
-        "ru": "добавить команды ограничения заряда (#121)\nдобавить диапазон значений состояния в проект утиль",
-        "pt": "adicionar comandos de limite de carga (#121)\nadicionar intervalo de valor de estado ao projeto Utilidades",
-        "nl": "laden limiet commando's toevoegen (#121)\nstatuswaardebereik toevoegen aan project Utils",
-        "fr": "ajouter des commandes limites de charge (#121)\najouter une plage de valeur d'état au projet Utilisation",
-        "it": "aggiungere comandi limite di carica (#121)\naggiungere la gamma di valore di stato al progetto Utili",
-        "es": "añadir comandos límite de carga (#121)\nañadir rango de valor estatal al proyecto Utils",
-        "pl": "dodaj polecenia limitu ładunku (# 121)\ndodaj zakres stanu do projektu Przyrządy",
-        "uk": "додавати команди ліміту заряду (#121)\nдодати діапазон державного значення для проекту Утили",
-        "zh-cn": "添加电荷限制命令 (# 121)\n为工程添加状态值范围 UTIs 数字"
-      },
-      "1.3.0": {
-        "en": "add stop HVAC command (#121)\nadd start/stop charging command (#121)\nbump dependencies",
-        "de": "Stop-HVAC Befehl hinzugefügt (#121)\nstart/stop Laden Befehl hinzugefügt (#121)\bump dependencies",
-        "ru": "добавить команду Stop HVAC (#121)\nдобавить команду start/stop (#121)\nбамп зависимости",
-        "pt": "add stop HVAC command (#121)\nadicionar comando start/stop charge (#121)\ndependências de choque",
-        "nl": "stop HVAC commando toevoegen (#121)\nstart/stop opladen commando toevoegen (#121)\nbump afhankelijkheden",
-        "fr": "ajouter la commande stop CVC (#121)\najouter la commande de chargement start/stop (#121)\ndépendances des bosses",
-        "it": "aggiungere il comando HVAC stop (#121)\naggiungere il comando start/stop di ricarica (#121)\nindipendenza urto",
-        "es": "añadir stop HVAC comando (#121)\nañadir comando de carga de inicio/detener (#121)\ndependencia de los gastos",
-        "pl": "dodaj polecenie stop HVAC (# 121)\ndodaj polecenie ładowania start / stop (# 121)\nuzależnienia od guza",
-        "uk": "add stop HVAC команда (#121)\nadd start/stop зарядний пристрій (#121)\nbump залежності",
-        "zh-cn": "添加停止 HVAC 命令 (# 121)\n添加启动/ 停止充电命令 (# 121)\n意外依赖"
-      },
-      "1.2.2": {
-        "en": "fix \"Invalid time value\" error (#115)\nfix vulnerability in axios <1.8.2",
-        "de": "\"Invalider Zeitwert\" Fehler beheben (#115)\nschwachstelle in axios <1.8.2 beheben",
-        "ru": "ошибка «Недействительное время» (#115)\nисправление уязвимости в аксиосе <1.8.2",
-        "pt": "corrigir erro \"valor de tempo inválido\" (#115)\ncorrigir vulnerabilidade em axios <1.8.2",
-        "nl": "fout in \"ongeldige tijdswaarde\" herstellen (#115)\nfix kwetsbaarheid in axios <1,8.2",
-        "fr": "correction de l'erreur \"Valeur de temps invalide\" (#115)\ncorriger la vulnérabilité dans axios <1.8.2",
-        "it": "correggere \"valore di tempo non valido\" errore (#115)\nfissare la vulnerabilità in assios <1.8.2",
-        "es": "corrige \"valor de tiempo inválido\" error (#115)\nfijar vulnerabilidad en axios",
-        "pl": "naprawić błąd \"Nieprawidłowa wartość czasowa\" (# 115)\nfix wrażliwość w osiach < 1.8.2",
-        "uk": "виправлено помилку (#115)\nзафіксувати вразливість в осях <1.8.2",
-        "zh-cn": "固定“无效时间值”错误(# 115)\n在轴中固定脆弱性 < 1.8.2"
-      }
-    },
-    "titleLang": {
-      "en": "TeslaFi",
-      "de": "TeslaFi",
-      "ru": "TeslaFi",
-      "pt": "TeslaFi",
-      "nl": "TeslaFi",
-      "fr": "TeslaFi",
-      "it": "TeslaFi",
-      "es": "TeslaFi",
-      "pl": "TeslaFi",
-      "uk": "TeslaFi",
-      "zh-cn": "TeslaFi"
-    },
-    "desc": {
-      "en": "Adapter to poll TeslaFi data of your car",
-      "de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
-      "ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
-      "pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
-      "nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
-      "fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
-      "it": "Adattatore per recuperare i dati TeslaFi della tua auto",
-      "es": "Adaptador para consultar los datos de TeslaFi de su coche",
-      "pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
-      "uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
-      "zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
-    },
-    "authors": [
-      "Hombach <TeslaFi@homba.ch>"
-    ],
-    "keywords": [
-      "TeslaFi",
-      "Tesla",
-      "EV",
-      "Car"
-    ],
-    "licenseInformation": {
-      "license": "MIT",
-      "type": "free"
-    },
-    "platform": "Javascript/Node.js",
-    "icon": "teslafi.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png",
-    "readme": "https://github.com/Hombach/ioBroker.teslafi/blob/master/README.md",
-    "loglevel": "info",
-    "tier": 2,
-    "mode": "daemon",
-    "messagebox": true,
-    "allowInit": true,
-    "type": "vehicle",
-    "compact": true,
-    "connectionType": "cloud",
-    "dataSource": "poll",
-    "adminUI": {
-      "config": "json"
-    },
-    "dependencies": [
-      {
-        "js-controller": ">=6.0.11"
-      }
-    ],
-    "globalDependencies": [
-      {
-        "admin": ">=7.6.17"
-      }
-    ],
-    "plugins": {
-      "sentry": {
-        "dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
-      }
-    },
-    "supportCustoms": false
-  },
-  "encryptedNative": [
-    "TeslaFiAPIToken",
-    "teslafiapitokenpass"
-  ],
-  "protectedNative": [
-    "TeslaFiAPIToken",
-    "teslafiapitokenpass"
-  ],
-  "native": {
-    "teslafiapitokenpass": "",
-    "TeslaFiAPIToken": "",
-    "UpdateInterval": "60",
-    "UpdateTimeout": 5000
-  },
-  "objects": [],
-  "instanceObjects": [
-    {
-      "_id": "info",
-      "type": "channel",
-      "common": {
-        "name": "Information"
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.connection",
-      "type": "state",
-      "common": {
-        "role": "indicator.connected",
-        "name": "Device or service connected",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.LastSentryLogDay",
-      "type": "state",
-      "common": {
-        "role": "value",
-        "name": "Last day of month for Sentry log",
-        "type": "number",
-        "unit": "",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    }
-  ]
+	"common": {
+		"name": "teslafi",
+		"version": "2.0.2",
+		"news": {
+			"2.0.2": {
+				"en": "admin 7.6.17 recommended by ioBroker (#166)\nbumb adapter-core to 3.3.2 (#166)\nfix vulnerability\nbump dependencies",
+				"de": "admin 7.6.17 empfohlen von ioBroker (#166)\nbumb adapter-kern auf 3.3.2 (#166)\nfehlerbehebung\nbumpabhängigkeiten",
+				"ru": "admin 7.6.17, рекомендованный ioBroker (#166)\nbumb adapter-core для 3.3.2 (#166)\nисправить уязвимость\nбамп зависимости",
+				"pt": "admin 7.6.17 recomendado por ioBroker (# 166)\nbumb adaptador-core para 3.3.2 (# 166)\ncorrigir vulnerabilidade\ndependências de colisão",
+				"nl": "aanbevolen door ioBroker (#166)\nbumb adapter-core to 3.3.2 (#166)\nkwetsbaarheid herstellen\nbump afhankelijkheden",
+				"fr": "admin 7.6.17 recommandé par ioBroker (#166)\nadaptateur-noyau à 3.3.2 (#166)\nfixer la vulnérabilité\ndépendances des bosses",
+				"it": "admin 7.6.17 consigliato da ioBroker (#166)\nbumb adapter-core a 3.3.2 (#166)\ncorrezione della vulnerabilità\nindipendenza urto",
+				"es": "admin 7.6.17 recomendado por ioBroker (#166)\nomb adaptador-core a 3.3.2 (#166)\ncorrección de vulnerabilidad\ndependencia de los gastos",
+				"pl": "administrator 7.6.17 polecany przez joBroker (# 166)\nadapter trzpienia - rdzeń do 3.3.2 (# 166)\nnaprawić podatność\nuzależnienia od guza",
+				"uk": "admin 7.6.17 Рекомендований ioBroker (#166)\nenglish, українська, français..\nвиправити вразливість\nbump залежності",
+				"zh-cn": "ioBroker建议的admin 7.6.17 (# 166)\nburb 适配器核心为 3.3.2 (# 166)\n消除脆弱性\n意外依赖"
+			},
+			"2.0.1": {
+				"en": "add node.js 24 tests (#144)\nbump dependencies",
+				"de": "node.js 24 tests hinzufügen (#144)\nbump-abhängigkeit",
+				"ru": "добавить node.js 24 тестов (#144)\nбамп зависимости",
+				"pt": "add node.js 24 tests (#144)\ndependências de colisão",
+				"nl": "node.js 24 testen toevoegen (#144)\nbump afhankelijkheden",
+				"fr": "ajouter les tests node.js 24 (#144)\ndépendances des bosses",
+				"it": "aggiungere node.js 24 test (#144)\nindipendenza urto",
+				"es": "añadir node.js 24 pruebas (#144)\ndependencia de los gastos",
+				"pl": "dodaj node.js 24 testy (# 144)\nuzależnienia od guza",
+				"uk": "add node.js 24 тести (#144)\nbump залежності",
+				"zh-cn": "添加节点.js 24个测试(# 144)\n意外依赖"
+			},
+			"2.0.0": {
+				"en": "BREAKING: Dropped support for Node.js 18 (#135)\nBREAKING: Dropped support for js-controller 5 (#135)\nbump dependencies",
+				"de": "BREAKING: Unterlassene Unterstützung für Node.js 18 (#135)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#135)\nbumpabhängigkeiten",
+				"ru": "Отказ от поддержки Node.js 18 (#135)\nОтказ от поддержки js-контроллера 5 (#135)\nбамп зависимости",
+				"pt": "BREAKING: Suporte para o Node.js 18 (#135)\nBREAKING: Suporte para js-controller 5 (#135)\ndependências de choque",
+				"nl": "BREAKING: Dropped support for Node.js 18 (#135)\nBreaking: Dropped support for js-controller 5 (#135)\nbump afhankelijkheden",
+				"fr": "Soutien abandonné pour Node.js 18 (#135)\nSupport abandonné pour le contrôleur de js 5 (#135)\ndépendances des bosses",
+				"it": "BREAKING: Supporto a goccia per Node.js 18 (#135)\nBREAKING: Supporto a goccia per js-controller 5 (#135)\nindipendenza urto",
+				"es": "BREAKING: Soporte abandonado para Node.js 18 (#135)\nBREAKING: Soporte desechado para js-controller 5 (#135)\ndependencia de los gastos",
+				"pl": "BREAKING: Upuszczone wsparcie dla Node.js 18 (# 135)\nBREAKING: Upuszczone wsparcie sterownika js- 5 (# 135)\nuzależnienia od guza",
+				"uk": "BREAKING: Dropped підтримка для Node.js 18 (#135)\nBREAKING: Dropped підтримка для js-controller 5 (#135)\nbump залежності",
+				"zh-cn": "BREEAKING:已放弃对Node.js 18(# 135)的支持\n中断 : js 控制器 5 (# 135) 已放弃支持\n意外依赖"
+			},
+			"1.5.0": {
+				"en": "add set HVAC temperature (#121)\nacknowledge commands after sending to TeslaFi\nadd commands count state (#127)\nadd set seat heater commands (#121)",
+				"de": "hVAC-Temperatur hinzufügen (#121)\nbefehle nach dem Senden an TeslaFi anerkennen\nbefehle hinzufügen zählzustand (#127)\nset sitzheizungsbefehle hinzufügen (#121)",
+				"ru": "установить температуру HVAC (#121)\nпринять команды после отправки в TeslaFi\nдобавить команду count state (#127)\nдобавить команды обогревателя сидений (#121)",
+				"pt": "adicionar temperatura HVAC definida (#121)\nreconhecer comandos depois de enviar para TeslaFi\nadicionar comandos count state (#127)\nadicionar comandos de aquecedor de assento fixo (#121)",
+				"nl": "set HVAC-temperatuur toevoegen (#121)\nerkende opdrachten na het verzenden naar TeslaFi\ncommando's tellen status toevoegen (#127)\nset seat heater commando's toevoegen (#121)",
+				"fr": "ajouter le réglage de la température CVC (#121)\nreconnaître les commandes après l'envoi à TeslaFi\najouter l'état du nombre de commandes (#127)\najouter des commandes de chauffage de siège (#121)",
+				"it": "aggiungere la temperatura HVAC impostata (#121)\nriconoscere i comandi dopo l'invio a TeslaFi\naggiungere i comandi conteggio stato (#127)\naggiungere comandi di riscaldamento del sedile (#121)",
+				"es": "añadir el conjunto HVAC temperatura (#121)\nreconocer comandos después de enviar a TeslaFi\nañadir comandos contar estado (#127)\nañadir comandos de calentador de asiento (#121)",
+				"pl": "dodać zestaw temperatury HVAC (# 121)\npotwierdź polecenia po wysłaniu do TeslaFi\ndodaj stan liczenia poleceń (# 127)\ndodaj polecenia zestawu podgrzewacza siedzenia (# 121)",
+				"uk": "доданий набір температури HVAC (#121)\nвизначте команди після відправки в TeslaFi\nadd commands count state (#127)\nдодано набір команд нагрівача сидіння (#121)",
+				"zh-cn": "添加成套HVAC温度(# 121)\n发送到 TeslaFi 后确认命令\n添加命令计数状态 (# 127)\n添加座位加热器命令( # 121)"
+			},
+			"1.4.0": {
+				"en": "add charge limit commands (#121)\nadd statevalue range to projectUtils",
+				"de": "Befehle zur Ladebegrenzung hinzufügen (#121)\nZustandswertbereich zu projectUtils hinzugefügt",
+				"ru": "добавить команды ограничения заряда (#121)\nдобавить диапазон значений состояния в проект утиль",
+				"pt": "adicionar comandos de limite de carga (#121)\nadicionar intervalo de valor de estado ao projeto Utilidades",
+				"nl": "laden limiet commando's toevoegen (#121)\nstatuswaardebereik toevoegen aan project Utils",
+				"fr": "ajouter des commandes limites de charge (#121)\najouter une plage de valeur d'état au projet Utilisation",
+				"it": "aggiungere comandi limite di carica (#121)\naggiungere la gamma di valore di stato al progetto Utili",
+				"es": "añadir comandos límite de carga (#121)\nañadir rango de valor estatal al proyecto Utils",
+				"pl": "dodaj polecenia limitu ładunku (# 121)\ndodaj zakres stanu do projektu Przyrządy",
+				"uk": "додавати команди ліміту заряду (#121)\nдодати діапазон державного значення для проекту Утили",
+				"zh-cn": "添加电荷限制命令 (# 121)\n为工程添加状态值范围 UTIs 数字"
+			},
+			"1.3.0": {
+				"en": "add stop HVAC command (#121)\nadd start/stop charging command (#121)\nbump dependencies",
+				"de": "Stop-HVAC Befehl hinzugefügt (#121)\nstart/stop Laden Befehl hinzugefügt (#121)\bump dependencies",
+				"ru": "добавить команду Stop HVAC (#121)\nдобавить команду start/stop (#121)\nбамп зависимости",
+				"pt": "add stop HVAC command (#121)\nadicionar comando start/stop charge (#121)\ndependências de choque",
+				"nl": "stop HVAC commando toevoegen (#121)\nstart/stop opladen commando toevoegen (#121)\nbump afhankelijkheden",
+				"fr": "ajouter la commande stop CVC (#121)\najouter la commande de chargement start/stop (#121)\ndépendances des bosses",
+				"it": "aggiungere il comando HVAC stop (#121)\naggiungere il comando start/stop di ricarica (#121)\nindipendenza urto",
+				"es": "añadir stop HVAC comando (#121)\nañadir comando de carga de inicio/detener (#121)\ndependencia de los gastos",
+				"pl": "dodaj polecenie stop HVAC (# 121)\ndodaj polecenie ładowania start / stop (# 121)\nuzależnienia od guza",
+				"uk": "add stop HVAC команда (#121)\nadd start/stop зарядний пристрій (#121)\nbump залежності",
+				"zh-cn": "添加停止 HVAC 命令 (# 121)\n添加启动/ 停止充电命令 (# 121)\n意外依赖"
+			},
+			"1.2.2": {
+				"en": "fix \"Invalid time value\" error (#115)\nfix vulnerability in axios <1.8.2",
+				"de": "\"Invalider Zeitwert\" Fehler beheben (#115)\nschwachstelle in axios <1.8.2 beheben",
+				"ru": "ошибка «Недействительное время» (#115)\nисправление уязвимости в аксиосе <1.8.2",
+				"pt": "corrigir erro \"valor de tempo inválido\" (#115)\ncorrigir vulnerabilidade em axios <1.8.2",
+				"nl": "fout in \"ongeldige tijdswaarde\" herstellen (#115)\nfix kwetsbaarheid in axios <1,8.2",
+				"fr": "correction de l'erreur \"Valeur de temps invalide\" (#115)\ncorriger la vulnérabilité dans axios <1.8.2",
+				"it": "correggere \"valore di tempo non valido\" errore (#115)\nfissare la vulnerabilità in assios <1.8.2",
+				"es": "corrige \"valor de tiempo inválido\" error (#115)\nfijar vulnerabilidad en axios",
+				"pl": "naprawić błąd \"Nieprawidłowa wartość czasowa\" (# 115)\nfix wrażliwość w osiach < 1.8.2",
+				"uk": "виправлено помилку (#115)\nзафіксувати вразливість в осях <1.8.2",
+				"zh-cn": "固定“无效时间值”错误(# 115)\n在轴中固定脆弱性 < 1.8.2"
+			}
+		},
+		"titleLang": {
+			"en": "TeslaFi",
+			"de": "TeslaFi",
+			"ru": "TeslaFi",
+			"pt": "TeslaFi",
+			"nl": "TeslaFi",
+			"fr": "TeslaFi",
+			"it": "TeslaFi",
+			"es": "TeslaFi",
+			"pl": "TeslaFi",
+			"uk": "TeslaFi",
+			"zh-cn": "TeslaFi"
+		},
+		"desc": {
+			"en": "Adapter to poll TeslaFi data of your car",
+			"de": "Adapter zum Abrufen von TeslaFi-Daten Ihres Autos",
+			"ru": "Адаптер для опроса данных TeslaFi вашего автомобиля",
+			"pt": "Adaptador para consultar os dados do TeslaFi do seu carro",
+			"nl": "Adapter om TeslaFi-gegevens van uw auto op te halen",
+			"fr": "Adaptateur pour interroger les données TeslaFi de votre voiture",
+			"it": "Adattatore per recuperare i dati TeslaFi della tua auto",
+			"es": "Adaptador para consultar los datos de TeslaFi de su coche",
+			"pl": "Adapter do pobierania danych TeslaFi z Twojego samochodu",
+			"uk": "Адаптер для опитування даних TeslaFi вашого автомобіля",
+			"zh-cn": "适配器，用于轮询您的汽车的 TeslaFi 数据"
+		},
+		"authors": ["Hombach <TeslaFi@homba.ch>"],
+		"keywords": ["TeslaFi", "Tesla", "EV", "Car"],
+		"licenseInformation": {
+			"license": "MIT",
+			"type": "free"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "teslafi.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png",
+		"readme": "https://github.com/Hombach/ioBroker.teslafi/blob/master/README.md",
+		"loglevel": "info",
+		"tier": 2,
+		"mode": "daemon",
+		"messagebox": true,
+		"type": "vehicle",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.6.17"
+			}
+		],
+		"plugins": {
+			"sentry": {
+				"dsn": "https://4635ed7e9381822a788a043a6e94e594@o415875.ingest.us.sentry.io/4508182233284608"
+			}
+		},
+		"supportCustoms": false
+	},
+	"encryptedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
+	"protectedNative": ["TeslaFiAPIToken", "teslafiapitokenpass"],
+	"native": {
+		"teslafiapitokenpass": "",
+		"TeslaFiAPIToken": "",
+		"UpdateInterval": "60",
+		"UpdateTimeout": 5000
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.LastSentryLogDay",
+			"type": "state",
+			"common": {
+				"role": "value",
+				"name": "Last day of month for Sentry log",
+				"type": "number",
+				"unit": "",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		}
+	]
 }
