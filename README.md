@@ -84,6 +84,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (hombach) remove allowInit (#181)
 - (hombach) fix schema URL for jsonConfig (#181)
+- (hombach) update chai system
 - (hombach) bump dependencies
 
 ### 2.0.2 (2025-08-24)
