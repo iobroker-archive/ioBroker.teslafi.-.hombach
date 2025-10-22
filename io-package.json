@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "teslafi",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "news": {
+      "2.0.4": {
+        "en": "upgrade NPM deployment system\nbump dependencies",
+        "de": "nPM Bereitstellung System\nbumpabhängigkeiten",
+        "ru": "модернизация системы развертывания NPM\nбамп зависимости",
+        "pt": "atualizar sistema de implantação NPM\ndependências de colisão",
+        "nl": "upgrade NPM-implementatiesysteem\nbump afhankelijkheden",
+        "fr": "mise à niveau du système de déploiement NPM\ndépendances des bosses",
+        "it": "aggiornare il sistema di distribuzione NPM\nindipendenza urto",
+        "es": "actualización del sistema de despliegue del mecanismo nacional de prevención\ndependencia de los gastos",
+        "pl": "aktualizacja systemu wdrażania NPM\nuzależnienia od guza",
+        "uk": "оновлення системи розгортання NPM\nbump залежності",
+        "zh-cn": "改进国家预防机制的部署系统\n意外依赖"
+      },
       "2.0.3": {
         "en": "remove allowInit (#181)\nfix schema URL for jsonConfig (#181)\nupdate chai system\nbump dependencies",
         "de": "entfernen zulassenInit (#181)\nschema URL für jsonConfig (#181)\nchai system\nbumpabhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "dodaj polecenia limitu ładunku (# 121)\ndodaj zakres stanu do projektu Przyrządy",
         "uk": "додавати команди ліміту заряду (#121)\nдодати діапазон державного значення для проекту Утили",
         "zh-cn": "添加电荷限制命令 (# 121)\n为工程添加状态值范围 UTIs 数字"
-      },
-      "1.3.0": {
-        "en": "add stop HVAC command (#121)\nadd start/stop charging command (#121)\nbump dependencies",
-        "de": "Stop-HVAC Befehl hinzugefügt (#121)\nstart/stop Laden Befehl hinzugefügt (#121)\bump dependencies",
-        "ru": "добавить команду Stop HVAC (#121)\nдобавить команду start/stop (#121)\nбамп зависимости",
-        "pt": "add stop HVAC command (#121)\nadicionar comando start/stop charge (#121)\ndependências de choque",
-        "nl": "stop HVAC commando toevoegen (#121)\nstart/stop opladen commando toevoegen (#121)\nbump afhankelijkheden",
-        "fr": "ajouter la commande stop CVC (#121)\najouter la commande de chargement start/stop (#121)\ndépendances des bosses",
-        "it": "aggiungere il comando HVAC stop (#121)\naggiungere il comando start/stop di ricarica (#121)\nindipendenza urto",
-        "es": "añadir stop HVAC comando (#121)\nañadir comando de carga de inicio/detener (#121)\ndependencia de los gastos",
-        "pl": "dodaj polecenie stop HVAC (# 121)\ndodaj polecenie ładowania start / stop (# 121)\nuzależnienia od guza",
-        "uk": "add stop HVAC команда (#121)\nadd start/stop зарядний пристрій (#121)\nbump залежності",
-        "zh-cn": "添加停止 HVAC 命令 (# 121)\n添加启动/ 停止充电命令 (# 121)\n意外依赖"
       }
     },
     "titleLang": {
