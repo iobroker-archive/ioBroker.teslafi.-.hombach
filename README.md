@@ -82,6 +82,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (hombach) upgrade NPM deployment system
 - (hombach) bump dependencies
 
 ### 2.0.3 (2025-09-27)
