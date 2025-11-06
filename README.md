@@ -80,6 +80,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (hombach) update axios
+
 ### 2.0.4 (2025-10-22)
 
 - (hombach) upgrade NPM deployment system
